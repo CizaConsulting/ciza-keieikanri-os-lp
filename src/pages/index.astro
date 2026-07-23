@@ -1,0 +1,694 @@
+---
+// ── グローバル設定（【要決定】項目は仮値。差し替えはここ1箇所でOK） ──────────
+const COMPANY_NAME = "株式会社シザコンサルティング";
+const COMPANY_NAME_EN = "CIZA Consulting";
+const SITE_URL = "https://keieikanri.ciza.co.jp";
+const CORP_URL = "https://www.ciza.co.jp";
+const CTA_FORM_URL = "https://forms.gle/5iDPnoXr8HZDqqoe7";
+// ブランドカラーは【要決定3】未定のためテンプレ標準の暖色のまま（<style>内 :root の --accent 系4変数）
+const X_SHARE_URL = `https://twitter.com/intent/tweet?url=${encodeURIComponent(SITE_URL + '/')}&text=${encodeURIComponent('経営会議を「報告」から「意思決定」へ。中小企業のための経営管理OS')}`;
+const FB_SHARE_URL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SITE_URL + '/')}`;
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#0b0b0c">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="author" content={COMPANY_NAME}>
+<meta name="keywords" content="外部CFO,経営管理 仕組み化,中小企業,経営管理OS,KPI設計,管理会計,CIZA,シザコンサルティング">
+<link rel="canonical" href={`${SITE_URL}/`}>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e0e10'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='30' font-weight='900' fill='%2394c74c' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<title>経営会議を「報告」から「意思決定」へ｜経営管理OS｜{COMPANY_NAME}</title>
+<meta name="description" content={`外部CFOが、中小企業のための経営管理OSを構築。経営管理の"仕組み化"は高額・大変・不透明という常識を、月額15万円〜・伴走型・自社ナイズで覆します。${COMPANY_NAME}が提供。`}>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content={COMPANY_NAME}>
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content={`${SITE_URL}/`}>
+<meta property="og:title" content="経営会議を「報告」から「意思決定」へ｜経営管理OS｜CIZA">
+<meta property="og:description" content="外部CFOが中小企業のための経営管理OSを構築。月額15万円〜・伴走型・自社ナイズ。">
+<meta property="og:image" content={`${SITE_URL}/images/og-image.jpg`}>
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="経営会議を「報告」から「意思決定」へ｜経営管理OS｜CIZA">
+<meta name="twitter:description" content="外部CFOが中小企業のための経営管理OSを構築。月額15万円〜・伴走型・自社ナイズ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${CORP_URL}/#organization`,
+      "name": COMPANY_NAME,
+      "alternateName": COMPANY_NAME_EN,
+      "url": `${CORP_URL}/`,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      "url": `${SITE_URL}/`,
+      "name": "経営管理OS｜CIZA",
+      "inLanguage": "ja",
+      "publisher": { "@id": `${CORP_URL}/#organization` }
+    },
+    {
+      "@type": "Service",
+      "name": "経営管理OS構築支援",
+      "serviceType": "経営管理体制構築コンサルティング",
+      "provider": { "@id": `${CORP_URL}/#organization` },
+      "areaServed": "JP",
+      "description": "社長の意思決定から逆算して、KPI・レポート・会議・データの流れを設計し、上場企業に耐えうる管理体制を自社仕様・段階的に構築する外部CFO型の伴走支援。",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "経営管理OS 支援プラン",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "財務顧問" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "経営管理OS構築支援" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "外部推進リーダー" } }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "大規模なシステム導入が必要ですか？", "acceptedAnswer": { "@type": "Answer", "text": "既存のExcel/Google Workspace/会計システムを最大限活用します。段階実装で大規模投資は避けます。" } },
+        { "@type": "Question", "name": "社内に詳しい人材がいなくても大丈夫ですか？", "acceptedAnswer": { "@type": "Answer", "text": "窓口担当を1名決めていただければ、設計・実装のPMはこちらが担います。" } },
+        { "@type": "Question", "name": "AI導入が目的のサービスですか？", "acceptedAnswer": { "@type": "Answer", "text": "いいえ。先に意思決定と管理の設計を行い、その実現手段としてExcel・SaaS・AIなど適切なツールを使います。AIありきではなく、貴社にとって最適な手段を選びます。" } },
+        { "@type": "Question", "name": "費用はどのくらいかかりますか？", "acceptedAnswer": { "@type": "Answer", "text": "財務顧問15万円〜、経営管理OS構築支援30万円〜です。6か月区切りで見直し可能です。" } },
+        { "@type": "Question", "name": "どんな会社が向いていますか？", "acceptedAnswer": { "@type": "Answer", "text": "部門が複数あり、投資判断が発生し、幹部はいるが数字にはやや弱い、成長・改善を数字で進めたい中小・中堅企業に向いています。" } },
+        { "@type": "Question", "name": "業界の成功事例は教えてもらえますか？", "acceptedAnswer": { "@type": "Answer", "text": "事例の紹介より、貴社に合わせた設計を重視します。先を走る会社ほど、借り物の事例より自社仕様の仕組みが必要です。" } },
+        { "@type": "Question", "name": "補助金の活用も相談できますか？", "acceptedAnswer": { "@type": "Answer", "text": "可能です。投資判断と一体で助言します。" } }
+      ]
+    }
+  ]
+})}></script>
+<style>
+:root{--ink:#0b0b0c;--ink2:#1a1a1d;--bg:#fff;--bg2:#f7f7f8;--bg3:#fafaf9;--border:#eaeaea;--border2:#d4d4d8;--muted:#6b6b70;--muted2:#98989e;--accent:#94c74c;--accent2:#709f2c;--accent-light:#b1d383;--accent-soft:#ecf1e4;--deep:#0e0e10;--deep2:#1a1a1d;--claude:#a2cc65;--radius:14px;--radius-lg:20px;--max:1200px;--shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(0,0,0,.05),0 2px 4px rgba(0,0,0,.04);--shadow-lg:0 20px 50px -12px rgba(0,0,0,.08),0 8px 20px -8px rgba(0,0,0,.06);--shadow-glow:0 20px 60px -15px rgba(148,199,76,.35);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP','Meiryo','Hiragino Kaku Gothic ProN',sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+h1,h2,h3,h4,.price-title,.nav-brand .brand-text,.mark{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+
+.w{max-width:var(--max);margin:0 auto;padding:0 24px;}
+.sec{padding:96px 0;}
+.sec-label{display:block;position:relative;padding-left:15px;font-size:13px;font-weight:800;letter-spacing:.04em;color:var(--accent);margin-bottom:14px;}
+.sec-label::before{content:'';position:absolute;left:0;top:1px;bottom:1px;width:3px;border-radius:2px;background:var(--accent);}
+.sec h2{font-size:clamp(26px,4vw,42px);font-weight:900;line-height:1.25;letter-spacing:-.015em;}
+.sec .lead{color:var(--muted);margin-top:14px;max-width:640px;line-height:1.85;font-size:15.5px;}
+.sec .lead strong{color:var(--ink);font-weight:700;}
+.dark .sec-label::before{background:var(--claude);}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.72);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(234,234,234,.6);height:64px;display:flex;align-items:center;transition:all .3s;}
+.nav.scrolled{background:rgba(255,255,255,.92);border-bottom-color:var(--border);box-shadow:var(--shadow-sm);}
+.nav .w{display:flex;align-items:center;justify-content:space-between;width:100%;}
+.nav-brand{display:flex;align-items:center;gap:8px;}
+.nav-brand .mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#94c74c,#b1d383);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;}
+.nav-brand .brand-text{font-weight:800;font-size:13.5px;letter-spacing:.02em;color:var(--ink);}
+.nav-brand .brand-text b{font-weight:900;}
+.nav-brand .brand-text small{display:block;font-size:10.5px;color:var(--muted);font-weight:600;letter-spacing:.06em;}
+.nav-links{display:flex;gap:26px;font-size:13px;font-weight:600;color:var(--muted);}
+.nav-links a{position:relative;transition:color .2s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a::after{content:'';position:absolute;left:50%;bottom:-6px;width:0;height:2px;background:var(--accent);transition:all .2s;transform:translateX(-50%);}
+.nav-links a:hover::after{width:100%;}
+@media(max-width:880px){.nav-links{display:none;}}
+.btn{display:inline-flex;align-items:center;gap:6px;font-weight:700;padding:11px 22px;border-radius:10px;font-size:13.5px;transition:all .2s cubic-bezier(.16,1,.3,1);}
+.btn-dark{background:var(--ink);color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.12);}
+.btn-dark:hover{background:#1a1a1d;transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,.18);}
+.btn-outline{border:1.5px solid var(--border2);color:var(--ink);background:#fff;}
+.btn-outline:hover{border-color:var(--ink);transform:translateY(-1px);}
+.btn-gradient{background:linear-gradient(135deg,#94c74c,#b1d383);color:#fff;box-shadow:var(--shadow-glow);}
+.btn-gradient:hover{transform:translateY(-1px);box-shadow:0 24px 70px -15px rgba(148,199,76,.5);}
+
+/* Hero */
+.hero{padding-top:120px;padding-bottom:80px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:60%;height:120%;background:radial-gradient(circle at 60% 40%,rgba(177,211,131,.18) 0%,rgba(148,199,76,.10) 25%,transparent 55%);pointer-events:none;z-index:0;}
+.hero::after{content:'';position:absolute;top:10%;left:-15%;width:40%;height:80%;background:radial-gradient(circle at 30% 50%,rgba(232,164,114,.12) 0%,transparent 55%);pointer-events:none;z-index:0;}
+.hero > .w{position:relative;z-index:1;}
+.hero-content{max-width:900px;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:22px;padding:6px 14px;background:var(--accent-soft);border:1px solid rgba(148,199,76,.15);border-radius:10px;}
+.hero-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;box-shadow:0 0 0 0 rgba(148,199,76,.4);}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(148,199,76,.4);}70%{box-shadow:0 0 0 8px rgba(148,199,76,0);}100%{box-shadow:0 0 0 0 rgba(148,199,76,0);}}
+.hero h1{font-size:clamp(30px,5vw,54px);font-weight:900;line-height:1.35;letter-spacing:-.02em;}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,#94c74c 0%,#b1d383 50%,#94c74c 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-h1-sub{display:block;font-size:clamp(16px,2vw,20px);font-weight:800;color:var(--muted);margin-top:10px;letter-spacing:0;}
+.hero-sub{font-size:16px;color:var(--muted);margin-top:22px;line-height:1.9;max-width:760px;}
+.hero-sub strong{color:var(--ink);font-weight:700;}
+.hero-actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;}
+.hero-trust{display:flex;flex-direction:row;flex-wrap:wrap;gap:20px;margin-top:32px;}
+.hero-trust-item{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);font-weight:500;}
+.hero-trust-item svg{width:16px;height:16px;color:var(--accent);flex-shrink:0;}
+
+/* Dark section */
+.dark{background:linear-gradient(180deg,var(--deep) 0%,var(--deep2) 100%);color:#fff;}
+.dark .sec-label{color:var(--claude);}
+.dark .lead{color:rgba(255,255,255,.55);}
+.dark h2{color:#fff;}
+.dark .lead strong{color:#fff;}
+
+/* Enemy quadrant (共通の敵) */
+.enemy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:36px;}
+.enemy-card{border:1px solid var(--border);border-radius:var(--radius);padding:28px;background:#fff;transition:all .3s;position:relative;}
+.enemy-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.05);transform:translateY(-3px);}
+.enemy-num{font-size:12px;font-weight:800;color:var(--accent);letter-spacing:.1em;margin-bottom:12px;}
+.enemy-card h3{font-size:17px;font-weight:900;margin-bottom:10px;line-height:1.5;}
+.enemy-card p{color:var(--muted);line-height:1.8;font-size:13.5px;}
+.enemy-cross{margin-top:44px;background:linear-gradient(135deg,var(--deep) 0%,var(--deep2) 100%);color:#fff;border-radius:var(--radius-lg);padding:44px 40px;text-align:center;}
+.enemy-cross .pill{display:inline-block;background:rgba(148,199,76,.2);color:#b1d383;padding:6px 16px;border-radius:10px;font-size:11.5px;font-weight:700;letter-spacing:.1em;margin-bottom:18px;}
+.enemy-cross h3{font-size:clamp(19px,2.6vw,26px);font-weight:900;line-height:1.6;margin-bottom:14px;}
+.enemy-cross h3 em{font-style:normal;color:#b1d383;}
+.enemy-cross p{font-size:13.5px;color:rgba(255,255,255,.6);max-width:620px;margin:0 auto;line-height:1.85;}
+@media(max-width:768px){.enemy-grid{grid-template-columns:1fr;}}
+
+/* Pricing */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;align-items:stretch;}
+.price-card{border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;background:#fff;display:flex;flex-direction:column;position:relative;transition:all .3s;}
+.price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.price-card.hi{border-color:var(--accent);box-shadow:0 20px 50px -15px rgba(148,199,76,.25);transform:scale(1.03);background:linear-gradient(180deg,#fff 0%,var(--accent-soft) 220%);}
+.price-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#94c74c,#b1d383);color:#fff;font-size:11.5px;font-weight:800;padding:6px 18px;border-radius:10px;box-shadow:0 6px 16px rgba(148,199,76,.35);white-space:nowrap;}
+.price-name{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.08em;margin-bottom:8px;}
+.price-title{font-size:19px;font-weight:900;line-height:1.4;margin-bottom:16px;min-height:54px;}
+.price-amount{display:flex;align-items:baseline;gap:4px;margin-bottom:20px;}
+.price-amount .num{font-size:34px;font-weight:900;letter-spacing:-.02em;}
+.price-amount .unit{font-size:14px;font-weight:700;color:var(--muted);}
+.price-list{list-style:none;flex:1;margin-bottom:24px;}
+.price-list li{display:flex;gap:8px;padding:6px 0;font-size:13.5px;color:#444;line-height:1.6;}
+.price-list li::before{content:'\2713';color:var(--accent);font-weight:700;flex-shrink:0;}
+.price-note{margin-top:32px;text-align:center;font-size:12.5px;color:var(--muted);}
+@media(max-width:900px){.price-grid{grid-template-columns:1fr;}.price-card.hi{transform:none;}}
+
+/* Symptom cards (売るべき変化) */
+.sym-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;}
+.sym-card{border:1px solid var(--border);border-radius:var(--radius);padding:22px 18px;background:#fff;transition:all .25s;}
+.sym-card:hover{border-color:var(--accent-light);transform:translateY(-3px);box-shadow:var(--shadow-md);}
+.sym-num{font-size:11px;font-weight:800;color:var(--accent);margin-bottom:10px;letter-spacing:.06em;}
+.sym-card p{font-size:13.5px;font-weight:700;line-height:1.65;color:var(--ink2);}
+.sym-promise{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.sym-promise > div{padding:22px 18px;text-align:center;border-right:1px solid var(--border);}
+.sym-promise > div:last-child{border-right:none;}
+.sym-promise .before{font-size:12.5px;color:var(--muted2);text-decoration:line-through;}
+.sym-promise .arrow{color:var(--accent);font-weight:900;margin:6px 0;}
+.sym-promise .after{font-size:13px;font-weight:800;color:var(--ink);}
+@media(max-width:900px){.sym-grid{grid-template-columns:repeat(2,1fr);} .sym-promise{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.sym-grid{grid-template-columns:1fr;} .sym-promise{grid-template-columns:1fr;} .sym-promise>div{border-right:none;border-bottom:1px solid var(--border);}}
+
+/* Layer pyramid diagram (4レイヤー) */
+.layer-diagram{margin-top:40px;}
+.ld-svg{width:100%;max-width:600px;height:auto;display:block;margin:0 auto;}
+.ld-caption{text-align:center;margin-top:10px;font-size:13px;color:rgba(255,255,255,.55);}
+.ld-caption strong{color:var(--claude);font-weight:800;}
+.layer-legend{margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px 32px;}
+.layer-legend .ll-item{font-size:13px;line-height:1.8;color:rgba(255,255,255,.6);padding-top:14px;border-top:1px solid rgba(255,255,255,.08);}
+.layer-legend .ll-item strong{color:#fff;font-weight:800;display:block;margin-bottom:3px;font-size:13.5px;}
+@media(max-width:768px){.layer-legend{grid-template-columns:1fr;}}
+
+/* Before/After qualitative */
+.ba-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;margin-top:36px;}
+.ba-card{border-radius:var(--radius);padding:28px;}
+.ba-card.before{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);}
+.ba-card.after{background:linear-gradient(135deg,rgba(148,199,76,.15),rgba(177,211,131,.08));border:1px solid rgba(148,199,76,.3);}
+.ba-tag{font-size:11px;font-weight:800;letter-spacing:.1em;margin-bottom:14px;}
+.ba-card.before .ba-tag{color:rgba(255,255,255,.4);}
+.ba-card.after .ba-tag{color:#b1d383;}
+.ba-card ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.ba-card li{font-size:13.5px;line-height:1.7;color:rgba(255,255,255,.75);}
+.ba-card.before li{color:rgba(255,255,255,.5);}
+.ba-arrow{font-size:26px;color:var(--claude);font-weight:900;}
+@media(max-width:768px){.ba-grid{grid-template-columns:1fr;}.ba-arrow{text-align:center;transform:rotate(90deg);}}
+
+/* Showcase */
+.show-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px;}
+.show-card{border:1px solid var(--border);border-radius:var(--radius);padding:26px 20px;background:#fff;text-align:center;transition:all .25s;}
+.show-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--accent-light);}
+.show-icon{width:52px;height:52px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.show-icon svg{width:26px;height:26px;}
+.show-card h4{font-size:14px;font-weight:800;margin-bottom:8px;line-height:1.5;}
+.show-card .show-badge{display:inline-block;font-size:10px;font-weight:700;color:var(--muted2);background:var(--bg2);padding:2px 10px;border-radius:10px;margin-top:8px;}
+@media(max-width:900px){.show-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* Flow */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px;counter-reset:step;position:relative;}
+.flow::before{content:'';position:absolute;top:56px;left:10%;right:10%;height:2px;background:repeating-linear-gradient(90deg,var(--border2) 0,var(--border2) 6px,transparent 6px,transparent 14px);z-index:0;}
+.flow-s{background:#fff;border:1px solid var(--border);border-radius:16px;padding:32px 20px 24px;text-align:center;counter-increment:step;transition:all .3s;position:relative;z-index:1;}
+.flow-s:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.flow-s::before{content:counter(step);display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;font-size:17px;font-weight:900;color:#fff;background:linear-gradient(135deg,#94c74c,#b1d383);border-radius:50%;margin-bottom:14px;box-shadow:0 8px 20px rgba(148,199,76,.25);}
+.flow-s h4{font-size:15px;font-weight:900;margin-bottom:6px;letter-spacing:-.005em;}
+.flow-s .flow-period{font-size:11px;color:var(--accent);font-weight:700;margin-bottom:6px;}
+.flow-s p{font-size:12.5px;color:var(--muted);line-height:1.7;}
+@media(max-width:900px){.flow{grid-template-columns:repeat(2,1fr);}.flow::before{display:none;}}
+@media(max-width:560px){.flow{grid-template-columns:1fr;}}
+
+/* Credentials (選ばれる理由) */
+.cred-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:36px;}
+.cred-card{padding:24px 26px;border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);background:rgba(255,255,255,.02);}
+.cred-card .cred-tag{font-size:11px;font-weight:800;color:var(--claude);letter-spacing:.08em;margin-bottom:10px;}
+.cred-card p{font-size:14px;line-height:1.8;color:rgba(255,255,255,.8);}
+@media(max-width:768px){.cred-grid{grid-template-columns:1fr;}}
+
+/* Blog placeholder frame */
+.blog-frame{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.blog-frame-card{border:1px dashed var(--border2);border-radius:var(--radius-lg);padding:40px 20px;text-align:center;color:var(--muted2);}
+.blog-frame-card .bf-icon{font-size:26px;margin-bottom:12px;}
+.blog-frame-card p{font-size:12.5px;line-height:1.7;}
+@media(max-width:900px){.blog-frame{grid-template-columns:1fr;}}
+
+/* FAQ */
+.faq{border-bottom:1px solid var(--border);}
+.faq summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;list-style:none;padding:22px 4px;font-size:16px;font-weight:700;transition:color .2s;gap:16px;}
+.faq summary:hover{color:var(--accent);}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:'';flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--bg2);display:inline-flex;align-items:center;justify-content:center;font-size:16px;color:var(--ink);transition:all .3s;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23111' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='12' y1='5' x2='12' y2='19'/><line x1='5' y1='12' x2='19' y2='12'/></svg>");background-position:center;background-repeat:no-repeat;}
+.faq[open] summary::after{transform:rotate(45deg);background-color:var(--accent-soft);}
+.faq p{padding:0 4px 22px;color:var(--muted);line-height:1.85;font-size:14px;}
+.faq p strong{color:var(--ink);}
+
+/* CTA */
+.cta-sec{text-align:center;padding:120px 24px;position:relative;overflow:hidden;}
+.cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(177,211,131,.1) 0%,transparent 60%);pointer-events:none;}
+.cta-sec > *{position:relative;z-index:1;}
+.cta-sec h2{font-size:clamp(28px,4.4vw,46px);font-weight:900;line-height:1.35;letter-spacing:-.02em;}
+.cta-sec h2 em{font-style:normal;background:linear-gradient(135deg,#94c74c,#b1d383);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cta-sec .lead{margin:20px auto 0;text-align:center;max-width:520px;}
+
+/* Footer */
+.footer{border-top:1px solid var(--border);padding:40px 0;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;}
+.footer-logos{display:flex;align-items:center;gap:10px;}
+.footer-nav{display:flex;justify-content:center;gap:22px;font-size:12.5px;color:var(--muted);flex-wrap:wrap;}
+.footer-nav a:hover{color:var(--ink);}
+.footer small{font-size:12px;color:var(--muted2);justify-self:end;}
+@media(max-width:768px){
+  .footer{grid-template-columns:1fr;text-align:center;gap:20px;padding:32px 0 36px;}
+  .footer-logos{justify-content:center;}
+  .footer-nav{flex-wrap:wrap;justify-content:center;gap:12px 18px;font-size:12px;row-gap:10px;}
+  .footer small{justify-self:center;font-size:11px;}
+}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(30px);transition:all .6s cubic-bezier(.16,1,.3,1);}
+.rv.v{opacity:1;transform:none;}
+.no-reveal .rv{opacity:1!important;transform:none!important;}
+
+@media(max-width:1100px){.price-grid{gap:16px;}}
+@media(max-width:900px){
+  .sec{padding:60px 0;}
+  .enemy-grid{gap:14px;}
+  .ld-svg{max-width:440px;}
+}
+@media(max-width:768px){
+  .hero{padding-top:96px;padding-bottom:48px;}
+  .cta-sec{padding:60px 16px;}
+  h2{font-size:24px!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav"><div class="w">
+  <div class="nav-brand">
+    <div class="mark">C</div>
+    <div class="brand-text">CIZA<small>経営管理OS</small></div>
+  </div>
+  <div class="nav-links">
+    <a href="#services">サービス</a>
+    <a href="#why">選ばれる理由</a>
+    <a href="#showcase">成果物</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-dark">無料で経営管理診断を受ける &rarr;</a>
+</div></nav>
+
+<!-- HERO -->
+<section class="hero"><div class="w">
+  <div class="hero-content">
+    <div class="hero-tag">外部CFO &times; 経営管理OS &mdash; 中小企業のための伴走支援</div>
+    <h1>経営会議を「報告」から<em>「意思決定」</em>へ。<span class="hero-h1-sub">中小企業のための、経営管理OS。</span></h1>
+    <p class="hero-sub">方向性は見えている。あとは<strong>"確信"</strong>だけ——を、数字で埋める。社長の意思決定から逆算して、KPI・レポート・会議・データの流れを設計し、<strong>上場企業に耐えうる管理体制</strong>を、自社仕様で、早く・段階的に。コンサルとシステムで数千万、ではなく、<strong>月額15万円〜</strong>の伴走で。</p>
+    <div class="hero-actions">
+      <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient" style="font-size:15.5px;padding:15px 32px;">無料で経営管理診断を受ける &rarr;</a>
+      <a href="#services" class="btn btn-outline" style="font-size:15.5px;padding:15px 32px;">サービス詳細</a>
+    </div>
+    <div class="hero-trust">
+      <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>上場企業の管理体制構築プロジェクトへの関与経験</div>
+      <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>設計から実装・自走まで一気通貫</div>
+      <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>元銀行員／公認会計士パートナー在籍</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ━━━ 売るべき変化（USE CASES） ━━━ -->
+<section class="sec" style="background:var(--bg2);"><div class="w">
+  <div class="sec-label rv">よくあるお悩み</div>
+  <h2 class="rv">こんな"経営あるある"に、心当たりは？</h2>
+  <p class="lead rv">1つでも当てはまれば、経営管理OSがお役に立てます。</p>
+
+  <div class="sym-grid">
+    <div class="sym-card rv"><div class="sym-num">01</div><p>経営会議はあるが、数字に基づいていない</p></div>
+    <div class="sym-card rv"><div class="sym-num">02</div><p>レポート・会議資料の作成が属人的で工数がかかる</p></div>
+    <div class="sym-card rv"><div class="sym-num">03</div><p>投資・賃上げ・採用を、感覚で判断していて不安</p></div>
+    <div class="sym-card rv"><div class="sym-num">04</div><p>財務を相談できる人が社内にいない</p></div>
+    <div class="sym-card rv"><div class="sym-num">05</div><p>頑張っても利益が残らない／ボトルネックが見えない</p></div>
+    <div class="sym-card rv"><div class="sym-num">06</div><p>補助金を抜け漏れなく活用できているか分からない</p></div>
+    <div class="sym-card rv"><div class="sym-num">07</div><p>AIやITを経営に採り入れたいが、何から始めるか分からない</p></div>
+    <div class="sym-card rv"><div class="sym-num">08</div><p>上場企業並みの管理体制を、いつか整えたい</p></div>
+  </div>
+
+  <div class="sym-promise rv">
+    <div><div class="before">報告会</div><div class="arrow">&darr;</div><div class="after">意思決定の場</div></div>
+    <div><div class="before">感覚での判断</div><div class="arrow">&darr;</div><div class="after">数字での判断</div></div>
+    <div><div class="before">属人的な資料作成</div><div class="arrow">&darr;</div><div class="after">必要な数字が自動で出る</div></div>
+    <div><div class="before">相談相手がいない</div><div class="arrow">&darr;</div><div class="after">数字に強い右腕がいる安心感</div></div>
+  </div>
+</div></section>
+
+<!-- ━━━ 経営管理OS 4レイヤー（AUTOMATION） ━━━ -->
+<section class="sec dark"><div class="w">
+  <div class="sec-label rv">解決の仕組み</div>
+  <h2 class="rv">経営管理OSの<span style="color:var(--claude);">4レイヤー</span></h2>
+  <p class="lead rv">現場のデータから、社長の意思決定まで。積み上げ式で、一気通貫で設計します。</p>
+
+  <div class="layer-diagram rv">
+    <svg viewBox="0 0 600 550" class="ld-svg" role="img" aria-label="データ基盤からKPI体系、レポート・会議体、ツール活用を経て社長の意思決定に至る4レイヤーのピラミッド構造図">
+      <!-- 接続矢印 -->
+      <line x1="300" y1="208" x2="300" y2="222" stroke="var(--claude)" stroke-opacity=".8" stroke-width="2"/>
+      <polygon points="293,220 307,220 300,230" fill="var(--claude)" fill-opacity=".8"/>
+      <line x1="300" y1="284" x2="300" y2="298" stroke="var(--claude)" stroke-opacity=".8" stroke-width="2"/>
+      <polygon points="293,296 307,296 300,306" fill="var(--claude)" fill-opacity=".8"/>
+      <line x1="300" y1="356" x2="300" y2="370" stroke="var(--claude)" stroke-opacity=".8" stroke-width="2"/>
+      <polygon points="293,368 307,368 300,378" fill="var(--claude)" fill-opacity=".8"/>
+      <line x1="300" y1="428" x2="300" y2="442" stroke="var(--claude)" stroke-opacity=".8" stroke-width="2"/>
+      <polygon points="293,440 307,440 300,450" fill="var(--claude)" fill-opacity=".8"/>
+
+      <!-- L4: ツール活用（最上段・最も意思決定に近い） -->
+      <rect x="110" y="228" width="380" height="56" rx="10" fill="#b1d383"/>
+      <text x="300" y="262" text-anchor="middle" fill="var(--ink2)" font-size="15" font-weight="800" font-family="'Noto Sans JP',sans-serif">④ ツール活用（適材適所）</text>
+
+      <!-- L3: レポート・会議体 -->
+      <rect x="80" y="300" width="440" height="56" rx="10" fill="#a8d16a"/>
+      <text x="300" y="334" text-anchor="middle" fill="var(--ink2)" font-size="15" font-weight="800" font-family="'Noto Sans JP',sans-serif">③ レポート・会議体</text>
+
+      <!-- L2: KPI体系 -->
+      <rect x="50" y="372" width="500" height="56" rx="10" fill="#94c74c"/>
+      <text x="300" y="406" text-anchor="middle" fill="#fff" font-size="15" font-weight="800" font-family="'Noto Sans JP',sans-serif">② KPI体系</text>
+
+      <!-- L1: データ基盤（土台） -->
+      <rect x="20" y="444" width="560" height="64" rx="10" fill="#709f2c"/>
+      <text x="300" y="483" text-anchor="middle" fill="#fff" font-size="15" font-weight="800" font-family="'Noto Sans JP',sans-serif">① データ基盤</text>
+
+      <!-- 頂点ハブ: 社長の意思決定 -->
+      <circle cx="300" cy="140" r="68" fill="url(#hubGrad)"/>
+      <circle cx="300" cy="140" r="68" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+      <text x="300" y="132" text-anchor="middle" fill="#fff" font-size="15" font-weight="900" font-family="'Noto Sans JP',sans-serif">社長の</text>
+      <text x="300" y="155" text-anchor="middle" fill="#fff" font-size="15" font-weight="900" font-family="'Noto Sans JP',sans-serif">意思決定</text>
+
+      <defs>
+        <linearGradient id="hubGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#b1d383"/>
+          <stop offset="100%" stop-color="#94c74c"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <p class="ld-caption">土台から積み上げ、すべては<strong>社長の意思決定</strong>のために。</p>
+  </div>
+
+  <div class="layer-legend rv">
+    <div class="ll-item"><strong>① データ基盤</strong>手集計を廃止し、自動連携へ。既存のExcel／会計システムを最大限活用します。</div>
+    <div class="ll-item"><strong>② KPI体系</strong>事業・部門・グループを横断して階層設計。貴社の勝ち筋を数字に落とし込みます。</div>
+    <div class="ll-item"><strong>③ レポート・会議体</strong>"報告"から"意思決定"へ。会議で何を決めるかから逆算して帳票を設計します。</div>
+    <div class="ll-item"><strong>④ ツール活用（適材適所）</strong>Excel・Power Query・SaaS・AIなど、得意不得意とメリット・デメリットを踏まえ適切なツールを選定・活用します。</div>
+  </div>
+
+  <div class="ba-grid rv">
+    <div class="ba-card before">
+      <div class="ba-tag">BEFORE</div>
+      <ul>
+        <li>Excelでの手集計が中心</li>
+        <li>月次資料の作成に数日かかる</li>
+        <li>担当者しか作り方が分からない（属人化）</li>
+      </ul>
+    </div>
+    <div class="ba-arrow">&rarr;</div>
+    <div class="ba-card after">
+      <div class="ba-tag">AFTER</div>
+      <ul>
+        <li>数字が自動で積み上がっていく</li>
+        <li>必要な切り口ですぐ取り出せる</li>
+        <li>誰が見ても同じ数字にたどり着く</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- ━━━ SERVICES ━━━ -->
+<section class="sec" id="services"><div class="w">
+  <div class="sec-label rv">サービス</div>
+  <h2 class="rv">3つの伴走プラン</h2>
+  <p class="lead rv">貴社のフェーズに合わせて選べます。<strong style="color:var(--ink);">業務委託費用はシザ負担・窓口一本化</strong>、6か月区切りで見直し可能です。</p>
+
+  <div class="price-grid">
+    <div class="price-card rv">
+      <div class="price-name">PLAN 01</div>
+      <div class="price-title">財務顧問</div>
+      <div class="price-amount"><span class="num">15万円</span><span class="unit">〜 / 月</span></div>
+      <ul class="price-list">
+        <li>資金調達・融資／銀行対応</li>
+        <li>財務・経営相談</li>
+        <li>まずは数字の相談相手が欲しい企業向け</li>
+      </ul>
+      <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="justify-content:center;">相談する &rarr;</a>
+    </div>
+
+    <div class="price-card hi rv">
+      <div class="price-badge">最も選ばれています</div>
+      <div class="price-name">PLAN 02 ★主力</div>
+      <div class="price-title">経営管理OS構築支援</div>
+      <div class="price-amount"><span class="num">30万円</span><span class="unit">〜 / 月</span></div>
+      <ul class="price-list">
+        <li>OS構想設計・KPI体系／帳票設計</li>
+        <li>PLセグメント設計・会議体設計</li>
+        <li>実装PM（データ基盤〜ダッシュボード）</li>
+        <li>財務顧問の対応込み</li>
+      </ul>
+      <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient" style="justify-content:center;">相談する &rarr;</a>
+    </div>
+
+    <div class="price-card rv">
+      <div class="price-name">PLAN 03</div>
+      <div class="price-title">外部推進リーダー</div>
+      <div class="price-amount"><span class="num">60万円</span><span class="unit">〜 / 月</span></div>
+      <ul class="price-list">
+        <li>PLAN 02の内容すべて</li>
+        <li>社長／専務への推進責任・定例報告</li>
+        <li>ツール活用ロードマップ策定</li>
+        <li>専門人材紹介</li>
+      </ul>
+      <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="justify-content:center;">相談する &rarr;</a>
+    </div>
+  </div>
+  <p class="price-note rv">※ 表示価格は下限の目安です。詳細は無料診断にてご相談ください。</p>
+</div></section>
+
+<!-- ━━━ 共通の敵 ━━━ -->
+<section class="sec" style="background:var(--bg2);"><div class="w">
+  <div class="sec-label rv">比較検討の前に</div>
+  <h2 class="rv">こんな支援に、物足りなさを感じていませんか？</h2>
+  <p class="lead rv">経営管理の"仕組み化"を検討すると、たいてい次の4つのどれかにぶつかります。</p>
+
+  <div class="enemy-grid">
+    <div class="enemy-card rv">
+      <div class="enemy-num">01</div>
+      <h3>事例を持ってくるだけのコンサル</h3>
+      <p>経験の浅い担当者が来て、業界のベストプラクティスを紹介するだけ。でも先頭を走る会社に借りられる事例はない。自社ナイズしてくれる伴走者が欲しい。</p>
+    </div>
+    <div class="enemy-card rv">
+      <div class="enemy-num">02</div>
+      <h3>AI導入自体が目的化したAIコンサル</h3>
+      <p>経営者の意思決定を分かっていない。そもそも業務・経営管理が整っていないと、何をAIに任せるかも決まらない。</p>
+    </div>
+    <div class="enemy-card rv">
+      <div class="enemy-num">03</div>
+      <h3>AIを分かっていない従来型コンサル</h3>
+      <p>逆にAIの可能性に無頓着。経営管理はAIで大きく可能性が開けた——数字だけでなく議事録等のテキストも横断解析でき、大手でも難しかった仕組みが手の届くものになった。</p>
+    </div>
+    <div class="enemy-card rv">
+      <div class="enemy-num">04</div>
+      <h3>現状分析に高額を取る大手</h3>
+      <p>経理DXを相談したら大手を連れてこられ、現状分析だけで高額な費用がかかる。</p>
+    </div>
+  </div>
+
+  <div class="enemy-cross rv">
+    <div class="pill">CIZAの立ち位置</div>
+    <h3>経験ある伴走 × ツールを手段として正しく使い分けられる × 自社ナイズ × 中小の規模とコスト。<br>この<em>交差点</em>に立つ、稀有な存在です。</h3>
+    <p>「事例を借りるのではなく、"自社の勝ち筋"を数字で掴む。」——テンプレの成功事例ではなく、上場企業の管理体制を知る伴走者と適切なツールで、自社仕様の経営管理をつくります。</p>
+  </div>
+</div></section>
+
+<!-- ━━━ 成果物ショーケース ━━━ -->
+<section class="sec" id="showcase"><div class="w">
+  <div class="sec-label rv">制作実績</div>
+  <h2 class="rv">成果物ショーケース（社名非公開）</h2>
+  <p class="lead rv">既存の成果物を一部ご紹介します。<strong style="color:var(--ink);">実際の管理軸・KPI・レポートは貴社の事業・データに合わせて設計</strong>します。</p>
+
+  <div class="show-grid">
+    <div class="show-card rv">
+      <div class="show-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg></div>
+      <h4>KPI体系図</h4>
+      <span class="show-badge">サンプル</span>
+    </div>
+    <div class="show-card rv">
+      <div class="show-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 3 3 5-8"/></svg></div>
+      <h4>CF・PLツリー</h4>
+      <span class="show-badge">サンプル</span>
+    </div>
+    <div class="show-card rv">
+      <div class="show-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></div>
+      <h4>経営ダッシュボード像</h4>
+      <span class="show-badge">サンプル</span>
+    </div>
+    <div class="show-card rv">
+      <div class="show-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+      <h4>月次PL・予実・<br>セグメント帳票</h4>
+      <span class="show-badge">サンプル</span>
+    </div>
+  </div>
+  <p style="margin-top:24px;font-size:12px;color:var(--muted2);" class="rv">※ 使用ツールはLooker Studio等のBIツールに限らず、貴社の環境（Excel・Power BI・その他SaaS等）に合わせて選定します。掲載画像は準備中のため、現在はサンプルアイコン表示です（【要決定5】実画像に差し替え予定）。</p>
+</div></section>
+
+<!-- ━━━ 進め方（SERVICE FLOW） ━━━ -->
+<section class="sec" style="background:var(--bg2);"><div class="w">
+  <div class="sec-label rv">ご支援の流れ</div>
+  <h2 class="rv">進め方</h2>
+  <p class="lead rv">現状把握から自走化まで、段階的に。</p>
+  <div class="flow">
+    <div class="flow-s rv"><div class="flow-period">Phase1・1〜1.5ヶ月</div><h4>現状把握<br>OS基本構想</h4><p>全体計画図を作成</p></div>
+    <div class="flow-s rv"><div class="flow-period">Phase2・2〜3ヶ月</div><h4>KPI体系<br>PLセグメント設計</h4><p>KPI体系・帳票一式を作成</p></div>
+    <div class="flow-s rv"><div class="flow-period">Phase3・4〜5ヶ月</div><h4>DB構築<br>ダッシュボード実装</h4><p>自動集計DBを構築</p></div>
+    <div class="flow-s rv"><div class="flow-period">Phase4・6ヶ月〜</div><h4>ツール定着<br>自走化</h4><p>ツール活用ロードマップ・自走体制を整備</p></div>
+  </div>
+</div></section>
+
+<!-- ━━━ 選ばれる理由 ━━━ -->
+<section class="sec dark" id="why"><div class="w">
+  <div class="sec-label rv">私たちについて</div>
+  <h2 class="rv">選ばれる理由</h2>
+  <p class="lead rv">経営管理のプロであること。本当に経営者の意思決定に効く仕組みを作ります。</p>
+
+  <div class="cred-grid">
+    <div class="cred-card rv">
+      <div class="cred-tag">TRACK RECORD</div>
+      <p>前職で<strong style="color:#fff;">上場企業の経営管理制度構築プロジェクト</strong>に数年間関与。「上場企業並みの管理体制を中小の規模で」に直結する当事者性があります。</p>
+    </div>
+    <div class="cred-card rv">
+      <div class="cred-tag">BACKGROUND</div>
+      <p>コンサル歴17年、元銀行員（商工中金）。<strong style="color:#fff;">公認会計士パートナー</strong>も在籍しています。</p>
+    </div>
+    <div class="cred-card rv">
+      <div class="cred-tag">TURNAROUND</div>
+      <p>事業再生・経営改善の実績があります。</p>
+    </div>
+    <div class="cred-card rv">
+      <div class="cred-tag">SKIN IN THE GAME</div>
+      <p>自社でM&amp;Aを行い、実業（飲食）をテコ入れして利益改善の兆しを実現中。評論家ではなく、自らリスクを取って実業で数字をつくっています。</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ━━━ FAQ ━━━ -->
+<section class="sec" id="faq"><div class="w" style="max-width:800px;">
+  <div class="sec-label rv">Q&amp;A</div>
+  <h2 class="rv">よくあるご質問</h2>
+  <div style="margin-top:24px;" class="rv">
+    <details class="faq"><summary>大規模なシステム導入が必要ですか？</summary><p>既存のExcel/Google Workspace/会計システムを最大限活用します。段階実装で大規模投資は避けます。</p></details>
+    <details class="faq"><summary>社内に詳しい人材がいなくても大丈夫ですか？</summary><p>窓口担当を1名決めていただければ、設計・実装のPMはこちらが担います。</p></details>
+    <details class="faq"><summary>AI導入が目的のサービスですか？</summary><p><strong>いいえ。</strong>先に意思決定と管理の設計を行い、その実現手段としてExcel・SaaS・AIなど適切なツールを使います。AIありきではなく、貴社にとって最適な手段を選びます。</p></details>
+    <details class="faq"><summary>費用はどのくらいかかりますか？</summary><p>財務顧問<strong>15万円〜</strong>、経営管理OS構築支援<strong>30万円〜</strong>です。6か月区切りで見直し可能です。</p></details>
+    <details class="faq"><summary>どんな会社が向いていますか？</summary><p>部門が複数あり、投資判断が発生し、幹部はいるが数字にはやや弱い、成長・改善を数字で進めたい中小・中堅企業に向いています。</p></details>
+    <details class="faq"><summary>業界の成功事例は教えてもらえますか？</summary><p>事例の紹介より、貴社に合わせた設計を重視します。先を走る会社ほど、借り物の事例より自社仕様の仕組みが必要です。</p></details>
+    <details class="faq"><summary>補助金の活用も相談できますか？</summary><p>可能です。投資判断と一体で助言します。</p></details>
+  </div>
+</div></section>
+
+<!-- ━━━ BLOG TEASER（枠のみ確保・後日ブログ実装時に差し替え） ━━━ -->
+<section class="sec" style="background:var(--bg2);"><div class="w">
+  <div class="sec-label rv">お知らせ</div>
+  <h2 class="rv">経営管理の知見をブログで発信予定</h2>
+  <p class="lead rv">経営管理OSの構築ノウハウ、KPI設計、ツール活用事例などを今後お届けします。</p>
+  <div class="blog-frame rv">
+    <div class="blog-frame-card"><div class="bf-icon">📝</div><p>近日公開予定</p></div>
+    <div class="blog-frame-card"><div class="bf-icon">📊</div><p>近日公開予定</p></div>
+    <div class="blog-frame-card"><div class="bf-icon">💡</div><p>近日公開予定</p></div>
+  </div>
+</div></section>
+
+<!-- ━━━ CTA ━━━ -->
+<section class="cta-sec">
+  <div class="w rv">
+    <div style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:20px;padding:7px 16px;background:var(--accent-soft);border:1px solid rgba(148,199,76,.15);border-radius:10px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;"></span>
+      初回相談は無料
+    </div>
+    <h2>会社の数字が、<br><em>見えにくくなってきたら。</em></h2>
+    <p class="lead">まずは無料の経営管理診断で、貴社の現在地を数字で確認しませんか。</p>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:36px;flex-wrap:wrap;">
+      <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient" style="font-size:16px;padding:17px 40px;">無料で経営管理診断を受ける &rarr;</a>
+      <a href="#services" class="btn btn-outline" style="font-size:16px;padding:17px 40px;">サービス詳細を見る</a>
+    </div>
+    <div style="margin-top:28px;font-size:12.5px;color:var(--muted);">
+      お問合せ後、1営業日以内にご返信 &bull; 相談無料
+    </div>
+    <div style="margin-top:20px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;">
+      <span style="font-size:11.5px;color:var(--muted2);font-weight:600;letter-spacing:.08em;">SHARE</span>
+      <a href={X_SHARE_URL} target="_blank" rel="noopener noreferrer" aria-label="Xでシェア" style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;padding:8px 16px;border-radius:10px;border:1px solid var(--border2);color:var(--ink);background:#fff;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Xでシェア
+      </a>
+      <a href={FB_SHARE_URL} target="_blank" rel="noopener noreferrer" aria-label="Facebookでシェア" style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;padding:8px 16px;border-radius:10px;border:1px solid var(--border2);color:var(--ink);background:#fff;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#1877F2" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebookでシェア
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━ FOOTER ━━━ -->
+<footer><div class="w footer">
+  <div class="footer-logos">
+    <div class="mark" style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#94c74c,#b1d383);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;">C</div>
+    <span style="font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.02em;">経営管理OS｜CIZA</span>
+  </div>
+  <div class="footer-nav">
+    <a href="#services">サービス</a>
+    <a href="#why">選ばれる理由</a>
+    <a href="#showcase">成果物</a>
+    <a href="#faq">FAQ</a>
+    <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+    <a href="https://www.ciza.co.jp/company.html" target="_blank" rel="noopener noreferrer">会社概要</a>
+    <a href="/privacy">プライバシーポリシー</a>
+  </div>
+  <small>&copy; 2026 {COMPANY_NAME_EN}</small>
+</div></footer>
+
+<script>
+// Reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+if (location.search.includes('static')) document.querySelectorAll('.rv').forEach(el => el.classList.add('v'));
+
+// Nav scroll
+const nav = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+</script>
+</body>
+</html>

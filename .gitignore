@@ -1,0 +1,16 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# env
+.env
+.env.production
+
+# editor/OS
+.DS_Store
+
+# local exports (screenshots/PDFs generated during dev)
+exports/
