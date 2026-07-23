@@ -1,0 +1,81 @@
+---
+import { getCollection, render } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { SITE_URL, CORP_URL, COMPANY_NAME } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const canonicalUrl = `${SITE_URL}/blog/${post.id}`;
+
+function formatDate(d: Date) {
+  return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": `${SITE_URL}/ogp.png`,
+  "datePublished": post.data.date.toISOString(),
+  "dateModified": post.data.date.toISOString(),
+  "author": { "@type": "Organization", "name": COMPANY_NAME, "url": CORP_URL },
+  "publisher": {
+    "@type": "Organization",
+    "name": COMPANY_NAME,
+    "url": CORP_URL,
+    "logo": { "@type": "ImageObject", "url": `${SITE_URL}/ogp.png` },
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
+};
+---
+<BlogLayout
+  title={`${post.data.title}｜CIZAブログ`}
+  description={post.data.description}
+  canonicalUrl={canonicalUrl}
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <article class="sec"><div class="w article-w">
+    <a href="/blog" class="back-link">&larr; ブログ一覧に戻る</a>
+    <div class="post-meta">{formatDate(post.data.date)}<span class="dot">&bull;</span>{post.data.author}</div>
+    <div class="article-body">
+      <Content />
+    </div>
+  </div></article>
+
+  <style>
+    .sec{padding:140px 0 96px;}
+    .article-w{max-width:720px;}
+    .back-link{display:inline-block;font-size:14px;font-weight:600;color:var(--accent);margin-bottom:28px;}
+    .back-link:hover{text-decoration:underline;}
+    .post-meta{font-size:13.5px;color:var(--muted2);margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+    .post-meta .dot{margin:0 8px;}
+    .article-body :global(h1){font-size:clamp(26px,4vw,36px);font-weight:900;line-height:1.45;letter-spacing:-.01em;margin-bottom:28px;}
+    .article-body :global(h2){font-size:clamp(20px,2.6vw,25px);font-weight:900;line-height:1.5;margin-top:52px;margin-bottom:18px;}
+    .article-body :global(p){font-size:16.5px;line-height:2;color:var(--ink2);margin-bottom:22px;}
+    .article-body :global(strong){font-weight:800;color:var(--ink);}
+    .article-body :global(em){font-style:italic;}
+    .article-body :global(a){color:var(--accent2);text-decoration:underline;text-underline-offset:2px;}
+    .article-body :global(a:hover){color:var(--accent);}
+    .article-body :global(blockquote){margin:28px 0;padding:20px 24px;background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;font-style:italic;color:var(--ink2);font-size:15.5px;line-height:1.9;}
+    .article-body :global(blockquote p){margin-bottom:0;font-size:inherit;color:inherit;}
+    .article-body :global(ol),.article-body :global(ul){margin:0 0 22px 1.4em;}
+    .article-body :global(li){font-size:16.5px;line-height:1.9;color:var(--ink2);margin-bottom:8px;}
+    .article-body :global(hr){border:none;border-top:1px solid var(--border);margin:44px 0;}
+    .article-body :global(img){border-radius:var(--radius);margin:24px 0;max-width:100%;}
+    @media(max-width:768px){
+      .sec{padding:112px 0 60px;}
+      .article-body :global(p),.article-body :global(li){font-size:15.5px;}
+    }
+  </style>
+</BlogLayout>

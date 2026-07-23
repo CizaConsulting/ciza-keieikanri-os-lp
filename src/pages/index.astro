@@ -1,4 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
+const latestPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+).slice(0, 3);
+function formatPostDate(d: Date) {
+  return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+}
 // ── グローバル設定（【要決定】項目は仮値。差し替えはここ1箇所でOK） ──────────
 const COMPANY_NAME = "株式会社シザコンサルティング";
 const COMPANY_NAME_EN = "CIZA Consulting";
@@ -257,6 +264,15 @@ a{color:inherit;text-decoration:none;}
 .cred-card p{font-size:15.5px;line-height:1.8;color:rgba(255,255,255,.8);}
 @media(max-width:768px){.cred-grid{grid-template-columns:1fr;}}
 
+/* Blog teaser */
+.blog-teaser-grid{margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.blog-teaser-card{display:block;border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px 28px;background:#fff;transition:all .25s;}
+.blog-teaser-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--accent-light);}
+.bt-date{font-size:12.5px;font-weight:700;color:var(--accent);letter-spacing:.04em;margin-bottom:10px;}
+.blog-teaser-card h4{font-size:18px;font-weight:900;line-height:1.5;margin-bottom:8px;}
+.blog-teaser-card p{font-size:14.5px;color:var(--muted);line-height:1.8;}
+.bt-more{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:700;color:var(--accent);}
+
 /* FAQ */
 .faq{border-bottom:1px solid var(--border);}
 .faq summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;list-style:none;padding:22px 4px;font-size:17.5px;font-weight:700;transition:color .2s;gap:16px;}
@@ -318,6 +334,7 @@ a{color:inherit;text-decoration:none;}
     <a href="#services">サービス</a>
     <a href="#why">選ばれる理由</a>
     <a href="#showcase">成果物</a>
+    <a href="/blog">ブログ</a>
     <a href="#faq">FAQ</a>
   </div>
   <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-dark">無料で経営管理診断を受ける &rarr;</a>
@@ -606,6 +623,25 @@ a{color:inherit;text-decoration:none;}
   </div>
 </div></section>
 
+<!-- ━━━ BLOG TEASER ━━━ -->
+<section class="sec" style="background:var(--bg2);"><div class="w">
+  <div class="sec-label rv">お知らせ</div>
+  <h2 class="rv">経営管理の知見をブログで発信中</h2>
+  <p class="lead rv">経営管理OSの構築ノウハウ、KPI設計、ツール活用事例などをお届けします。</p>
+
+  <div class="blog-teaser-grid rv">
+    {latestPosts.map((post) => (
+      <a class="blog-teaser-card" href={`/blog/${post.id}`}>
+        <div class="bt-date">{formatPostDate(post.data.date)}</div>
+        <h4>{post.data.title}</h4>
+        <p>{post.data.description}</p>
+        <span class="bt-more">続きを読む &rarr;</span>
+      </a>
+    ))}
+  </div>
+  <a href="/blog" class="btn btn-outline rv" style="margin-top:32px;">ブログをすべて見る &rarr;</a>
+</div></section>
+
 <!-- ━━━ CTA ━━━ -->
 <section class="cta-sec">
   <div class="w rv">
@@ -646,6 +682,7 @@ a{color:inherit;text-decoration:none;}
     <a href="#services">サービス</a>
     <a href="#why">選ばれる理由</a>
     <a href="#showcase">成果物</a>
+    <a href="/blog">ブログ</a>
     <a href="#faq">FAQ</a>
     <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer">お問い合わせ</a>
     <a href="https://www.ciza.co.jp/company.html" target="_blank" rel="noopener noreferrer">会社概要</a>
