@@ -2,11 +2,11 @@
 import BlogLayout from '../layouts/BlogLayout.astro';
 import { SITE_URL, CORP_URL, COMPANY_NAME, CTA_FORM_URL } from '../lib/site';
 
-const PERSON_NAME = "【氏名】"; // TODO: 実名に差し替え
-const PERSON_JOB_TITLE = "代表取締役"; // TODO: 正式な役職名に差し替え
+const PERSON_NAME = "川原 拓馬";
+const PERSON_JOB_TITLE = "代表取締役";
 
 const canonicalUrl = `${SITE_URL}/about`;
-const description = `${COMPANY_NAME} 代表のプロフィール。金融機関・コンサルティングファームを経て、中小企業の経営管理体制構築を支援。`;
+const description = `${COMPANY_NAME} 代表 ${PERSON_NAME} のプロフィール。神戸大学卒業後、商工中金、独立系コンサルティングファームを経て2012年に独立。コンサルタント歴17年、支援企業数300社以上。`;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -15,10 +15,12 @@ const jsonLd = {
   "jobTitle": PERSON_JOB_TITLE,
   "worksFor": { "@type": "Organization", "name": COMPANY_NAME, "url": CORP_URL },
   "description": description,
-  "image": `${SITE_URL}/ogp.png`,
+  "image": `${SITE_URL}/profile-photo.jpg`,
   "url": canonicalUrl,
+  "alumniOf": ["神戸大学"],
   "sameAs": [
     "https://www.ciza.co.jp/",
+    "https://www.youtube.com/@takuma_kawahara",
   ],
 };
 ---
@@ -33,60 +35,85 @@ const jsonLd = {
 
     <div class="profile-head rv">
       <div class="avatar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        <span class="avatar-note">写真準備中</span>
+        <img src="/profile-photo.jpg" alt={`${PERSON_NAME}（${COMPANY_NAME} 代表取締役）`} width="160" height="160">
       </div>
       <div class="profile-head-text">
         <h1>{PERSON_NAME}</h1>
         <div class="profile-title">{PERSON_JOB_TITLE}｜{COMPANY_NAME}</div>
-        <p class="profile-lead">方向性は見えているが確信が持てない経営者に、数字の裏付けを届ける。金融機関・コンサルティングファームでの経験をもとに、中小企業のための経営管理OSを構築しています。</p>
+        <div class="profile-badges">
+          <span>コンサルタント歴17年</span>
+          <span>コンサル会社経営12年</span>
+        </div>
+        <p class="profile-lead">神戸大学経営学部卒業後、商工中金（政府系金融機関）、独立系コンサルティングファームの株式会社アットストリームを経て2012年に独立。資金調達・経営改善・事業再生・経営管理制度の構築を得意領域とし、これまでの支援企業数は300社以上。2026年には飲食事業を事業譲渡により承継し、共同経営にも携わっています。</p>
         <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient">無料で経営管理診断を受ける &rarr;</a>
       </div>
     </div>
 
     <section class="profile-section rv">
+      <h2>実績サマリー</h2>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-num">300<span>社+</span></div>
+          <div class="stat-lbl">支援企業数</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">200<span>件</span></div>
+          <div class="stat-lbl">補助金採択実績</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">20<span>億円+</span></div>
+          <div class="stat-lbl">補助金採択累計額</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">5,000<span>人</span></div>
+          <div class="stat-lbl">YouTube登録者数</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-section rv">
       <h2>経歴</h2>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-period">【期間】</div>
+          <div class="timeline-period">新卒入行</div>
           <div class="timeline-body">
-            <h3>金融機関</h3>
-            <p>【所属・担当業務のプレースホルダ。例：法人融資・審査業務等を通じ、企業の資金繰り・財務構造の実務に従事】</p>
+            <h3>商工中金（政府系金融機関）</h3>
+            <p>中小・零細事業者の資金繰り支援や融資・審査業務に従事。</p>
           </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-period">【期間】</div>
+          <div class="timeline-period">転職</div>
           <div class="timeline-body">
-            <h3>コンサルティングファーム</h3>
-            <p>上場企業の経営管理制度構築プロジェクトに数年間関与。【担当領域・役割のプレースホルダ】</p>
+            <h3>株式会社アットストリーム（独立系コンサルティングファーム）</h3>
+            <p>主に東証一部上場企業向けに、経営管理制度の構築や基幹システム導入支援、事業計画策定などに従事。</p>
           </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-period">【設立年】〜現在</div>
+          <div class="timeline-period">2012年〜現在</div>
           <div class="timeline-body">
-            <h3>{COMPANY_NAME} 代表</h3>
-            <p>中小企業の経営管理体制構築・財務顧問を支援。自社でM&amp;Aを行い、実業（飲食）の経営にも携わる。</p>
+            <h3>{COMPANY_NAME} 代表取締役</h3>
+            <p>経営コンサルタントとして独立・法人設立（経営革新等認定支援機関）。財務顧問・経営顧問の他、ベンチャー企業CFOや経営企画室長も歴任。元ものづくり補助金審査員。2026年に飲食事業を事業譲渡により承継し、共同経営。</p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="profile-section rv">
-      <h2>専門領域</h2>
+      <h2>得意領域</h2>
       <div class="tag-list">
-        <span>経営管理体制構築</span>
-        <span>KPI設計・管理会計</span>
-        <span>資金調達・銀行対応</span>
-        <span>事業再生・経営改善</span>
-        <span>M&amp;A・事業承継</span>
+        <span>資金調達（融資・エクイティ・クラウドファンディング・補助金）</span>
+        <span>経営改善・事業再生</span>
+        <span>経営管理制度の構築</span>
+        <span>ベンチャー企業CFO・経営企画</span>
       </div>
     </section>
 
     <section class="profile-section rv">
-      <h2>保有資格</h2>
+      <h2>保有資格・スキル</h2>
       <div class="tag-list">
-        <span>【保有資格1】</span>
-        <span>【保有資格2】</span>
+        <span>中小企業診断士</span>
+        <span>TOEIC 970点</span>
+        <span>各種銀行業務検定</span>
       </div>
     </section>
 
@@ -95,11 +122,15 @@ const jsonLd = {
       <div class="cred-grid">
         <div class="cred-card">
           <div class="cred-tag">TRACK RECORD</div>
-          <p>前職で<strong style="color:#fff;">上場企業の経営管理制度構築プロジェクト</strong>に数年間関与。</p>
+          <p>前職で<strong style="color:#fff;">東証一部上場企業の経営管理制度構築プロジェクト</strong>に関与。</p>
         </div>
         <div class="cred-card">
-          <div class="cred-tag">TURNAROUND</div>
-          <p>事業再生・経営改善の実績があります。</p>
+          <div class="cred-tag">GOVERNMENT</div>
+          <p>元<strong style="color:#fff;">ものづくり補助金審査員</strong>。商工会議所・自治体から、地元企業向けコンサルティング事業の受託実績も複数。</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-tag">SAAS</div>
+          <p><a href="https://topics.cybozu.co.jp/news/2015/10/15-843.html" target="_blank" rel="noopener noreferrer">kintone AWARD 2015 グランプリ受賞プロジェクト</a>に、導入支援コンサルタントとして参画。</p>
         </div>
         <div class="cred-card">
           <div class="cred-tag">SKIN IN THE GAME</div>
@@ -108,26 +139,50 @@ const jsonLd = {
       </div>
     </section>
 
+    <section class="profile-section rv">
+      <h2>セミナー登壇実績</h2>
+      <ul class="plain-list">
+        <li>大阪商工会議所、神戸商工会議所、明石商工会議所、松山商工会議所など各種団体</li>
+        <li>メガバンク、信用金庫、信用組合など金融機関</li>
+        <li>カタログ通販大手、インフラ系大手をはじめとした企業研修</li>
+      </ul>
+    </section>
+
+    <section class="profile-section rv">
+      <h2>リンク</h2>
+      <div class="link-list">
+        <a href="https://www.youtube.com/@takuma_kawahara" target="_blank" rel="noopener noreferrer">YouTubeチャンネル（登録者5,000人）&rarr;</a>
+        <a href="https://www.ciza.co.jp/" target="_blank" rel="noopener noreferrer">コーポレートサイト &rarr;</a>
+      </div>
+    </section>
+
     <a href="/#why" class="back-link rv">&larr; トップページに戻る</a>
   </div></main>
 
   <style>
     .sec{padding:140px 0 96px;}
-    .page-w{max-width:820px;}
+    .page-w{max-width:820px;margin:0 auto;}
     .sec-label{display:block;position:relative;padding-left:15px;font-size:15px;font-weight:800;letter-spacing:.04em;color:var(--accent);margin-bottom:28px;}
     .sec-label::before{content:'';position:absolute;left:0;top:1px;bottom:1px;width:3px;border-radius:2px;background:var(--accent);}
 
     .profile-head{display:flex;gap:36px;align-items:flex-start;margin-bottom:64px;}
-    .avatar{flex-shrink:0;width:160px;height:160px;border-radius:50%;background:var(--accent-soft);border:2px dashed var(--accent-light);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--accent);}
-    .avatar svg{width:56px;height:56px;}
-    .avatar-note{font-size:11px;color:var(--muted2);font-weight:600;}
+    .avatar{flex-shrink:0;width:160px;height:160px;border-radius:50%;overflow:hidden;box-shadow:var(--shadow-md);border:3px solid #fff;outline:1px solid var(--border);}
+    .avatar img{width:100%;height:100%;object-fit:cover;object-position:center 20%;}
     .profile-head-text h1{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;font-size:clamp(26px,4vw,34px);font-weight:900;letter-spacing:-.01em;}
     .profile-title{font-size:15px;font-weight:700;color:var(--muted);margin-top:8px;}
-    .profile-lead{font-size:15.5px;line-height:1.9;color:var(--ink2);margin-top:16px;max-width:520px;}
+    .profile-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+    .profile-badges span{font-size:12px;font-weight:700;color:var(--accent2);background:var(--accent-soft);padding:5px 14px;border-radius:100px;}
+    .profile-lead{font-size:15.5px;line-height:1.9;color:var(--ink2);margin-top:16px;max-width:560px;}
     .profile-head-text .btn{margin-top:24px;font-size:14.5px;padding:12px 26px;}
 
     .profile-section{margin-bottom:56px;}
     .profile-section h2{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;font-size:22px;font-weight:900;margin-bottom:24px;letter-spacing:-.01em;}
+
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+    .stat-card{text-align:center;padding:22px 12px;border:1px solid var(--border);border-radius:var(--radius);}
+    .stat-num{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;font-size:28px;font-weight:900;color:var(--accent2);letter-spacing:-.02em;}
+    .stat-num span{font-size:14px;font-weight:700;color:var(--muted);margin-left:2px;}
+    .stat-lbl{font-size:12px;color:var(--muted);margin-top:6px;font-weight:600;}
 
     .timeline{display:flex;flex-direction:column;gap:0;}
     .timeline-item{display:grid;grid-template-columns:140px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--border);}
@@ -139,10 +194,19 @@ const jsonLd = {
     .tag-list{display:flex;flex-wrap:wrap;gap:10px;}
     .tag-list span{font-size:13.5px;font-weight:700;color:var(--accent2);background:var(--accent-soft);padding:8px 16px;border-radius:100px;}
 
-    .cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .cred-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
     .cred-card{padding:22px 22px;border-radius:var(--radius);background:var(--deep);}
     .cred-card .cred-tag{font-size:13px;font-weight:800;color:var(--claude);letter-spacing:.06em;margin-bottom:10px;}
     .cred-card p{font-size:14.5px;line-height:1.8;color:rgba(255,255,255,.85);}
+    .cred-card p a{color:var(--claude);text-decoration:underline;text-underline-offset:2px;}
+
+    .plain-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .plain-list li{font-size:14.5px;line-height:1.8;color:var(--ink2);padding-left:18px;position:relative;}
+    .plain-list li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent);}
+
+    .link-list{display:flex;flex-wrap:wrap;gap:14px;}
+    .link-list a{font-size:14px;font-weight:700;color:var(--accent2);border:1.5px solid var(--border2);padding:10px 20px;border-radius:100px;}
+    .link-list a:hover{border-color:var(--accent);color:var(--accent);}
 
     .back-link{display:inline-block;font-size:14px;font-weight:600;color:var(--accent);margin-top:8px;}
     .back-link:hover{text-decoration:underline;}
@@ -150,7 +214,9 @@ const jsonLd = {
     @media(max-width:700px){
       .sec{padding:112px 0 60px;}
       .profile-head{flex-direction:column;align-items:center;text-align:center;gap:20px;margin-bottom:48px;}
+      .profile-badges{justify-content:center;}
       .profile-lead{max-width:none;}
+      .stat-grid{grid-template-columns:repeat(2,1fr);}
       .timeline-item{grid-template-columns:1fr;gap:6px;}
       .cred-grid{grid-template-columns:1fr;}
     }
