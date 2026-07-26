@@ -45,7 +45,7 @@ const jsonLd = {
   ogType="article"
   jsonLd={jsonLd}
 >
-  <article class="sec"><div class="w article-w">
+  <article class="sec"><div class="article-w">
     <a href="/blog" class="back-link">&larr; ブログ一覧に戻る</a>
     <div class="post-meta">{formatDate(post.data.date)}<span class="dot">&bull;</span>{post.data.author}</div>
     <div class="article-body">
@@ -55,7 +55,7 @@ const jsonLd = {
 
   <style>
     .sec{padding:140px 0 96px;}
-    .article-w{max-width:720px;}
+    .article-w{max-width:720px;margin:0 auto;padding:0 24px;}
     .back-link{display:inline-block;font-size:14px;font-weight:600;color:var(--accent);margin-bottom:28px;}
     .back-link:hover{text-decoration:underline;}
     .post-meta{font-size:13.5px;color:var(--muted2);margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--border);}

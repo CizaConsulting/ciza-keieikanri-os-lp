@@ -16,7 +16,7 @@ function formatDate(d: Date) {
   description="経営管理OSの構築ノウハウ、KPI設計、ツール活用事例などを発信しています。"
   canonicalUrl={`${SITE_URL}/blog`}
 >
-  <main class="sec"><div class="w" style="max-width:900px;">
+  <main class="sec"><div class="page-w">
     <div class="sec-label">お知らせ</div>
     <h2>ブログ</h2>
     <p class="lead">経営管理OSの構築ノウハウ、KPI設計、ツール活用事例などをお届けします。</p>
@@ -35,6 +35,7 @@ function formatDate(d: Date) {
 
   <style>
     .sec{padding:140px 0 96px;}
+    .page-w{max-width:900px;margin:0 auto;padding:0 24px;}
     .sec-label{display:block;position:relative;padding-left:15px;font-size:15px;font-weight:800;letter-spacing:.04em;color:var(--accent);margin-bottom:14px;}
     .sec-label::before{content:'';position:absolute;left:0;top:1px;bottom:1px;width:3px;border-radius:2px;background:var(--accent);}
     .sec h2{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;font-size:clamp(26px,4vw,38px);font-weight:900;line-height:1.25;letter-spacing:-.015em;}
