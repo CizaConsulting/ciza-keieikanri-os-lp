@@ -4,7 +4,10 @@
   "scripts": {
     "dev": "astro dev --port 4321",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "blog:generate": "node scripts/blog-automation/generate-draft.mjs",
+    "blog:publish": "node scripts/blog-automation/publish-approved.mjs",
+    "blog:finalize": "node scripts/blog-automation/finalize-publish.mjs"
   },
   "dependencies": {
     "astro": "^5.7.5",
