@@ -13,7 +13,7 @@ const SITE_URL = "https://keieikanri.ciza.co.jp";
 const CORP_URL = "https://www.ciza.co.jp";
 const CTA_FORM_URL = "https://forms.gle/5iDPnoXr8HZDqqoe7";
 // ブランドカラーは【要決定3】未定のためテンプレ標準の暖色のまま（<style>内 :root の --accent 系4変数）
-const X_SHARE_URL = `https://twitter.com/intent/tweet?url=${encodeURIComponent(SITE_URL + '/')}&text=${encodeURIComponent('経営会議を「報告」から「意思決定」へ。中小企業のための経営管理OS')}`;
+const X_SHARE_URL = `https://twitter.com/intent/tweet?url=${encodeURIComponent(SITE_URL + '/')}&text=${encodeURIComponent('経営判断を、数字で前に進める。中小企業のための経営管理OS')}`;
 const FB_SHARE_URL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SITE_URL + '/')}`;
 ---
 <!DOCTYPE html>
@@ -37,24 +37,24 @@ const FB_SHARE_URL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURICo
 <meta name="author" content={COMPANY_NAME}>
 <link rel="canonical" href={`${SITE_URL}/`}>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e0e10'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='30' font-weight='900' fill='%2394c74c' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
-<title>経営会議を「報告」から「意思決定」へ｜経営管理OS｜{COMPANY_NAME}</title>
-<meta name="description" content={`外部CFOが、中小企業のための経営管理OSを構築。経営管理の"仕組み化"は高額・大変・不透明という常識を、月額15万円〜・伴走型・自社ナイズで覆します。${COMPANY_NAME}が提供。`}>
+<title>経営判断を、数字で前に進める｜経営管理OS｜{COMPANY_NAME}</title>
+<meta name="description" content={`外部CFOが、社長の意思決定から逆算してKPI・レポート・会議・データの流れを設計。中小企業のための経営管理の仕組みづくりを${COMPANY_NAME}が伴走支援します。`}>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content={COMPANY_NAME}>
 <meta property="og:locale" content="ja_JP">
 <meta property="og:url" content={`${SITE_URL}/`}>
-<meta property="og:title" content={`経営会議を"報告"から"意思決定"へ｜経営管理OS - ${COMPANY_NAME_EN}`}>
-<meta property="og:description" content="上場企業並みの管理体制を、中小企業の規模とコストで。外部CFOが、貴社の経営管理OSを構築・伴走します。">
+<meta property="og:title" content={`経営判断を、数字で前に進める｜経営管理OS - ${COMPANY_NAME_EN}`}>
+<meta property="og:description" content="社長の意思決定から逆算し、KPI・レポート・会議・データの流れを設計。外部CFOが、貴社の経営管理の仕組みづくりに伴走します。">
 <meta property="og:image" content={`${SITE_URL}/ogp.png`}>
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:alt" content={`経営会議を「報告」から「意思決定」へ。中小企業のための経営管理OS｜${COMPANY_NAME}`}>
+<meta property="og:image:alt" content={`経営判断を、数字で前に進める。中小企業のための経営管理OS｜${COMPANY_NAME}`}>
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content={`経営会議を"報告"から"意思決定"へ｜経営管理OS - ${COMPANY_NAME_EN}`}>
-<meta name="twitter:description" content="上場企業並みの管理体制を、中小企業の規模とコストで。外部CFOが、貴社の経営管理OSを構築・伴走します。">
+<meta name="twitter:title" content={`経営判断を、数字で前に進める｜経営管理OS - ${COMPANY_NAME_EN}`}>
+<meta name="twitter:description" content="社長の意思決定から逆算し、KPI・レポート・会議・データの流れを設計。外部CFOが、貴社の経営管理の仕組みづくりに伴走します。">
 <meta name="twitter:image" content={`${SITE_URL}/ogp.png`}>
-<meta name="twitter:image:alt" content={`経営会議を「報告」から「意思決定」へ。中小企業のための経営管理OS｜${COMPANY_NAME}`}>
+<meta name="twitter:image:alt" content={`経営判断を、数字で前に進める。中小企業のための経営管理OS｜${COMPANY_NAME}`}>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
@@ -82,27 +82,30 @@ const FB_SHARE_URL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURICo
       "serviceType": "経営管理体制構築コンサルティング",
       "provider": { "@id": `${CORP_URL}/#organization` },
       "areaServed": "JP",
-      "description": "社長の意思決定から逆算して、KPI・レポート・会議・データの流れを設計し、上場企業に耐えうる管理体制を自社仕様・段階的に構築する外部CFO型の伴走支援。",
+      "description": "社長の意思決定から逆算して、KPI・レポート・会議・データの流れを設計し、実際に使われ続ける経営管理の仕組みを自社仕様・段階的に構築する外部CFO型の伴走支援。",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "経営管理OS 支援プラン",
         "itemListElement": [
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "財務顧問" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "経営管理OS構築支援" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "外部推進リーダー" } }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "経営管理構築支援" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "外部経営管理室" } }
         ]
       }
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "大規模なシステム導入が必要ですか？", "acceptedAnswer": { "@type": "Answer", "text": "既存のExcel/Google Workspace/会計システムを最大限活用します。段階実装で大規模投資は避けます。" } },
+        { "@type": "Question", "name": "何から手をつけるべきか決まっていなくても相談できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。現状の課題と経営判断の場面を整理し、優先順位を決めるところから支援します。" } },
+        { "@type": "Question", "name": "データが整っていなくても進められますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。最初からすべてのデータをそろえる必要はありません。毎月使う数字、重要な意思決定に必要な数字から段階的に整えます。" } },
+        { "@type": "Question", "name": "既存のExcelや会計システムは使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。既存環境を確認したうえで、活用できるものは残します。システムの全面刷新を前提にはしていません。" } },
+        { "@type": "Question", "name": "コンサルティングだけでなく、実際の構築も依頼できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。KPIや帳票の設計に加え、データ集計、レポート作成、ツール設定などの実装も支援します。" } },
+        { "@type": "Question", "name": "経理部門の業務改善サービスですか？", "acceptedAnswer": { "@type": "Answer", "text": "経理業務だけを対象としたサービスではありません。経営者や幹部が、投資・採用・収益改善などを判断するための経営管理全体を対象とします。" } },
         { "@type": "Question", "name": "社内に詳しい人材がいなくても大丈夫ですか？", "acceptedAnswer": { "@type": "Answer", "text": "窓口担当を1名決めていただければ、設計・実装のPMはこちらが担います。" } },
         { "@type": "Question", "name": "AI導入が目的のサービスですか？", "acceptedAnswer": { "@type": "Answer", "text": "いいえ。先に意思決定と管理の設計を行い、その実現手段としてExcel・SaaS・AIなど適切なツールを使います。AIありきではなく、貴社にとって最適な手段を選びます。" } },
-        { "@type": "Question", "name": "費用はどのくらいかかりますか？", "acceptedAnswer": { "@type": "Answer", "text": "財務顧問15万円〜、経営管理OS構築支援30万円〜です。6か月区切りで見直し可能です。" } },
+        { "@type": "Question", "name": "費用はどのくらいかかりますか？", "acceptedAnswer": { "@type": "Answer", "text": "財務顧問15万円〜、経営管理構築支援30万円〜です。" } },
         { "@type": "Question", "name": "どんな会社が向いていますか？", "acceptedAnswer": { "@type": "Answer", "text": "部門が複数あり、投資判断が発生し、幹部はいるが数字にはやや弱い、成長・改善を数字で進めたい中小・中堅企業に向いています。" } },
-        { "@type": "Question", "name": "業界の成功事例は教えてもらえますか？", "acceptedAnswer": { "@type": "Answer", "text": "事例の紹介より、貴社に合わせた設計を重視します。先を走る会社ほど、借り物の事例より自社仕様の仕組みが必要です。" } },
-        { "@type": "Question", "name": "補助金の活用も相談できますか？", "acceptedAnswer": { "@type": "Answer", "text": "可能です。投資判断と一体で助言します。" } }
+        { "@type": "Question", "name": "業界の成功事例は教えてもらえますか？", "acceptedAnswer": { "@type": "Answer", "text": "事例の紹介より、貴社に合わせた設計を重視します。先を走る会社ほど、借り物の事例より自社仕様の仕組みが必要です。" } }
       ]
     }
   ]
@@ -205,7 +208,7 @@ a{color:inherit;text-decoration:none;}
 @media(max-width:900px){.price-grid{grid-template-columns:1fr;}.price-card.hi{transform:none;}}
 
 /* Symptom cards (売るべき変化) */
-.sym-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;}
+.sym-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:36px;}
 .sym-card{border:1px solid var(--border);border-radius:var(--radius);padding:22px 18px;background:#fff;transition:all .25s;}
 .sym-card:hover{border-color:var(--accent-light);transform:translateY(-3px);box-shadow:var(--shadow-md);}
 .sym-num{font-size:12.5px;font-weight:800;color:var(--accent);margin-bottom:10px;letter-spacing:.06em;}
@@ -216,18 +219,17 @@ a{color:inherit;text-decoration:none;}
 .sym-promise .before{font-size:13.5px;color:var(--muted2);text-decoration:line-through;}
 .sym-promise .arrow{color:var(--accent);font-weight:900;margin:6px 0;}
 .sym-promise .after{font-size:14.5px;font-weight:800;color:var(--ink);}
-@media(max-width:900px){.sym-grid{grid-template-columns:repeat(2,1fr);} .sym-promise{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:900px){.sym-grid{grid-template-columns:repeat(3,1fr);} .sym-promise{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:560px){.sym-grid{grid-template-columns:1fr;} .sym-promise{grid-template-columns:1fr;} .sym-promise>div{border-right:none;border-bottom:1px solid var(--border);}}
 
-/* Layer pyramid diagram (4レイヤー) */
+/* 3段階の構造図 */
 .layer-diagram{margin-top:40px;}
 .ld-svg{width:100%;max-width:600px;height:auto;display:block;margin:0 auto;}
 .ld-caption{text-align:center;margin-top:10px;font-size:14.5px;color:rgba(255,255,255,.55);}
 .ld-caption strong{color:var(--claude);font-weight:800;}
-.layer-legend{margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px 32px;}
+.layer-legend{margin-top:36px;display:grid;grid-template-columns:1fr;gap:16px 32px;max-width:720px;margin-left:auto;margin-right:auto;}
 .layer-legend .ll-item{font-size:14.5px;line-height:1.8;color:rgba(255,255,255,.6);padding-top:14px;border-top:1px solid rgba(255,255,255,.08);}
 .layer-legend .ll-item strong{color:#fff;font-weight:800;display:block;margin-bottom:3px;font-size:15.5px;}
-@media(max-width:768px){.layer-legend{grid-template-columns:1fr;}}
 
 /* Before/After qualitative */
 .ba-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;margin-top:36px;}
@@ -256,7 +258,7 @@ a{color:inherit;text-decoration:none;}
 @media(max-width:900px){.show-grid{grid-template-columns:1fr;}}
 
 /* Flow */
-.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px;counter-reset:step;position:relative;}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:40px;counter-reset:step;position:relative;}
 .flow::before{content:'';position:absolute;top:56px;left:10%;right:10%;height:2px;background:repeating-linear-gradient(90deg,var(--border2) 0,var(--border2) 6px,transparent 6px,transparent 14px);z-index:0;}
 .flow-s{background:#fff;border:1px solid var(--border);border-radius:16px;padding:32px 20px 24px;text-align:center;counter-increment:step;transition:all .3s;position:relative;z-index:1;}
 .flow-s:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:var(--shadow-md);}
@@ -264,7 +266,7 @@ a{color:inherit;text-decoration:none;}
 .flow-s h4{font-size:17px;font-weight:900;margin-bottom:6px;letter-spacing:-.005em;}
 .flow-s .flow-period{font-size:12.5px;color:var(--accent);font-weight:700;margin-bottom:6px;}
 .flow-s p{font-size:14px;color:var(--muted);line-height:1.7;}
-@media(max-width:900px){.flow{grid-template-columns:repeat(2,1fr);}.flow::before{display:none;}}
+@media(max-width:900px){.flow{grid-template-columns:repeat(3,1fr);}.flow::before{display:none;}}
 @media(max-width:560px){.flow{grid-template-columns:1fr;}}
 
 /* Credentials (選ばれる理由) */
@@ -354,14 +356,14 @@ a{color:inherit;text-decoration:none;}
 <section class="hero"><div class="w">
   <div class="hero-content">
     <div class="hero-tag">外部CFO &times; 経営管理OS &mdash; 中小企業のための伴走支援</div>
-    <h1>経営会議を「報告」から<em>「意思決定」</em>へ。<span class="hero-h1-sub">中小企業のための、経営管理OS。</span></h1>
-    <p class="hero-sub">方向性は見えている。あとは<strong>"確信"</strong>だけ——を、数字で埋める。社長の意思決定から逆算して、KPI・レポート・会議・データの流れを設計し、<strong>上場企業に耐えうる管理体制</strong>を、自社仕様で、早く・段階的に。コンサルとシステムで数千万、ではなく、<strong>月額15万円〜</strong>の伴走で。</p>
+    <h1>経営判断を、<em>数字で前に進める。</em><span class="hero-h1-sub">中小企業のための、経営管理OS。</span></h1>
+    <p class="hero-sub">社長が決めるべきことから逆算し、KPI・レポート・会議・データの流れを設計。数字が集まるだけでなく、<strong>経営判断に使える仕組み</strong>をつくります。</p>
     <div class="hero-actions">
       <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient" style="font-size:15.5px;padding:15px 32px;">無料で経営管理診断を受ける &rarr;</a>
       <a href="#services" class="btn btn-outline" style="font-size:15.5px;padding:15px 32px;">サービス詳細</a>
     </div>
     <div class="hero-trust">
-      <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>上場企業の管理体制構築プロジェクトへの関与経験</div>
+      <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>大企業の経営管理制度構築プロジェクトへの参画経験</div>
       <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>設計から実装・自走まで一気通貫</div>
       <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>元銀行員／公認会計士パートナー在籍</div>
     </div>
@@ -371,18 +373,15 @@ a{color:inherit;text-decoration:none;}
 <!-- ━━━ 売るべき変化（USE CASES） ━━━ -->
 <section class="sec" style="background:var(--bg2);"><div class="w">
   <div class="sec-label rv">よくあるお悩み</div>
-  <h2 class="rv">こんな"経営あるある"に、心当たりは？</h2>
+  <h2 class="rv">会社の成長とともに、こんな課題が増えていませんか？</h2>
   <p class="lead rv">1つでも当てはまれば、経営管理OSがお役に立てます。</p>
 
   <div class="sym-grid">
-    <div class="sym-card rv"><div class="sym-num">01</div><p>経営会議はあるが、数字に基づいていない</p></div>
-    <div class="sym-card rv"><div class="sym-num">02</div><p>レポート・会議資料の作成が属人的で工数がかかる</p></div>
-    <div class="sym-card rv"><div class="sym-num">03</div><p>投資・賃上げ・採用を、感覚で判断していて不安</p></div>
-    <div class="sym-card rv"><div class="sym-num">04</div><p>財務を相談できる人が社内にいない</p></div>
-    <div class="sym-card rv"><div class="sym-num">05</div><p>頑張っても利益が残らない／ボトルネックが見えない</p></div>
-    <div class="sym-card rv"><div class="sym-num">06</div><p>補助金を抜け漏れなく活用できているか分からない</p></div>
-    <div class="sym-card rv"><div class="sym-num">07</div><p>AIやITを経営に採り入れたいが、何から始めるか分からない</p></div>
-    <div class="sym-card rv"><div class="sym-num">08</div><p>上場企業並みの管理体制を、いつか整えたい</p></div>
+    <div class="sym-card rv"><div class="sym-num">01</div><p>数字は出ているが、経営判断に使えていない</p></div>
+    <div class="sym-card rv"><div class="sym-num">02</div><p>部門・事業・製品別の採算が分からない</p></div>
+    <div class="sym-card rv"><div class="sym-num">03</div><p>投資・採用・賃上げを感覚で決めている</p></div>
+    <div class="sym-card rv"><div class="sym-num">04</div><p>会議資料の作成に時間がかかり、会議は報告で終わる</p></div>
+    <div class="sym-card rv"><div class="sym-num">05</div><p>管理の仕組みをつくりたいが、社内に推進できる人がいない</p></div>
   </div>
 
   <div class="sym-promise rv">
@@ -393,45 +392,34 @@ a{color:inherit;text-decoration:none;}
   </div>
 </div></section>
 
-<!-- ━━━ 経営管理OS 4レイヤー（AUTOMATION） ━━━ -->
+<!-- ━━━ 経営判断からデータまで、3段階（AUTOMATION） ━━━ -->
 <section class="sec dark"><div class="w">
   <div class="sec-label rv">解決の仕組み</div>
-  <h2 class="rv">経営管理OSの<span style="color:var(--claude);">4レイヤー</span></h2>
-  <p class="lead rv">現場のデータから、社長の意思決定まで。積み上げ式で、一気通貫で設計します。</p>
+  <h2 class="rv">すべての始まりは、<span style="color:var(--claude);">社長の意思決定</span>です。</h2>
+  <p class="lead rv">AIや自動化から始めるのではなく、まず「経営として何を判断したいか」を定めます。そこから必要なレポート、KPI、データへと逆算して設計します。</p>
 
   <div class="layer-diagram rv">
-    <svg viewBox="0 0 600 550" class="ld-svg" role="img" aria-label="データ基盤からKPI体系、レポート・会議体、ツール活用を経て社長の意思決定に至る4レイヤーのピラミッド構造図">
-      <!-- 接続矢印 -->
-      <line x1="300" y1="208" x2="300" y2="222" stroke="var(--claude)" stroke-opacity=".8" stroke-width="2"/>
-      <polygon points="293,220 307,220 300,230" fill="var(--claude)" fill-opacity=".8"/>
-      <line x1="300" y1="284" x2="300" y2="298" stroke="var(--claude)" stroke-opacity=".8" stroke-width="2"/>
-      <polygon points="293,296 307,296 300,306" fill="var(--claude)" fill-opacity=".8"/>
-      <line x1="300" y1="356" x2="300" y2="370" stroke="var(--claude)" stroke-opacity=".8" stroke-width="2"/>
-      <polygon points="293,368 307,368 300,378" fill="var(--claude)" fill-opacity=".8"/>
-      <line x1="300" y1="428" x2="300" y2="442" stroke="var(--claude)" stroke-opacity=".8" stroke-width="2"/>
-      <polygon points="293,440 307,440 300,450" fill="var(--claude)" fill-opacity=".8"/>
+    <svg viewBox="0 0 600 380" class="ld-svg" role="img" aria-label="経営判断・会議からレポート・KPI、データの流れへと上から下に進む3段階の構造図">
+      <!-- 接続矢印（上から下へ） -->
+      <line x1="300" y1="104" x2="300" y2="140" stroke="var(--claude)" stroke-opacity=".8" stroke-width="2"/>
+      <polygon points="291,132 309,132 300,146" fill="var(--claude)" fill-opacity=".8"/>
+      <line x1="300" y1="234" x2="300" y2="270" stroke="var(--claude)" stroke-opacity=".8" stroke-width="2"/>
+      <polygon points="291,262 309,262 300,276" fill="var(--claude)" fill-opacity=".8"/>
 
-      <!-- L4: ツール活用（最上段・最も意思決定に近い） -->
-      <rect x="110" y="228" width="380" height="56" rx="10" fill="#b1d383"/>
-      <text x="300" y="262" text-anchor="middle" fill="var(--ink2)" font-size="15" font-weight="800" font-family="'Noto Sans JP',sans-serif">④ ツール活用（適材適所）</text>
+      <!-- 01: 経営判断・会議（起点） -->
+      <rect x="20" y="20" width="560" height="84" rx="12" fill="url(#hubGrad)"/>
+      <text x="300" y="58" text-anchor="middle" fill="#fff" font-size="14" font-weight="800" font-family="'Noto Sans JP',sans-serif" opacity=".85">01</text>
+      <text x="300" y="80" text-anchor="middle" fill="#fff" font-size="17" font-weight="900" font-family="'Noto Sans JP',sans-serif">経営判断・会議</text>
 
-      <!-- L3: レポート・会議体 -->
-      <rect x="80" y="300" width="440" height="56" rx="10" fill="#a8d16a"/>
-      <text x="300" y="334" text-anchor="middle" fill="var(--ink2)" font-size="15" font-weight="800" font-family="'Noto Sans JP',sans-serif">③ レポート・会議体</text>
+      <!-- 02: レポート・KPI -->
+      <rect x="20" y="150" width="560" height="84" rx="12" fill="#94c74c"/>
+      <text x="300" y="188" text-anchor="middle" fill="#fff" font-size="14" font-weight="800" font-family="'Noto Sans JP',sans-serif" opacity=".85">02</text>
+      <text x="300" y="210" text-anchor="middle" fill="#fff" font-size="17" font-weight="900" font-family="'Noto Sans JP',sans-serif">レポート・KPI</text>
 
-      <!-- L2: KPI体系 -->
-      <rect x="50" y="372" width="500" height="56" rx="10" fill="#94c74c"/>
-      <text x="300" y="406" text-anchor="middle" fill="#fff" font-size="15" font-weight="800" font-family="'Noto Sans JP',sans-serif">② KPI体系</text>
-
-      <!-- L1: データ基盤（土台） -->
-      <rect x="20" y="444" width="560" height="64" rx="10" fill="#709f2c"/>
-      <text x="300" y="483" text-anchor="middle" fill="#fff" font-size="15" font-weight="800" font-family="'Noto Sans JP',sans-serif">① データ基盤</text>
-
-      <!-- 頂点ハブ: 社長の意思決定 -->
-      <circle cx="300" cy="140" r="68" fill="url(#hubGrad)"/>
-      <circle cx="300" cy="140" r="68" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
-      <text x="300" y="132" text-anchor="middle" fill="#fff" font-size="15" font-weight="900" font-family="'Noto Sans JP',sans-serif">社長の</text>
-      <text x="300" y="155" text-anchor="middle" fill="#fff" font-size="15" font-weight="900" font-family="'Noto Sans JP',sans-serif">意思決定</text>
+      <!-- 03: データの流れ -->
+      <rect x="20" y="280" width="560" height="84" rx="12" fill="#709f2c"/>
+      <text x="300" y="318" text-anchor="middle" fill="#fff" font-size="14" font-weight="800" font-family="'Noto Sans JP',sans-serif" opacity=".85">03</text>
+      <text x="300" y="340" text-anchor="middle" fill="#fff" font-size="17" font-weight="900" font-family="'Noto Sans JP',sans-serif">データの流れ</text>
 
       <defs>
         <linearGradient id="hubGrad" x1="0" y1="0" x2="1" y2="1">
@@ -440,15 +428,15 @@ a{color:inherit;text-decoration:none;}
         </linearGradient>
       </defs>
     </svg>
-    <p class="ld-caption">土台から積み上げ、すべては<strong>社長の意思決定</strong>のために。</p>
+    <p class="ld-caption">経営判断・会議 &rarr; レポート・KPI &rarr; データの流れ。<strong>意思決定</strong>から逆算して設計します。</p>
   </div>
 
   <div class="layer-legend rv">
-    <div class="ll-item"><strong>① データ基盤</strong>手集計を廃止し、自動連携へ。既存のExcel／会計システムを最大限活用します。</div>
-    <div class="ll-item"><strong>② KPI体系</strong>事業・部門・グループを横断して階層設計。貴社の勝ち筋を数字に落とし込みます。</div>
-    <div class="ll-item"><strong>③ レポート・会議体</strong>"報告"から"意思決定"へ。会議で何を決めるかから逆算して帳票を設計します。</div>
-    <div class="ll-item"><strong>④ ツール活用（適材適所）</strong>Excel・Power Query・SaaS・AIなど、得意不得意とメリット・デメリットを踏まえ適切なツールを選定・活用します。</div>
+    <div class="ll-item"><strong>01　経営判断・会議を設計する</strong>何を、どの頻度で、誰が判断するのかを整理します。投資、採用、事業別収益、資金配分など、経営として決めるべきことを明確にします。</div>
+    <div class="ll-item"><strong>02　レポート・KPIを設計する</strong>判断に必要な数字と基準を定めます。KPI体系、セグメント別損益、投資余力、部門別採算などを、自社の事業構造に合わせて設計します。</div>
+    <div class="ll-item"><strong>03　データの流れを整える</strong>必要な数字が継続的に集まる仕組みをつくります。既存のExcel、会計システム、販売管理システムなどを活用し、集計や資料作成の負担を減らします。</div>
   </div>
+  <p class="ld-caption rv" style="margin-top:18px;">Excel、SaaS、BI、AIなどのツールは、目的に応じて選びます。ツール導入そのものを目的にはしません。</p>
 
   <div class="ba-grid rv">
     <div class="ba-card before">
@@ -475,25 +463,25 @@ a{color:inherit;text-decoration:none;}
 <section class="sec" id="services"><div class="w">
   <div class="sec-label rv">サービス</div>
   <h2 class="rv">3つの伴走プラン</h2>
-  <p class="lead rv">貴社のフェーズに合わせて選べます。<strong style="color:var(--ink);">業務委託費用はシザ負担・窓口一本化</strong>、6か月区切りで見直し可能です。</p>
+  <p class="lead rv">貴社のフェーズに合わせて選べます。</p>
 
   <div class="price-grid">
     <div class="price-card rv">
       <div class="price-name">PLAN 01</div>
       <div class="price-title">財務顧問</div>
       <ul class="price-list">
+        <li>資金繰り、融資、投資判断など、財務面の相談相手が必要な企業へ。</li>
         <li>資金調達・融資／銀行対応</li>
         <li>財務・経営相談</li>
-        <li>まずは数字の相談相手が欲しい企業向け</li>
       </ul>
       <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="justify-content:center;">相談する &rarr;</a>
     </div>
 
     <div class="price-card hi rv">
-      <div class="price-badge">最も選ばれています</div>
-      <div class="price-name">PLAN 02 ★主力</div>
-      <div class="price-title">経営管理OS構築支援</div>
+      <div class="price-name">PLAN 02</div>
+      <div class="price-title">経営管理構築支援</div>
       <ul class="price-list">
+        <li>KPI、管理会計、レポート、会議体、データ集計の仕組みを設計・実装したい企業へ。</li>
         <li>OS構想設計・KPI体系／帳票設計</li>
         <li>PLセグメント設計・会議体設計</li>
         <li>実装PM（データ基盤〜ダッシュボード）</li>
@@ -503,12 +491,15 @@ a{color:inherit;text-decoration:none;}
 
     <div class="price-card rv">
       <div class="price-name">PLAN 03</div>
-      <div class="price-title">外部推進リーダー</div>
+      <div class="price-title">外部経営管理室</div>
       <ul class="price-list">
+        <li>経営管理を設計するだけでなく、継続的な運用・改善まで外部チームに任せたい企業へ。</li>
         <li>PLAN 02の内容すべて</li>
-        <li>社長／専務への推進責任・定例報告</li>
-        <li>ツール活用ロードマップ策定</li>
-        <li>専門人材紹介</li>
+        <li>月次レポートの更新</li>
+        <li>経営会議の運営支援</li>
+        <li>課題・アクション管理</li>
+        <li>KPIの継続改善</li>
+        <li>データ整備・ツール改善の推進</li>
       </ul>
       <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="justify-content:center;">相談する &rarr;</a>
     </div>
@@ -519,72 +510,87 @@ a{color:inherit;text-decoration:none;}
 <!-- ━━━ 共通の敵 ━━━ -->
 <section class="sec" style="background:var(--bg2);"><div class="w">
   <div class="sec-label rv">比較検討の前に</div>
-  <h2 class="rv">こんな支援に、物足りなさを感じていませんか？</h2>
+  <h2 class="rv">経営管理の仕組みづくりが進まない4つの理由</h2>
   <p class="lead rv">経営管理の"仕組み化"を検討すると、たいてい次の4つのどれかにぶつかります。</p>
 
   <div class="enemy-grid">
     <div class="enemy-card rv">
       <div class="enemy-num">01</div>
-      <h3>事例を持ってくるだけのコンサル</h3>
-      <p>経験の浅い担当者が来て、業界のベストプラクティスを紹介するだけ。でも先頭を走る会社に借りられる事例はない。自社ナイズしてくれる伴走者が欲しい。</p>
+      <h3>ツール導入から始めてしまう</h3>
+      <p>何を判断したいかが定まる前にツールを選んでしまい、結局使いこなせないまま終わる。</p>
     </div>
     <div class="enemy-card rv">
       <div class="enemy-num">02</div>
-      <h3>AI導入自体が目的化したAIコンサル</h3>
-      <p>経営者の意思決定を分かっていない。そもそも業務・経営管理が整っていないと、何をAIに任せるかも決まらない。</p>
+      <h3>帳票を増やすことが目的になる</h3>
+      <p>数字を出すこと自体が目的化し、経営判断につながらない帳票ばかりが増えていく。</p>
     </div>
     <div class="enemy-card rv">
       <div class="enemy-num">03</div>
-      <h3>AIを分かっていない従来型コンサル</h3>
-      <p>逆にAIの可能性に無頓着。経営管理はAIで大きく可能性が開けた——数字だけでなく議事録等のテキストも横断解析でき、大手でも難しかった仕組みが手の届くものになった。</p>
+      <h3>設計だけで、実際に運用されない</h3>
+      <p>立派な設計図はできても、日々の運用に落とし込まれず、いつの間にか使われなくなる。</p>
     </div>
     <div class="enemy-card rv">
       <div class="enemy-num">04</div>
-      <h3>現状分析に高額を取る大手</h3>
-      <p>経理DXを相談したら大手を連れてこられ、現状分析だけで高額な費用がかかる。</p>
+      <h3>最初から完璧な仕組みをつくろうとする</h3>
+      <p>すべてを一度に整えようとして計画が止まり、着手すらできない。</p>
     </div>
   </div>
 
   <div class="enemy-cross rv">
     <div class="pill">CIZAの立ち位置</div>
-    <h3>経験ある伴走 × ツールを手段として正しく使い分けられる × 自社ナイズ × 中小の規模とコスト。<br>この<em>交差点</em>に立つ、稀有な存在です。</h3>
-    <p>「事例を借りるのではなく、"自社の勝ち筋"を数字で掴む。」——テンプレの成功事例ではなく、上場企業の管理体制を知る伴走者と適切なツールで、自社仕様の経営管理をつくります。</p>
+    <h3>経営管理を、設計だけで終わらせない。</h3>
+    <p>CIZAは、経営課題の整理、KPI・管理会計の設計、レポート・会議体の構築、データ集計の仕組み化まで一貫して支援します。コンサルタントが設計書をつくって終わるのでも、システム会社が言われた帳票をつくるだけでもありません。社長の意思決定から逆算し、実際に使われ続ける仕組みとして実装します。</p>
+    <div class="cred-grid" style="margin-top:32px;text-align:left;">
+      <div class="cred-card">
+        <div class="cred-tag">01</div>
+        <p><strong style="color:#fff;">経営判断から逆算する</strong><br>既存の帳票やシステムから考えるのではなく、社長が何を判断したいかから設計します。</p>
+      </div>
+      <div class="cred-card">
+        <div class="cred-tag">02</div>
+        <p><strong style="color:#fff;">設計から実装まで進める</strong><br>KPIや管理会計を提案するだけでなく、レポート、データ、会議の運用まで形にします。</p>
+      </div>
+      <div class="cred-card">
+        <div class="cred-tag">03</div>
+        <p><strong style="color:#fff;">自社の事業構造に合わせる</strong><br>他社事例をそのまま当てはめるのではなく、事業、組織、収益構造に合わせて設計します。</p>
+      </div>
+    </div>
   </div>
 </div></section>
 
-<!-- ━━━ 成果物ショーケース ━━━ -->
+<!-- ━━━ 成果物イメージ ━━━ -->
 <section class="sec" id="showcase"><div class="w">
-  <div class="sec-label rv">制作実績</div>
-  <h2 class="rv">成果物ショーケース（社名非公開）</h2>
+  <div class="sec-label rv">アウトプット例</div>
+  <h2 class="rv">成果物イメージ</h2>
   <p class="lead rv">既存の成果物を一部ご紹介します。<strong style="color:var(--ink);">実際の管理軸・KPI・レポートは貴社の事業・データに合わせて設計</strong>します。</p>
 
   <div class="show-grid">
     <a class="show-card rv" href="/showcase/kpi.png" target="_blank" rel="noopener noreferrer">
       <div class="show-thumb"><img src="/showcase/kpi.png" alt="KPI体系図のサンプル：営業利益を売上高・費用に分解し、現場が動かせる指標まで因果でつなげた図" loading="lazy" decoding="async"></div>
-      <div class="show-body"><h4>KPI体系図</h4><span class="show-hint">クリックで拡大 &rarr;</span></div>
+      <div class="show-body"><h4>KPI体系図</h4><p style="font-size:13px;color:var(--muted);margin-top:4px;">経営目標と現場の活動をつなぐ</p><span class="show-hint">クリックで拡大 &rarr;</span></div>
     </a>
     <a class="show-card rv" href="/showcase/segment.png" target="_blank" rel="noopener noreferrer">
       <div class="show-thumb"><img src="/showcase/segment.png" alt="セグメント体系のサンプル：事業・顧客・製品・エリア・チャネル・部門など、採算を見る軸の組み合わせ例" loading="lazy" decoding="async"></div>
-      <div class="show-body"><h4>セグメント体系</h4><span class="show-hint">クリックで拡大 &rarr;</span></div>
+      <div class="show-body"><h4>セグメント体系</h4><p style="font-size:13px;color:var(--muted);margin-top:4px;">どの事業・顧客・製品が利益を生んでいるかを把握する</p><span class="show-hint">クリックで拡大 &rarr;</span></div>
     </a>
     <a class="show-card rv" href="/showcase/pl.png" target="_blank" rel="noopener noreferrer">
       <div class="show-thumb"><img src="/showcase/pl.png" alt="部門別PLのサンプル：部門ごとの実績・予算比・評価を並べ、手を打つべき箇所を特定する帳票例" loading="lazy" decoding="async"></div>
-      <div class="show-body"><h4>部門別PL</h4><span class="show-hint">クリックで拡大 &rarr;</span></div>
+      <div class="show-body"><h4>部門別PL</h4><p style="font-size:13px;color:var(--muted);margin-top:4px;">部門ごとの責任範囲と改善ポイントを明確にする</p><span class="show-hint">クリックで拡大 &rarr;</span></div>
     </a>
   </div>
-  <p style="margin-top:24px;font-size:13px;color:var(--muted2);" class="rv">※ 実際の管理軸・KPI・レポートは貴社の事業・データに合わせて設計します。使用ツールはLooker Studio等のBIツールに限らず、Excel・Power BI・その他SaaS等、貴社の環境に合わせて選定します。</p>
+  <p style="margin-top:24px;font-size:13px;color:var(--muted2);" class="rv">※ 実際の管理軸・KPI・レポートは貴社の事業・データに合わせて設計します。</p>
 </div></section>
 
 <!-- ━━━ 進め方（SERVICE FLOW） ━━━ -->
 <section class="sec" style="background:var(--bg2);"><div class="w">
   <div class="sec-label rv">ご支援の流れ</div>
-  <h2 class="rv">進め方</h2>
-  <p class="lead rv">現状把握から自走化まで、段階的に。</p>
+  <h2 class="rv">ご支援の進め方（例）</h2>
+  <p class="lead rv">課題や既存データの状況により、実施内容と順序は異なります。下記は標準的な進め方の一例です。</p>
   <div class="flow">
-    <div class="flow-s rv"><div class="flow-period">Phase1・1〜1.5ヶ月</div><h4>現状把握<br>OS基本構想</h4><p>全体計画図を作成</p></div>
-    <div class="flow-s rv"><div class="flow-period">Phase2・2〜3ヶ月</div><h4>KPI体系<br>PLセグメント設計</h4><p>KPI体系・帳票一式を作成</p></div>
-    <div class="flow-s rv"><div class="flow-period">Phase3・4〜5ヶ月</div><h4>DB構築<br>ダッシュボード実装</h4><p>自動集計DBを構築</p></div>
-    <div class="flow-s rv"><div class="flow-period">Phase4・6ヶ月〜</div><h4>ツール定着<br>自走化</h4><p>ツール活用ロードマップ・自走体制を整備</p></div>
+    <div class="flow-s rv"><h4>経営課題と<br>意思決定の整理</h4><p>何を判断すべきかを整理します</p></div>
+    <div class="flow-s rv"><h4>管理軸・KPI・<br>帳票の設計</h4><p>判断に必要な数字と基準を定めます</p></div>
+    <div class="flow-s rv"><h4>小さく<br>運用開始</h4><p>できる範囲からまず運用を始めます</p></div>
+    <div class="flow-s rv"><h4>必要に応じて<br>データ連携・自動化</h4><p>負担が大きい部分から段階的に整えます</p></div>
+    <div class="flow-s rv"><h4>運用改善・<br>社内定着</h4><p>使われ続ける仕組みへ改善します</p></div>
   </div>
 </div></section>
 
@@ -597,7 +603,7 @@ a{color:inherit;text-decoration:none;}
   <div class="cred-grid">
     <div class="cred-card rv">
       <div class="cred-tag">TRACK RECORD</div>
-      <p>前職で<strong style="color:#fff;">上場企業の経営管理制度構築プロジェクト</strong>に数年間関与。「上場企業並みの管理体制を中小の規模で」に直結する当事者性があります。</p>
+      <p>前職では、<strong style="color:#fff;">大企業の経営管理制度構築プロジェクト</strong>に参画。現在は、中堅・中小企業の事業構造や人員体制に合わせ、実際に運用できる経営管理の仕組みを設計しています。</p>
     </div>
     <div class="cred-card rv">
       <div class="cred-tag">BACKGROUND</div>
@@ -620,13 +626,16 @@ a{color:inherit;text-decoration:none;}
   <div class="sec-label rv">Q&amp;A</div>
   <h2 class="rv">よくあるご質問</h2>
   <div style="margin-top:24px;" class="rv">
-    <details class="faq"><summary>大規模なシステム導入が必要ですか？</summary><p>既存のExcel/Google Workspace/会計システムを最大限活用します。段階実装で大規模投資は避けます。</p></details>
+    <details class="faq"><summary>何から手をつけるべきか決まっていなくても相談できますか？</summary><p>はい。現状の課題と経営判断の場面を整理し、優先順位を決めるところから支援します。</p></details>
+    <details class="faq"><summary>データが整っていなくても進められますか？</summary><p>はい。最初からすべてのデータをそろえる必要はありません。毎月使う数字、重要な意思決定に必要な数字から段階的に整えます。</p></details>
+    <details class="faq"><summary>既存のExcelや会計システムは使えますか？</summary><p>はい。既存環境を確認したうえで、活用できるものは残します。システムの全面刷新を前提にはしていません。</p></details>
+    <details class="faq"><summary>コンサルティングだけでなく、実際の構築も依頼できますか？</summary><p>はい。KPIや帳票の設計に加え、データ集計、レポート作成、ツール設定などの実装も支援します。</p></details>
+    <details class="faq"><summary>経理部門の業務改善サービスですか？</summary><p>経理業務だけを対象としたサービスではありません。経営者や幹部が、投資・採用・収益改善などを判断するための経営管理全体を対象とします。</p></details>
     <details class="faq"><summary>社内に詳しい人材がいなくても大丈夫ですか？</summary><p>窓口担当を1名決めていただければ、設計・実装のPMはこちらが担います。</p></details>
     <details class="faq"><summary>AI導入が目的のサービスですか？</summary><p><strong>いいえ。</strong>先に意思決定と管理の設計を行い、その実現手段としてExcel・SaaS・AIなど適切なツールを使います。AIありきではなく、貴社にとって最適な手段を選びます。</p></details>
-    <details class="faq"><summary>費用はどのくらいかかりますか？</summary><p>財務顧問<strong>15万円〜</strong>、経営管理OS構築支援<strong>30万円〜</strong>です。6か月区切りで見直し可能です。</p></details>
+    <details class="faq"><summary>費用はどのくらいかかりますか？</summary><p>財務顧問<strong>15万円〜</strong>、経営管理構築支援<strong>30万円〜</strong>です。</p></details>
     <details class="faq"><summary>どんな会社が向いていますか？</summary><p>部門が複数あり、投資判断が発生し、幹部はいるが数字にはやや弱い、成長・改善を数字で進めたい中小・中堅企業に向いています。</p></details>
     <details class="faq"><summary>業界の成功事例は教えてもらえますか？</summary><p>事例の紹介より、貴社に合わせた設計を重視します。先を走る会社ほど、借り物の事例より自社仕様の仕組みが必要です。</p></details>
-    <details class="faq"><summary>補助金の活用も相談できますか？</summary><p>可能です。投資判断と一体で助言します。</p></details>
   </div>
 </div></section>
 
