@@ -1,10 +1,11 @@
-# Notionブログ自動化
+# 経営管理ブログ自動化
 
 ## 運用
 
-- 月曜 09:00（日本時間）: 「会議・コンテンツログ」と「判断ライブラリ」を参照し、記事ドラフトDBへ1本を「要レビュー」で作成
+- 月曜・木曜 09:00（日本時間）: 「会議・コンテンツログ」と「判断ライブラリ」を参照し、記事案を1本作成
+- 共通の「記事ドラフト」DBへ、`サイト＝経営管理`、`記事種別＝実務解説`、`ステータス＝要レビュー`で保存
 - 川原が内容を確認・修正し、ステータスを「承認」に変更
-- 水曜 09:00（日本時間）: 承認済みのうち最も古い1本を `src/content/blog` に公開
+- 火曜・金曜 09:00（日本時間）: `サイト＝経営管理`かつ`ステータス＝承認`の記事のうち、最も古い1本を公開
 - AstroのビルドとGitHubへのpushが成功した後だけ、Notionを「公開済」に変更
 - 承認記事がなければ何もしない
 
@@ -14,11 +15,11 @@ GitHub Actionsの `workflow_dispatch` から手動実行もできます。
 
 | Secret | 内容 |
 |---|---|
-| `NOTION_TOKEN` | 3つのNotionデータソースを共有したNotion Integration token |
+| `NOTION_TOKEN` | 対象のNotionデータソースを共有したNotion Integration token |
 | `OPENAI_API_KEY` | 記事生成に使用するOpenAI API key |
 | `NOTION_MEETING_LOG_DATA_SOURCE_ID` | 会議・コンテンツログのdata source ID |
 | `NOTION_JUDGMENT_LIBRARY_DATA_SOURCE_ID` | 判断ライブラリのdata source ID |
-| `NOTION_ARTICLE_DRAFT_DATA_SOURCE_ID` | 記事ドラフトDBのdata source ID |
+| `NOTION_ARTICLE_DRAFT_DATA_SOURCE_ID` | 共通の記事ドラフトDBのdata source ID |
 
 任意でRepository Variable `OPENAI_MODEL` を設定できます。未設定時はスクリプト既定値を使用します。
 
@@ -35,32 +36,46 @@ GitHub Actionsの `workflow_dispatch` から手動実行もできます。
 - titleプロパティ
 - ページ本文に川原の判断基準・考え方
 
-### 記事ドラフト
+### 共通の記事ドラフトDB
 
 必須:
 
-- titleプロパティ
+- `タイトル`（title）
+- `サイト`（select）
+  - `経営管理`
+  - `補助金`
+- `記事種別`（select）
+  - `実務解説`
+  - `制度更新`
+  - `既存記事更新`
 - `ステータス`（statusまたはselect）
   - `要レビュー`
+  - `修正依頼`
   - `承認`
   - `公開済`
+  - `見送り`
+- `スラッグ`（rich_text）
 
-推奨:
+使用する項目:
 
 - `生成日`（date）
 - `元素材`（rich_text）
 - `元素材URL`（url）
-- `狙うキーワード`（multi_select）
-- `スラッグ`（rich_text）
-- `判断ライブラリ`（rich_text）
+- `狙うキーワード`（rich_textまたはmulti_select）
 - `公開日`（date）
 - `公開URL`（url）
+- `レビューコメント`（rich_text）
 
-推奨プロパティが存在する場合は自動入力し、存在しない場合も処理は継続します。
+## 投稿先の取り違え防止
 
-## 安全設計
+- 記事生成時に`サイト＝経営管理`を必ず設定
+- 記事公開時は`サイト＝経営管理`と`ステータス＝承認`の両方で抽出
+- 公開先ドメインを`keieikanri.ciza.co.jp`に固定
+- 設定された公開先が別ドメインの場合は処理を停止
+- 1回の実行で公開する記事は最大1本
 
-- 1回につき記事案・公開とも1本
+## その他の安全設計
+
 - 未承認記事は公開しない
 - slugは英小文字・数字・ハイフンだけ許可
 - 同名ファイルがあれば上書きしない
