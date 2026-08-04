@@ -1,9 +1,7 @@
 name: Publish approved management article
 
+# Scheduled execution is handled by the ChatGPT task. Keep this workflow for manual fallback only.
 on:
-  schedule:
-    # Tuesday and Friday 09:00 JST (00:00 UTC)
-    - cron: '0 0 * * 2,5'
   workflow_dispatch:
 
 permissions:
