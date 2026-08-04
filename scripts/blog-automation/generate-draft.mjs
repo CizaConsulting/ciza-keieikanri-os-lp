@@ -23,13 +23,16 @@ async function pageSummary(page, maxChars = 5000) {
   };
 }
 
-const [meetingSchema, draftSchema] = await Promise.all([
+const [meetingSchema, judgmentSchema, draftSchema] = await Promise.all([
   retrieveDataSource(meetingId),
+  retrieveDataSource(judgmentId),
   retrieveDataSource(draftId),
 ]);
 const tagProperty = findProperty(meetingSchema, ['タグ', '分類', 'テーマ'], 'multi_select');
+const judgmentContextProperty = findProperty(judgmentSchema, ['文脈', 'タグ', 'テーマ'], 'multi_select');
 const siteProperty = findProperty(draftSchema, ['サイト', '投稿先'], 'select');
 if (!siteProperty) throw new Error('Common article database must have a select property named サイト');
+if (!judgmentContextProperty) throw new Error('Judgment library must have a multi-select property named 文脈');
 
 const meetingQuery = {
   page_size: 30,
@@ -37,9 +40,15 @@ const meetingQuery = {
 };
 if (tagProperty) meetingQuery.filter = { property: tagProperty, multi_select: { contains: managementTag } };
 
+const judgmentQuery = {
+  page_size: 50,
+  filter: { property: judgmentContextProperty, multi_select: { contains: managementTag } },
+  sorts: [{ timestamp: 'last_edited_time', direction: 'descending' }],
+};
+
 const [meetingResult, judgmentResult, draftResult] = await Promise.all([
   queryDataSource(meetingId, meetingQuery),
-  queryDataSource(judgmentId, { page_size: 50, sorts: [{ timestamp: 'last_edited_time', direction: 'descending' }] }),
+  queryDataSource(judgmentId, judgmentQuery),
   queryDataSource(draftId, {
     page_size: 100,
     filter: { property: siteProperty, select: { equals: targetSite } },
@@ -48,6 +57,7 @@ const [meetingResult, judgmentResult, draftResult] = await Promise.all([
 ]);
 
 if (!meetingResult.results?.length) throw new Error(`No meeting logs found for tag: ${managementTag}`);
+if (!judgmentResult.results?.length) throw new Error(`No judgment library entries found for context: ${managementTag}`);
 
 const meetings = await Promise.all(meetingResult.results.slice(0, 12).map((page) => pageSummary(page, 6500)));
 const judgments = await Promise.all((judgmentResult.results || []).slice(0, 20).map((page) => pageSummary(page, 2500)));
