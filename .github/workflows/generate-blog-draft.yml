@@ -1,0 +1,42 @@
+name: Generate management blog draft
+
+on:
+  schedule:
+    # Monday and Thursday 09:00 JST (00:00 UTC)
+    - cron: '0 0 * * 1,4'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: generate-blog-draft-keieikanri
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Generate one management draft in Notion
+        run: node scripts/blog-automation/generate-draft.mjs
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+          NOTION_MEETING_LOG_DATA_SOURCE_ID: ${{ secrets.NOTION_MEETING_LOG_DATA_SOURCE_ID }}
+          NOTION_JUDGMENT_LIBRARY_DATA_SOURCE_ID: ${{ secrets.NOTION_JUDGMENT_LIBRARY_DATA_SOURCE_ID }}
+          NOTION_ARTICLE_DRAFT_DATA_SOURCE_ID: ${{ secrets.NOTION_ARTICLE_DRAFT_DATA_SOURCE_ID }}
+          NOTION_TARGET_SITE: 経営管理
+          NOTION_ARTICLE_TYPE: 実務解説
+          NOTION_MANAGEMENT_TAG: 経営管理
+          NOTION_REVIEW_STATUS: 要レビュー

@@ -1,0 +1,74 @@
+name: Publish approved management article
+
+on:
+  schedule:
+    # Tuesday and Friday 09:00 JST (00:00 UTC)
+    - cron: '0 0 * * 2,5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-approved-blog-keieikanri
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Prepare one approved management article
+        run: node scripts/blog-automation/publish-approved.mjs
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_ARTICLE_DRAFT_DATA_SOURCE_ID: ${{ secrets.NOTION_ARTICLE_DRAFT_DATA_SOURCE_ID }}
+          NOTION_TARGET_SITE: 経営管理
+          NOTION_APPROVED_STATUS: 承認
+          NOTION_PUBLISHED_STATUS: 公開済
+          PUBLIC_SITE_URL: https://keieikanri.ciza.co.jp
+          EXPECTED_PUBLIC_HOST: keieikanri.ciza.co.jp
+
+      - name: Build site
+        run: npm run build
+
+      - name: Commit and push article
+        id: commit
+        shell: bash
+        run: |
+          if [ ! -f .blog-publish-result.json ]; then
+            echo "published=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ -z "$(git status --porcelain -- src/content/blog)" ]; then
+            echo "published=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/content/blog
+          TITLE=$(node -e "const r=require('./.blog-publish-result.json'); process.stdout.write(r.title)")
+          git commit -m "経営管理ブログを公開: ${TITLE}"
+          git push origin HEAD:main
+          echo "published=true" >> "$GITHUB_OUTPUT"
+
+      - name: Mark article as published in Notion
+        if: steps.commit.outputs.published == 'true'
+        run: node scripts/blog-automation/finalize-publish.mjs
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+
+      - name: Remove temporary state
+        if: always()
+        run: rm -f .blog-publish-result.json
