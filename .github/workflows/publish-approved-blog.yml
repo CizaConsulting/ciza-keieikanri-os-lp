@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: publish-approved-blog
+  group: publish-approved-blog-keieikanri
   cancel-in-progress: false
 
 jobs:
@@ -29,14 +29,16 @@ jobs:
 
       - run: npm ci
 
-      - name: Prepare one approved article
+      - name: Prepare one approved management article
         run: node scripts/blog-automation/publish-approved.mjs
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_ARTICLE_DRAFT_DATA_SOURCE_ID: ${{ secrets.NOTION_ARTICLE_DRAFT_DATA_SOURCE_ID }}
+          NOTION_TARGET_SITE: 経営管理
           NOTION_APPROVED_STATUS: 承認
           NOTION_PUBLISHED_STATUS: 公開済
           PUBLIC_SITE_URL: https://keieikanri.ciza.co.jp
+          EXPECTED_PUBLIC_HOST: keieikanri.ciza.co.jp
 
       - name: Build site
         run: npm run build
