@@ -8,6 +8,8 @@ const meetingId = requireEnv('NOTION_MEETING_LOG_DATA_SOURCE_ID');
 const judgmentId = requireEnv('NOTION_JUDGMENT_LIBRARY_DATA_SOURCE_ID');
 const draftId = requireEnv('NOTION_ARTICLE_DRAFT_DATA_SOURCE_ID');
 const managementTag = process.env.NOTION_MANAGEMENT_TAG || '経営管理';
+const targetSite = process.env.NOTION_TARGET_SITE || '経営管理';
+const articleType = process.env.NOTION_ARTICLE_TYPE || '実務解説';
 
 async function pageSummary(page, maxChars = 5000) {
   const blocks = await getAllBlocks(page.id);
@@ -21,8 +23,14 @@ async function pageSummary(page, maxChars = 5000) {
   };
 }
 
-const meetingSchema = await retrieveDataSource(meetingId);
+const [meetingSchema, draftSchema] = await Promise.all([
+  retrieveDataSource(meetingId),
+  retrieveDataSource(draftId),
+]);
 const tagProperty = findProperty(meetingSchema, ['タグ', '分類', 'テーマ'], 'multi_select');
+const siteProperty = findProperty(draftSchema, ['サイト', '投稿先'], 'select');
+if (!siteProperty) throw new Error('Common article database must have a select property named サイト');
+
 const meetingQuery = {
   page_size: 30,
   sorts: [{ timestamp: 'created_time', direction: 'descending' }],
@@ -32,7 +40,11 @@ if (tagProperty) meetingQuery.filter = { property: tagProperty, multi_select: { 
 const [meetingResult, judgmentResult, draftResult] = await Promise.all([
   queryDataSource(meetingId, meetingQuery),
   queryDataSource(judgmentId, { page_size: 50, sorts: [{ timestamp: 'last_edited_time', direction: 'descending' }] }),
-  queryDataSource(draftId, { page_size: 100, sorts: [{ timestamp: 'created_time', direction: 'descending' }] }),
+  queryDataSource(draftId, {
+    page_size: 100,
+    filter: { property: siteProperty, select: { equals: targetSite } },
+    sorts: [{ timestamp: 'created_time', direction: 'descending' }],
+  }),
 ]);
 
 if (!meetingResult.results?.length) throw new Error(`No meeting logs found for tag: ${managementTag}`);
@@ -90,27 +102,32 @@ if (!meetings.some((m) => m.id === article.source_page_id)) throw new Error('Mod
 if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article.slug)) throw new Error(`Unsafe slug: ${article.slug}`);
 if (!article.markdown.startsWith('---')) throw new Error('Generated Markdown is missing frontmatter');
 
-const draftSchema = await retrieveDataSource(draftId);
 const properties = {};
 const titleName = findProperty(draftSchema, ['記事タイトル', 'タイトル', '名前', 'Name'], 'title');
 if (!titleName) throw new Error('Article draft database has no title property');
 properties[titleName] = makeProperty('title', article.title);
+properties[siteProperty] = makeProperty('select', targetSite);
 
 const mappings = [
   [['ステータス', 'Status'], ['status', 'select'], process.env.NOTION_REVIEW_STATUS || '要レビュー'],
+  [['記事種別'], ['select'], articleType],
   [['生成日', '作成日'], ['date'], new Date().toISOString().slice(0, 10)],
   [['元素材', '素材'], ['rich_text'], article.source_title],
   [['元素材URL', '素材URL'], ['url'], article.source_url],
-  [['狙うキーワード', 'キーワード'], ['multi_select'], article.keywords],
+  [['狙うキーワード', 'キーワード'], ['multi_select', 'rich_text'], article.keywords],
   [['スラッグ', 'slug', 'Slug'], ['rich_text'], article.slug],
   [['判断ライブラリ', '参照判断'], ['rich_text'], article.judgment_titles.join('、')],
 ];
 for (const [names, types, value] of mappings) {
   for (const type of types) {
     const name = findProperty(draftSchema, names, type);
-    if (name) { properties[name] = makeProperty(type, value); break; }
+    if (name) {
+      const mappedValue = type === 'rich_text' && Array.isArray(value) ? value.join('、') : value;
+      properties[name] = makeProperty(type, mappedValue);
+      break;
+    }
   }
 }
 
 const page = await createPage(draftId, properties, markdownToBlocks(article.markdown));
-console.log(JSON.stringify({ created: true, title: article.title, notion_url: page.url, source: article.source_title }, null, 2));
+console.log(JSON.stringify({ created: true, site: targetSite, title: article.title, notion_url: page.url, source: article.source_title }, null, 2));
