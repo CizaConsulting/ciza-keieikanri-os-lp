@@ -1,16 +1,16 @@
-name: Generate weekly blog draft
+name: Generate management blog draft
 
 on:
   schedule:
-    # Monday 09:00 JST (00:00 UTC)
-    - cron: '0 0 * * 1'
+    # Monday and Thursday 09:00 JST (00:00 UTC)
+    - cron: '0 0 * * 1,4'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: generate-weekly-blog-draft-keieikanri
+  group: generate-blog-draft-keieikanri
   cancel-in-progress: false
 
 jobs:
