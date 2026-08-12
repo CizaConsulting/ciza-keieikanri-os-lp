@@ -51,6 +51,13 @@ const jsonLd = {
     <div class="article-body">
       <Content />
     </div>
+
+    {/* セルフチェック導線。テンプレート側に持たせているので全記事（今後の自動公開分を含む）に反映される */}
+    <aside class="check-box">
+      <h3>自社は大丈夫？ 3分でセルフチェック</h3>
+      <p>バックオフィス・財務の健康状態を「はい／いいえ」の15問で自己点検できる無料PDFをご用意しています。3タイプの判定表つき。</p>
+      <a href="/check" class="check-btn">セルフチェックを受け取る &rarr;</a>
+    </aside>
   </div></article>
 
   <style>
@@ -73,9 +80,18 @@ const jsonLd = {
     .article-body :global(li){font-size:16.5px;line-height:1.9;color:var(--ink2);margin-bottom:8px;}
     .article-body :global(hr){border:none;border-top:1px solid var(--border);margin:44px 0;}
     .article-body :global(img){border-radius:var(--radius);margin:24px 0;max-width:100%;}
+    /* 記事の読後感を邪魔しない控えめなボックス */
+    .check-box{margin-top:52px;padding:26px 28px;background:var(--accent-soft);border:1px solid rgba(148,199,76,.2);border-radius:var(--radius);}
+    .check-box h3{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;font-size:17px;font-weight:900;line-height:1.5;}
+    .check-box p{margin-top:10px;font-size:14.5px;line-height:1.9;color:var(--ink2);}
+    .check-btn{display:inline-flex;align-items:center;gap:6px;margin-top:18px;padding:11px 22px;background:#fff;border:1.5px solid var(--border2);border-radius:10px;font-size:14.5px;font-weight:700;color:var(--ink);transition:all .2s cubic-bezier(.16,1,.3,1);}
+    .check-btn:hover{border-color:var(--ink);transform:translateY(-1px);}
     @media(max-width:768px){
       .sec{padding:112px 0 60px;}
       .article-body :global(p),.article-body :global(li){font-size:15.5px;}
+      .check-box{margin-top:40px;padding:22px 20px;}
+      .check-box h3{font-size:16px;}
+      .check-btn{width:100%;justify-content:center;}
     }
   </style>
 </BlogLayout>

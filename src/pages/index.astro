@@ -327,10 +327,20 @@ a{color:inherit;text-decoration:none;}
   .enemy-grid{gap:14px;}
   .ld-svg{max-width:440px;}
 }
+/* 二次CTA（セルフチェック配布）。最終CTAと競合させないため一段控えめな帯にする */
+.check-band{background:var(--accent-soft);border-top:1px solid rgba(148,199,76,.18);border-bottom:1px solid rgba(148,199,76,.18);padding:44px 0;}
+.check-band .w{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.check-band h3{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;font-size:19px;font-weight:900;line-height:1.5;letter-spacing:-.01em;}
+.check-band p{margin-top:8px;font-size:14.5px;line-height:1.85;color:var(--ink2);max-width:620px;}
+.check-band .btn{flex-shrink:0;background:#fff;}
 @media(max-width:768px){
   .hero{padding-top:96px;padding-bottom:48px;}
   .cta-sec{padding:60px 16px;}
   h2{font-size:24px!important;}
+  .check-band{padding:36px 0;}
+  .check-band .w{flex-direction:column;align-items:flex-start;gap:18px;}
+  .check-band h3{font-size:17.5px;}
+  .check-band .btn{width:100%;justify-content:center;}
 }
 </style>
 </head>
@@ -349,7 +359,7 @@ a{color:inherit;text-decoration:none;}
     <a href="/blog">ブログ</a>
     <a href="#faq">FAQ</a>
   </div>
-  <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-dark">無料で経営管理診断を受ける &rarr;</a>
+  <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-dark">無料相談を申し込む &rarr;</a>
 </div></nav>
 
 <!-- HERO -->
@@ -360,7 +370,7 @@ a{color:inherit;text-decoration:none;}
     <p class="hero-sub">社長が決めるべきことから逆算し、KPI・レポート・会議・データの流れを設計。数字が集まるだけでなく、<strong>経営判断に使える仕組み</strong>をつくります。</p>
     <p class="hero-sub" style="font-size:15px;margin-top:12px;color:var(--muted2);">経営管理OSとは、経営判断に必要な数字・会議・管理の仕組みを、一体として整えます。</p>
     <div class="hero-actions">
-      <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient" style="font-size:15.5px;padding:15px 32px;">無料で経営管理診断を受ける &rarr;</a>
+      <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient" style="font-size:15.5px;padding:15px 32px;">無料相談を申し込む &rarr;</a>
       <a href="#services" class="btn btn-outline" style="font-size:15.5px;padding:15px 32px;">サービス詳細</a>
     </div>
     <div class="hero-trust">
@@ -505,7 +515,7 @@ a{color:inherit;text-decoration:none;}
       <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="justify-content:center;">相談する &rarr;</a>
     </div>
   </div>
-  <p class="price-note rv">※ 料金の詳細は無料診断にてご案内します。</p>
+  <p class="price-note rv">※ 料金の詳細は無料相談にてご案内します。</p>
 </div></section>
 
 <!-- ━━━ 共通の敵 ━━━ -->
@@ -640,6 +650,15 @@ a{color:inherit;text-decoration:none;}
   </div>
 </div></section>
 
+<!-- ━━━ 二次CTA（セルフチェック配布） ━━━ -->
+<section class="check-band"><div class="w rv">
+  <div>
+    <h3>まだ相談するほどではない、という方へ</h3>
+    <p>まずは自社の現在地を知るところから。バックオフィス・財務の健康状態を3分で自己点検できる15問チェックリスト（無料PDF）をご用意しました。</p>
+  </div>
+  <a href="/check" class="btn btn-outline">セルフチェックを受け取る &rarr;</a>
+</div></section>
+
 <!-- ━━━ BLOG TEASER ━━━ -->
 <section class="sec" style="background:var(--bg2);"><div class="w">
   <div class="sec-label rv">お知らせ</div>
@@ -667,9 +686,9 @@ a{color:inherit;text-decoration:none;}
       初回相談は無料
     </div>
     <h2>会社の数字が、<br><em>見えにくくなってきたら。</em></h2>
-    <p class="lead">まずは無料の経営管理診断で、貴社の現在地を数字で確認しませんか。</p>
+    <p class="lead">まずは無料相談で、貴社の現在地と打ち手を整理しませんか。</p>
     <div style="display:flex;gap:12px;justify-content:center;margin-top:36px;flex-wrap:wrap;">
-      <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient" style="font-size:17px;padding:17px 40px;">無料で経営管理診断を受ける &rarr;</a>
+      <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient" style="font-size:17px;padding:17px 40px;">無料相談を申し込む &rarr;</a>
       <a href="#services" class="btn btn-outline" style="font-size:17px;padding:17px 40px;">サービス詳細を見る</a>
     </div>
     <div style="margin-top:28px;font-size:14px;color:var(--muted);">
