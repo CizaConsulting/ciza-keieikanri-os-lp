@@ -4,6 +4,9 @@
 // フッターは会社概要とプライバシーポリシーだけに絞っている。
 // デザイントークンは他ページと同一（新しい見た目を足さない）。
 import { COMPANY_NAME, COMPANY_NAME_EN, SITE_URL, CORP_URL } from '../lib/site';
+// 素の CSS として読み込む。.astro の <style> だとこのレイアウトの要素にしかかからず、
+// ページ側の .w や .btn に届かない（コンテナが効かず左寄せになる）。
+import '../styles/squeeze-base.css';
 
 interface Props {
   title: string;
@@ -66,36 +69,6 @@ const {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#0b0b0c;--ink2:#1a1a1d;--bg:#fff;--bg2:#f7f7f8;--bg3:#fafaf9;--border:#eaeaea;--border2:#d4d4d8;--muted:#6b6b70;--muted2:#98989e;--accent:#94c74c;--accent2:#709f2c;--accent-light:#b1d383;--accent-soft:#ecf1e4;--deep:#0e0e10;--deep2:#1a1a1d;--claude:#a2cc65;--radius:14px;--radius-lg:20px;--max:1200px;--shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(0,0,0,.05),0 2px 4px rgba(0,0,0,.04);--shadow-lg:0 20px 50px -12px rgba(0,0,0,.08),0 8px 20px -8px rgba(0,0,0,.06);--shadow-glow:0 20px 60px -15px rgba(148,199,76,.35);}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{font-size:16px;scroll-behavior:smooth;}
-body{font-family:'Noto Sans JP','Meiryo','Hiragino Kaku Gothic ProN',sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-.nav-brand .brand-text,.mark{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;}
-img{max-width:100%;display:block;}
-a{color:inherit;text-decoration:none;}
-.w{max-width:var(--max);margin:0 auto;padding:0 24px;}
-
-/* 簡略ヘッダー：ロゴのみ。ナビリンクは置かない（回遊防止） */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.82);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(234,234,234,.6);height:64px;display:flex;align-items:center;}
-.nav .w{display:flex;align-items:center;width:100%;}
-.nav-brand{display:flex;align-items:center;gap:8px;}
-.nav-brand .mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#94c74c,#b1d383);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;}
-.nav-brand .brand-text{font-weight:800;font-size:13.5px;letter-spacing:.02em;color:var(--ink);}
-.nav-brand .brand-text small{display:block;font-size:11.5px;color:var(--muted);font-weight:600;letter-spacing:.06em;}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-weight:700;padding:11px 22px;border-radius:10px;font-size:15px;transition:all .2s cubic-bezier(.16,1,.3,1);border:none;cursor:pointer;}
-.btn-gradient{background:linear-gradient(135deg,#94c74c,#b1d383);color:#fff;box-shadow:var(--shadow-glow);}
-.btn-gradient:hover{transform:translateY(-1px);box-shadow:0 24px 70px -15px rgba(148,199,76,.5);}
-.btn-outline{border:1.5px solid var(--border2);color:var(--ink);background:#fff;}
-.btn-outline:hover{border-color:var(--ink);transform:translateY(-1px);}
-
-/* 簡略フッター：会社概要とプライバシーポリシーのみ */
-.footer{border-top:1px solid var(--border);padding:32px 0;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;}
-.footer-nav{display:flex;justify-content:center;gap:20px;font-size:13.5px;color:var(--muted);flex-wrap:wrap;}
-.footer-nav a:hover{color:var(--ink);}
-.footer small{font-size:12.5px;color:var(--muted2);}
-</style>
 </head>
 <body>
 
