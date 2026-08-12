@@ -9,7 +9,12 @@ import '../../styles/kit-form.css';
 const title = '社長のためのバックオフィス・財務セルフチェック15問（無料PDF）｜CIZA Consulting';
 const description = '社長が1週間休んだら、会社は回りますか。試算表・属人化・資金繰りの健康状態を3分で自己点検できる15問チェックリスト。3タイプの判定表つき無料PDF。';
 ---
-<SqueezeLayout title={title} description={description} canonicalUrl={`${SITE_URL}/check`}>
+<SqueezeLayout
+  title={title}
+  description={description}
+  canonicalUrl={`${SITE_URL}/check`}
+  ogImage={`${SITE_URL}/check/ogp.png`}
+>
 
   <!-- ━━━ 1. ファーストビュー ━━━ -->
   <section class="hero"><div class="w hero-w">
@@ -25,10 +30,15 @@ const description = '社長が1週間休んだら、会社は回りますか。�
     </div>
 
     <div class="hero-visual">
-      <!-- 画像素材は別途支給。差し替えるまではプレースホルダを表示する -->
-      <div class="cover-ph" role="img" aria-label="セルフチェック15問 PDFの表紙">
-        <span class="cover-ph-label">バックオフィス・財務<br>セルフチェック<strong>15問</strong></span>
-      </div>
+      <img
+        class="cover"
+        src="/check/cover.png"
+        alt="社長のためのバックオフィス・財務セルフチェック15問 PDFの誌面"
+        width="1241"
+        height="1754"
+        loading="eager"
+        decoding="async"
+      >
     </div>
   </div></section>
 
@@ -86,9 +96,7 @@ const description = '社長が1週間休んだら、会社は回りますか。�
     .btn-lg{font-size:16px;padding:16px 34px;width:100%;max-width:400px;}
 
     .hero-visual{display:flex;justify-content:center;}
-    .cover-ph{width:100%;max-width:300px;aspect-ratio:1/1.414;border-radius:var(--radius);background:linear-gradient(150deg,var(--deep),#2a2a2e);box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:center;padding:24px;}
-    .cover-ph-label{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;color:#fff;font-size:17px;font-weight:800;line-height:1.7;text-align:center;}
-    .cover-ph-label strong{display:block;margin-top:6px;font-size:34px;font-weight:900;color:var(--accent);}
+    .cover{width:100%;height:auto;max-width:300px;border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow-lg);}
 
     /* 2〜5. 共通 */
     .sec{padding:56px 0;}
@@ -110,7 +118,7 @@ const description = '社長が1週間休んだら、会社は回りますか。�
       .hero{padding:84px 0 28px;}
       .hero-w{grid-template-columns:1fr;gap:20px;}
       .hero-visual{order:-1;}
-      .cover-ph{max-width:140px;}
+      .cover{max-width:140px;}
       .btn-lg{max-width:none;}
       .sec{padding:30px 0;}
       .sec-last{padding:32px 0 40px;}
