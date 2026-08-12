@@ -2,7 +2,9 @@
 // セルフチェック配布ページ（スクイーズページ）。
 // 目的は「登録」ただ一つ。サービス説明・診断の売り込み・他ページへの回遊は置かない。
 import SqueezeLayout from '../../layouts/SqueezeLayout.astro';
-import { SITE_URL, CTA_FORM_URL } from '../../lib/site';
+import KitCheckForm from '../../components/KitCheckForm.astro';
+import { SITE_URL } from '../../lib/site';
+import '../../styles/kit-form.css';
 
 const title = '社長のためのバックオフィス・財務セルフチェック15問（無料PDF）｜CIZA Consulting';
 const description = '社長が1週間休んだら、会社は回りますか。試算表・属人化・資金繰りの健康状態を3分で自己点検できる15問チェックリスト。3タイプの判定表つき無料PDF。';
@@ -16,11 +18,10 @@ const description = '社長が1週間休んだら、会社は回りますか。�
       <h1>社長が1週間休んだら、<br class="br-sp">会社は回りますか。</h1>
       <p class="sub">試算表のスピード、業務の属人化、資金の見通し——中小企業のバックオフィス・財務の健康状態を、「はい／いいえ」の15問で自己点検できるチェックリストです。3タイプの判定表つき。</p>
 
-      <!-- KIT_FORM_EMBED -->
       <div class="form-slot">
-        <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient btn-lg">15問チェックリストを受け取る（無料）</a>
+        <KitCheckForm />
       </div>
-      <p class="form-note">ご登録のメールアドレスにPDFをお送りします。月1回のニュースレターも配信します（ワンクリックで解除できます）。</p>
+      <p class="form-note">ご登録後に届く確認メールのリンクから、PDFをダウンロードいただけます。月1回のニュースレターも配信します（ワンクリックで解除できます）。</p>
     </div>
 
     <div class="hero-visual">
@@ -59,12 +60,14 @@ const description = '社長が1週間休んだら、会社は回りますか。�
   <section class="sec sec-last"><div class="w narrow center">
     <h2>3分の自己点検から、始めませんか</h2>
 
-    <!-- KIT_FORM_EMBED -->
     <div class="form-slot form-slot-center">
-      <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient btn-lg">15問チェックリストを受け取る（無料）</a>
+      <KitCheckForm />
     </div>
-    <p class="form-note center-note">ご登録のメールアドレスにPDFをお送りします。月1回のニュースレターも配信します（ワンクリックで解除できます）。</p>
+    <p class="form-note center-note">ご登録後に届く確認メールのリンクから、PDFをダウンロードいただけます。月1回のニュースレターも配信します（ワンクリックで解除できます）。</p>
   </div></section>
+
+  {/* Kit の送信処理。フォームは2箇所あるが、この読み込みは1回でよい */}
+  <script is:inline async src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 
   <style>
     .w.narrow{max-width:720px;}
@@ -101,19 +104,23 @@ const description = '社長が1週間休んだら、会社は回りますか。�
     .qlist li::before{content:'';position:absolute;left:18px;top:50%;transform:translateY(-50%);width:19px;height:19px;border:2px solid var(--border2);border-radius:5px;background:#fff;}
     .closing{margin-top:20px;font-size:15px;line-height:1.95;color:var(--ink2);font-weight:700;}
 
-    /* スマホで3スクロール以内に収めるため、モバイルでは余白と表紙を詰める */
+    /* スマホで3スクロール以内に収めるため、モバイルでは余白と表紙を詰める。
+       フォームが2箇所入るぶん、ここを緩めると簡単に3スクロールを超える。 */
     @media(max-width:880px){
-      .hero{padding:88px 0 36px;}
-      .hero-w{grid-template-columns:1fr;gap:26px;}
+      .hero{padding:84px 0 28px;}
+      .hero-w{grid-template-columns:1fr;gap:20px;}
       .hero-visual{order:-1;}
-      .cover-ph{max-width:176px;}
+      .cover-ph{max-width:140px;}
       .btn-lg{max-width:none;}
-      .sec{padding:38px 0;}
-      .sec-last{padding:40px 0 48px;}
-      .sub{font-size:15px;}
-      .body{font-size:15px;}
-      .qlist{gap:10px;}
-      .qlist li{font-size:14.5px;padding:13px 16px 13px 46px;}
+      .sec{padding:30px 0;}
+      .sec-last{padding:32px 0 40px;}
+      .sub{margin-top:14px;font-size:15px;line-height:1.85;}
+      .form-slot{margin-top:20px;}
+      .form-note{margin-top:10px;}
+      .body{margin-top:12px;font-size:15px;line-height:1.9;}
+      .qlist{margin-top:16px;gap:8px;}
+      .qlist li{font-size:14.5px;padding:12px 16px 12px 44px;}
+      .closing{margin-top:16px;}
     }
     @media(min-width:481px){.br-sp{display:none;}}
   </style>
