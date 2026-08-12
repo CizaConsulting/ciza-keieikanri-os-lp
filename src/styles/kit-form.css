@@ -114,7 +114,9 @@
   line-height: 1.8;
   text-align: left;
 }
-.formkit-alert:has(li) { display: block; }
+/* Kit はエラー時に本文の無い 400 を返すことがあり、ck.js が中身の無い li を
+   差し込む。文字が入っている li があるときだけ表示する。 */
+.formkit-alert:has(li:not(:empty)) { display: block; }
 .formkit-alert-error {
   background: #fde8e2;
   border: 1px solid #f2643b;
