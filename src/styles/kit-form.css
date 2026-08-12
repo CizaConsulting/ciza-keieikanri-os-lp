@@ -101,11 +101,7 @@
 }
 
 /* エラー・完了メッセージ */
-/* エラー枠は既定で隠し、中身（li）が入ったときだけ出す。
-   :empty だけだと ck.js が空白ノードを入れた時点で枠が見えてしまい、
-   文字のない赤い箱が出るため。 */
 .formkit-alert {
-  display: none;
   list-style: none;
   margin: 0 0 12px;
   padding: 12px 16px;
@@ -114,12 +110,19 @@
   line-height: 1.8;
   text-align: left;
 }
-.formkit-alert:has(li) { display: block; }
+/* エラー枠は文字の入った li があるときだけ出す。
+   Kit はエラー時に本文の無い 400 を返すことがあり、ck.js が空白や
+   中身の無い li を差し込むため、:empty では文字なしの赤い箱が出てしまう。
+   注意: display:none の対象は -error に限ること。成功メッセージも
+   .formkit-alert を持つため、.formkit-alert 全体を隠すと送信成功時に
+   何も表示されなくなる（入力欄は ck.js が隠すので画面が空になる）。 */
 .formkit-alert-error {
+  display: none;
   background: #fde8e2;
   border: 1px solid #f2643b;
   color: #b8330f;
 }
+.formkit-alert-error:has(li:not(:empty)) { display: block; }
 .formkit-alert-success,
 .formkit-form .seva-custom-content {
   background: var(--accent-soft);
