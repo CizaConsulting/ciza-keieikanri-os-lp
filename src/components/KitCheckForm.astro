@@ -1,0 +1,63 @@
+---
+// Kit（ConvertKit）の登録フォーム。
+//
+// Kit が発行した HTML 埋め込みコードの DOM 構造・属性・name をそのまま使っている。
+// ck.js がこれらを見て送信・バリデーション・メッセージ表示を行うため、
+// class / data-* / name は変更しないこと。見た目だけ kit-form.css で上書きしている。
+// （Kit が出力するインラインの色指定は外してある。CSSより強く効いてしまうため）
+//
+// フォーム本体は 1ページに2箇所（ファーストビューと最下部）置く。
+// ck.js の読み込みは check/index.astro 側で1回だけ行う。
+
+const FORM_ID = '9793027';
+const FORM_UID = 'd682a6c492';
+
+// Kit の設定。ck.js が data-options から読む。
+// after_subscribe は Kit 側のフォーム設定に合わせること。
+// redirect_url を設定すると送信後に /check/thanks へ遷移する（登録完了の計測点）。
+const options = {
+  settings: {
+    after_subscribe: {
+      action: 'message',
+      success_message:
+        '確認メールをお送りしました。\nメール内のリンクをクリックすると、メルマガ登録して簡易セルフチェックシートを受け取れます。\n※メルマガは無料でいつでも解約できます。',
+      redirect_url: '',
+    },
+    analytics: { google: null, fathom: null, facebook: null, segment: null, pinterest: null, sparkloop: null, googletagmanager: null },
+    modal: { trigger: 'timer', scroll_percentage: null, timer: 5, devices: 'all', show_once_every: 15 },
+    powered_by: { show: false, url: 'https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic' },
+    recaptcha: { enabled: false },
+    return_visitor: { action: 'show', custom_content: '' },
+    slide_in: { display_in: 'bottom_right', trigger: 'timer', scroll_percentage: null, timer: 5, devices: 'all', show_once_every: 15 },
+    sticky_bar: { display_in: 'top', trigger: 'timer', scroll_percentage: null, timer: 5, devices: 'all', show_once_every: 15 },
+  },
+  version: '5',
+};
+---
+<form
+  action={`https://app.kit.com/forms/${FORM_ID}/subscriptions`}
+  class="seva-form formkit-form"
+  method="post"
+  data-sv-form={FORM_ID}
+  data-uid={FORM_UID}
+  data-format="inline"
+  data-version="5"
+  data-options={JSON.stringify(options)}
+  min-width="400 500 600 700 800"
+>
+  <div data-style="clean">
+    <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+    <div data-element="fields" data-stacked="true" class="seva-fields formkit-fields">
+      <div class="formkit-field">
+        <input class="formkit-input" aria-label="お名前" name="fields[]" required placeholder="お名前" type="text" autocomplete="name">
+      </div>
+      <div class="formkit-field">
+        <input class="formkit-input" name="email_address" aria-label="メールアドレス" placeholder="メールアドレス" required type="email" autocomplete="email">
+      </div>
+      <button data-element="submit" class="formkit-submit">
+        <div class="formkit-spinner"><div></div><div></div><div></div></div>
+        <span>15問チェックリストを受け取る（無料）</span>
+      </button>
+    </div>
+  </div>
+</form>
