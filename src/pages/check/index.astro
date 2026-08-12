@@ -1,0 +1,122 @@
+---
+// セルフチェック配布ページ（スクイーズページ）。
+// 目的は「登録」ただ一つ。サービス説明・診断の売り込み・他ページへの回遊は置かない。
+import SqueezeLayout from '../../layouts/SqueezeLayout.astro';
+import { SITE_URL, CTA_FORM_URL } from '../../lib/site';
+
+const title = '社長のためのバックオフィス・財務セルフチェック15問（無料PDF）｜CIZA Consulting';
+const description = '社長が1週間休んだら、会社は回りますか。試算表・属人化・資金繰りの健康状態を3分で自己点検できる15問チェックリスト。3タイプの判定表つき無料PDF。';
+---
+<SqueezeLayout title={title} description={description} canonicalUrl={`${SITE_URL}/check`}>
+
+  <!-- ━━━ 1. ファーストビュー ━━━ -->
+  <section class="hero"><div class="w hero-w">
+    <div class="hero-copy">
+      <div class="tag">3分でできる自己点検｜無料PDF</div>
+      <h1>社長が1週間休んだら、<br class="br-sp">会社は回りますか。</h1>
+      <p class="sub">試算表のスピード、業務の属人化、資金の見通し——中小企業のバックオフィス・財務の健康状態を、「はい／いいえ」の15問で自己点検できるチェックリストです。3タイプの判定表つき。</p>
+
+      <!-- KIT_FORM_EMBED -->
+      <div class="form-slot">
+        <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient btn-lg">15問チェックリストを受け取る（無料）</a>
+      </div>
+      <p class="form-note">ご登録のメールアドレスにPDFをお送りします。月1回のニュースレターも配信します（ワンクリックで解除できます）。</p>
+    </div>
+
+    <div class="hero-visual">
+      <!-- 画像素材は別途支給。差し替えるまではプレースホルダを表示する -->
+      <div class="cover-ph" role="img" aria-label="セルフチェック15問 PDFの表紙">
+        <span class="cover-ph-label">バックオフィス・財務<br>セルフチェック<strong>15問</strong></span>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- ━━━ 2. チラ見せ（3問だけ。15問全文は載せない） ━━━ -->
+  <section class="sec sec-alt"><div class="w narrow">
+    <h2>たとえば、こんな問いです</h2>
+    <ul class="qlist">
+      <li>月次試算表を、翌月15日までに見ている</li>
+      <li>社長が1週間不在でも、請求と支払は止まらない</li>
+      <li>3ヶ月先の預金残高を、だいたい言える</li>
+    </ul>
+    <p class="closing">すべて「はい」なら、このPDFは不要です。ひとつでも迷ったら、残りの12問がお役に立ちます。</p>
+  </div></section>
+
+  <!-- ━━━ 3. 何が分かるか ━━━ -->
+  <section class="sec"><div class="w narrow">
+    <h2>☑の数で、貴社のタイプが分かります</h2>
+    <p class="body">15問は「A. 数字は経営に使えているか」「B. 会社は社長なしで回るか」「C. お金の備えはあるか」の3グループ。グループごとの☑の数から、貴社の弱点タイプ——数字が見えない型／社長集中型／資金の見通し不足型——を判定できます。</p>
+    <p class="body note">チェックリストで分かるのは「症状」までですが、症状の自覚が、すべての改善の出発点です。</p>
+  </div></section>
+
+  <!-- ━━━ 4. 発行者情報（会社サイトへのリンクは張らない：回遊防止） ━━━ -->
+  <section class="sec sec-alt"><div class="w narrow">
+    <h2 class="h2-sm">発行者</h2>
+    <p class="body">株式会社シザコンサルティング。元銀行員（商工中金）、コンサル歴17年。公認会計士パートナー在籍。中堅・中小企業の財務・経営管理支援を専門とし、自らもM&amp;Aで飲食事業を承継・経営しています。</p>
+  </div></section>
+
+  <!-- ━━━ 5. フォーム再掲 ━━━ -->
+  <section class="sec sec-last"><div class="w narrow center">
+    <h2>3分の自己点検から、始めませんか</h2>
+
+    <!-- KIT_FORM_EMBED -->
+    <div class="form-slot form-slot-center">
+      <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient btn-lg">15問チェックリストを受け取る（無料）</a>
+    </div>
+    <p class="form-note center-note">ご登録のメールアドレスにPDFをお送りします。月1回のニュースレターも配信します（ワンクリックで解除できます）。</p>
+  </div></section>
+
+  <style>
+    /* レイアウト側のリセットはスコープの都合でこのページの要素に届かないため、ここで揃える */
+    *,*::before,*::after{box-sizing:border-box;}
+    .w.narrow{max-width:720px;}
+    .center{text-align:center;}
+
+    /* 1. ファーストビュー */
+    .hero{padding:104px 0 56px;}
+    .hero-w{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;}
+    .tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--accent2);background:var(--accent-soft);border:1px solid rgba(148,199,76,.2);border-radius:999px;padding:6px 14px;margin-bottom:18px;}
+    .hero h1{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;font-size:clamp(27px,4.2vw,44px);font-weight:900;line-height:1.4;letter-spacing:-.02em;}
+    .sub{margin-top:18px;font-size:16px;line-height:1.95;color:var(--ink2);}
+    .form-note{margin-top:12px;font-size:12.5px;line-height:1.8;color:var(--muted);}
+
+    .form-slot{margin-top:26px;}
+    .form-slot-center{display:flex;justify-content:center;}
+    .btn-lg{font-size:16px;padding:16px 34px;width:100%;max-width:400px;}
+
+    .hero-visual{display:flex;justify-content:center;}
+    .cover-ph{width:100%;max-width:300px;aspect-ratio:1/1.414;border-radius:var(--radius);background:linear-gradient(150deg,var(--deep),#2a2a2e);box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:center;padding:24px;}
+    .cover-ph-label{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;color:#fff;font-size:17px;font-weight:800;line-height:1.7;text-align:center;}
+    .cover-ph-label strong{display:block;margin-top:6px;font-size:34px;font-weight:900;color:var(--accent);}
+
+    /* 2〜5. 共通 */
+    .sec{padding:56px 0;}
+    .sec-alt{background:var(--bg2);}
+    .sec-last{padding:60px 0 72px;}
+    .sec h2{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;font-size:clamp(20px,2.8vw,27px);font-weight:900;line-height:1.5;letter-spacing:-.01em;}
+    .sec .h2-sm{font-size:clamp(17px,2vw,20px);}
+    .body{margin-top:16px;font-size:15.5px;line-height:2;color:var(--ink2);}
+    .body.note{margin-top:14px;font-size:14.5px;color:var(--muted);}
+
+    .qlist{list-style:none;margin-top:22px;display:grid;gap:12px;}
+    .qlist li{position:relative;padding:15px 18px 15px 50px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);font-size:15.5px;line-height:1.7;color:var(--ink2);box-shadow:var(--shadow-sm);}
+    .qlist li::before{content:'';position:absolute;left:18px;top:50%;transform:translateY(-50%);width:19px;height:19px;border:2px solid var(--border2);border-radius:5px;background:#fff;}
+    .closing{margin-top:20px;font-size:15px;line-height:1.95;color:var(--ink2);font-weight:700;}
+
+    /* スマホで3スクロール以内に収めるため、モバイルでは余白と表紙を詰める */
+    @media(max-width:880px){
+      .hero{padding:88px 0 36px;}
+      .hero-w{grid-template-columns:1fr;gap:26px;}
+      .hero-visual{order:-1;}
+      .cover-ph{max-width:176px;}
+      .btn-lg{max-width:none;}
+      .sec{padding:38px 0;}
+      .sec-last{padding:40px 0 48px;}
+      .sub{font-size:15px;}
+      .body{font-size:15px;}
+      .qlist{gap:10px;}
+      .qlist li{font-size:14.5px;padding:13px 16px 13px 46px;}
+    }
+    @media(min-width:481px){.br-sp{display:none;}}
+  </style>
+</SqueezeLayout>

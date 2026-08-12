@@ -1,0 +1,43 @@
+---
+// 登録完了ページ。Kit 側の登録完了リダイレクト先に設定する想定で、
+// 登録コンバージョンの計測点はこのページの表示とする。
+// 検索結果には出さない（noindex）。
+import SqueezeLayout from '../../layouts/SqueezeLayout.astro';
+import { SITE_URL, CTA_FORM_URL } from '../../lib/site';
+
+const title = 'ご登録ありがとうございます｜CIZA Consulting';
+const description = 'セルフチェック15問のPDFをメールでお送りしました。';
+---
+<SqueezeLayout title={title} description={description} canonicalUrl={`${SITE_URL}/check/thanks`} noindex={true}>
+
+  <section class="sec"><div class="w narrow">
+    <div class="icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h1>ありがとうございます。</h1>
+    <p class="body">チェックリストPDFをメールでお送りしました。届かない場合は迷惑メールフォルダをご確認ください。</p>
+
+    <div class="links">
+      <a href="/blog">ブログを読む &rarr;</a>
+      <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer">無料相談を申し込む &rarr;</a>
+    </div>
+  </div></section>
+
+  <style>
+    /* レイアウト側のリセットはスコープの都合でこのページの要素に届かないため、ここで揃える */
+    *,*::before,*::after{box-sizing:border-box;}
+    .sec{padding:150px 0 110px;text-align:center;}
+    .w.narrow{max-width:620px;}
+    .icon{width:56px;height:56px;margin:0 auto 24px;border-radius:50%;background:var(--accent-soft);color:var(--accent2);display:flex;align-items:center;justify-content:center;}
+    .icon svg{width:26px;height:26px;}
+    h1{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;font-size:clamp(23px,3.2vw,31px);font-weight:900;line-height:1.5;letter-spacing:-.01em;}
+    .body{margin-top:18px;font-size:15.5px;line-height:2;color:var(--ink2);}
+    .links{margin-top:36px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+    .links a{font-size:14.5px;font-weight:700;color:var(--muted);}
+    .links a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
+    @media(max-width:768px){
+      .sec{padding:118px 0 76px;}
+      .body{font-size:15px;}
+    }
+  </style>
+</SqueezeLayout>
