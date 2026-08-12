@@ -1,0 +1,92 @@
+name: Preview check and publish
+
+# 承認記事の公開パイプライン。
+#
+# ルーティン（水・土 6:30 JST）は egress プロキシにより Preview URL も本番URLも取得できない。
+# そこで、ルーティンは記事ファイルを preview/<slug> ブランチへ push するだけとし、
+# 検証 → main反映 → 本番確認 をこのワークフローが機械判定で行う（人手を挟まない）。
+#
+# frontmatter の必須項目検証は Astro のコンテンツスキーマが担う。
+# スキーマ違反があれば astro build が失敗するため、build 成功が検証合格の条件になる。
+on:
+  push:
+    branches:
+      - 'preview/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-approved-blog-keieikanri
+  cancel-in-progress: false
+
+jobs:
+  preview-check-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # main へ反映するため全履歴を取得する
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # ビルド成功 = frontmatter 必須項目を含むコンテンツスキーマ検証の合格。
+      # ここで落ちた場合は main へ反映せずワークフローを失敗させる。
+      - name: Build (validates frontmatter schema)
+        run: npm run build
+
+      - name: Merge into main
+        id: merge
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git checkout main
+          git merge --no-ff "${GITHUB_SHA}" -m "承認記事を公開（${GITHUB_REF_NAME}）"
+          git push origin main
+          echo "merged=true" >> "$GITHUB_OUTPUT"
+
+      # Vercel の本番反映を待ってから確認する。反映前の判定で誤って失敗にしないため、
+      # verify-published.mjs 内で 200 が返るまでポーリングする。
+      - name: Verify production
+        id: verify
+        continue-on-error: true
+        env:
+          SITE_BASE_URL: https://keieikanri.ciza.co.jp
+        run: node scripts/blog-automation/verify-published.mjs
+
+      - name: Record production site status
+        continue-on-error: true
+        env:
+          SITE_BASE_URL: https://keieikanri.ciza.co.jp
+        run: node scripts/blog-automation/check-site-status.mjs
+
+      # 検証結果をリポジトリへ残す。ルーティンはこれを読んで Notion を「公開済」へ同期する。
+      - name: Commit verification result
+        shell: bash
+        run: |
+          FILES="data/publish-verification.json data/site-status.json"
+          git add -- $FILES 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "記録すべき変更はありません。"
+            exit 0
+          fi
+          git commit -m "本番確認の結果を記録"
+          git push origin main
+
+      - name: Fail if verification failed
+        if: steps.verify.outcome == 'failure'
+        run: |
+          echo "記事は main へ反映されましたが、本番確認に失敗しました。"
+          echo "data/publish-verification.json を確認してください。Notion は公開済にしないでください。"
+          exit 1
