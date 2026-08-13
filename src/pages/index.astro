@@ -165,6 +165,14 @@ a{color:inherit;text-decoration:none;}
 .hero-sub{font-size:17.5px;color:var(--muted);margin-top:22px;line-height:1.9;max-width:760px;}
 .hero-sub strong{color:var(--ink);font-weight:700;}
 .hero-actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;}
+/* ヒーロー内のリード獲得カード（セルフチェックPDF） */
+.hero-check{display:inline-flex;align-items:center;gap:16px;margin-top:22px;padding:14px 20px 14px 14px;background:#fff;border:1px solid rgba(148,199,76,.35);border-radius:var(--radius);box-shadow:var(--shadow-md);transition:all .2s cubic-bezier(.16,1,.3,1);max-width:640px;}
+.hero-check:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--accent);}
+.hero-check img{width:44px;height:auto;border-radius:6px;border:1px solid var(--border);flex-shrink:0;}
+.hero-check-body{display:flex;flex-direction:column;gap:3px;min-width:0;}
+.hero-check-body strong{font-size:14px;font-weight:800;line-height:1.55;color:var(--ink);}
+.hero-check-body span{font-size:12.5px;line-height:1.6;color:var(--muted);}
+.hero-check-cta{flex-shrink:0;font-size:13.5px;font-weight:800;color:var(--accent2);white-space:nowrap;}
 .hero-trust{display:flex;flex-direction:row;flex-wrap:wrap;gap:20px;margin-top:32px;}
 .hero-trust-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);font-weight:500;}
 .hero-trust-item svg{width:16px;height:16px;color:var(--accent);flex-shrink:0;}
@@ -332,14 +340,22 @@ a{color:inherit;text-decoration:none;}
 .check-band .w{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
 .check-band h3{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;font-size:19px;font-weight:900;line-height:1.5;letter-spacing:-.01em;}
 .check-band p{margin-top:8px;font-size:14.5px;line-height:1.85;color:var(--ink2);max-width:620px;}
-.check-band .btn{flex-shrink:0;background:#fff;}
+.check-band .btn{flex-shrink:0;}
+.check-band-cover{width:76px;height:auto;border-radius:8px;border:1px solid var(--border);box-shadow:var(--shadow-md);flex-shrink:0;}
+.check-band .w > div{flex:1;min-width:260px;}
 @media(max-width:768px){
   .hero{padding-top:96px;padding-bottom:48px;}
   .cta-sec{padding:60px 16px;}
   h2{font-size:24px!important;}
+  .hero-check{display:flex;max-width:none;padding:12px 16px 12px 12px;gap:12px;}
+  .hero-check img{width:38px;}
+  .hero-check-body strong{font-size:13px;}
+  .hero-check-body span{font-size:12px;}
+  .hero-check-cta{display:none;}
   .check-band{padding:36px 0;}
   .check-band .w{flex-direction:column;align-items:flex-start;gap:18px;}
   .check-band h3{font-size:17.5px;}
+  .check-band-cover{display:none;}
   .check-band .btn{width:100%;justify-content:center;}
 }
 </style>
@@ -356,6 +372,7 @@ a{color:inherit;text-decoration:none;}
     <a href="#services">サービス</a>
     <a href="#why">選ばれる理由</a>
     <a href="#showcase">成果物</a>
+    <a href="/check">セルフチェック</a>
     <a href="/blog">ブログ</a>
     <a href="#faq">FAQ</a>
   </div>
@@ -373,6 +390,19 @@ a{color:inherit;text-decoration:none;}
       <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient" style="font-size:15.5px;padding:15px 32px;">無料相談を申し込む &rarr;</a>
       <a href="#services" class="btn btn-outline" style="font-size:15.5px;padding:15px 32px;">サービス詳細</a>
     </div>
+
+    {/* リード獲得の受け皿。このテーマは「今すぐ客」が少ないため、
+        相談まで行かない見込み客のメールを /check で取る導線を一等地に置く */}
+    <a href="/check" class="hero-check rv">
+      {/* ファーストビュー内なので eager（lazy だと初回描画で出遅れる） */}
+      <img src="/check/cover.png" alt="" width="1241" height="1754" loading="eager" decoding="async">
+      <span class="hero-check-body">
+        <strong>まだ相談するほどではない方へ｜バックオフィス・財務セルフチェック15問</strong>
+        <span>3分で自己点検できる無料PDF。3タイプの判定表つき。</span>
+      </span>
+      <span class="hero-check-cta">受け取る &rarr;</span>
+    </a>
+
     <div class="hero-trust">
       <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>大企業の経営管理制度構築プロジェクトへの参画経験</div>
       <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>設計から実装・自走まで一気通貫</div>
@@ -652,11 +682,12 @@ a{color:inherit;text-decoration:none;}
 
 <!-- ━━━ 二次CTA（セルフチェック配布） ━━━ -->
 <section class="check-band"><div class="w rv">
+  <img class="check-band-cover" src="/check/cover.png" alt="" width="1241" height="1754" loading="lazy" decoding="async">
   <div>
     <h3>まだ相談するほどではない、という方へ</h3>
-    <p>まずは自社の現在地を知るところから。バックオフィス・財務の健康状態を3分で自己点検できる15問チェックリスト（無料PDF）をご用意しました。</p>
+    <p>まずは自社の現在地を知るところから。バックオフィス・財務の健康状態を3分で自己点検できる15問チェックリスト（無料PDF）をご用意しました。3タイプの判定表つき。</p>
   </div>
-  <a href="/check" class="btn btn-outline">セルフチェックを受け取る &rarr;</a>
+  <a href="/check" class="btn btn-gradient">セルフチェックを受け取る &rarr;</a>
 </div></section>
 
 <!-- ━━━ BLOG TEASER ━━━ -->
@@ -718,6 +749,7 @@ a{color:inherit;text-decoration:none;}
     <a href="#services">サービス</a>
     <a href="#why">選ばれる理由</a>
     <a href="#showcase">成果物</a>
+    <a href="/check">セルフチェック</a>
     <a href="/blog">ブログ</a>
     <a href="#faq">FAQ</a>
     <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer">お問い合わせ</a>
