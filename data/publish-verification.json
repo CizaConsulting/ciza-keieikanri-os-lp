@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "verifiedAt": "2026-08-18T21:38:22.871Z",
+  "siteBaseUrl": "https://keieikanri.ciza.co.jp",
+  "commit": "4763393d5ae8fbbc141e725919e6eec87ac4e067",
+  "results": [
+    {
+      "slug": "start-management-from-key-areas",
+      "url": "https://keieikanri.ciza.co.jp/blog/start-management-from-key-areas",
+      "status": 200,
+      "checks": {
+        "articleHttp200": true,
+        "listedOnBlogIndex": true,
+        "inSitemap": true,
+        "canonicalMatches": true,
+        "noIndexAbsent": true,
+        "robotsTxtAllows": true,
+        "noDuplicateUrl": true
+      },
+      "ok": true
+    }
+  ]
+}
