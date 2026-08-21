@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-08-18T21:38:22.871Z",
+  "verifiedAt": "2026-08-21T21:37:53.425Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "4763393d5ae8fbbc141e725919e6eec87ac4e067",
+  "commit": "1b561522693c939be2f5bfe91aede0d054e097d0",
   "results": [
     {
-      "slug": "start-management-from-key-areas",
-      "url": "https://keieikanri.ciza.co.jp/blog/start-management-from-key-areas",
+      "slug": "meeting-decide-from-purpose",
+      "url": "https://keieikanri.ciza.co.jp/blog/meeting-decide-from-purpose",
       "status": 200,
       "checks": {
         "articleHttp200": true,
