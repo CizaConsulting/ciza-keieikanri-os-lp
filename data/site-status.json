@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "checkedAt": "2026-08-21T21:37:53.767Z",
+  "checkedAt": "2026-08-25T21:49:08.203Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "reachable": true,
-  "top": 200,
-  "robotsTxt": 404,
-  "note": "本番サイトへ到達できます。公開処理を実行してよい状態です。"
+  "reachable": false,
+  "top": 526,
+  "robotsTxt": 200,
+  "note": "本番サイトへ到達できません（HTTP 526）。公開処理は実行しないでください。"
 }

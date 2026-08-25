@@ -1,23 +1,23 @@
 {
   "version": 1,
-  "verifiedAt": "2026-08-21T21:37:53.425Z",
+  "verifiedAt": "2026-08-25T21:49:07.564Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "1b561522693c939be2f5bfe91aede0d054e097d0",
+  "commit": "b358378d11c881de1a597786ea0de072871c554a",
   "results": [
     {
-      "slug": "meeting-decide-from-purpose",
-      "url": "https://keieikanri.ciza.co.jp/blog/meeting-decide-from-purpose",
-      "status": 200,
+      "slug": "reform-starts-with-affirmation",
+      "url": "https://keieikanri.ciza.co.jp/blog/reform-starts-with-affirmation",
+      "status": 526,
       "checks": {
-        "articleHttp200": true,
-        "listedOnBlogIndex": true,
-        "inSitemap": true,
-        "canonicalMatches": true,
-        "noIndexAbsent": true,
-        "robotsTxtAllows": true,
+        "articleHttp200": false,
+        "listedOnBlogIndex": false,
+        "inSitemap": false,
+        "canonicalMatches": false,
+        "noIndexAbsent": false,
+        "robotsTxtAllows": false,
         "noDuplicateUrl": true
       },
-      "ok": true
+      "ok": false
     }
   ]
 }
