@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "checkedAt": "2026-08-28T21:37:30.877Z",
+  "checkedAt": "2026-09-04T11:30:26.663Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "reachable": false,
-  "top": 0,
-  "robotsTxt": 0,
-  "note": "本番サイトへ到達できません（fetch failed）。公開処理は実行しないでください。"
+  "reachable": true,
+  "top": 200,
+  "robotsTxt": 404,
+  "note": "本番サイトへ到達できます。公開処理を実行してよい状態です。"
 }
