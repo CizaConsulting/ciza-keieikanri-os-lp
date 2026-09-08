@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-09-04T11:41:22.049Z",
+  "verifiedAt": "2026-09-08T21:39:20.544Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "eae4eed40c2bfa577b47d1e467292def7aa34a84",
+  "commit": "45f05ae670236427c55240ffe0b5a9c877a97c0e",
   "results": [
     {
-      "slug": "management-system-alone-no-profit",
-      "url": "https://keieikanri.ciza.co.jp/blog/management-system-alone-no-profit",
+      "slug": "outgrowing-your-advisor",
+      "url": "https://keieikanri.ciza.co.jp/blog/outgrowing-your-advisor",
       "status": 200,
       "checks": {
         "articleHttp200": true,
