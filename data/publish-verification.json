@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-09-08T21:39:20.544Z",
+  "verifiedAt": "2026-09-11T21:39:54.365Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "45f05ae670236427c55240ffe0b5a9c877a97c0e",
+  "commit": "64bdf3c4f29b301edc0993c1e4061891044426f4",
   "results": [
     {
-      "slug": "outgrowing-your-advisor",
-      "url": "https://keieikanri.ciza.co.jp/blog/outgrowing-your-advisor",
+      "slug": "gyomu-zokujinka-hikitsugi",
+      "url": "https://keieikanri.ciza.co.jp/blog/gyomu-zokujinka-hikitsugi",
       "status": 200,
       "checks": {
         "articleHttp200": true,
