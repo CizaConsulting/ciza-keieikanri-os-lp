@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-09-11T21:39:54.365Z",
+  "verifiedAt": "2026-09-15T21:38:52.133Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "64bdf3c4f29b301edc0993c1e4061891044426f4",
+  "commit": "be379c9e72a32c18deb74795992505225a8ebff4",
   "results": [
     {
-      "slug": "gyomu-zokujinka-hikitsugi",
-      "url": "https://keieikanri.ciza.co.jp/blog/gyomu-zokujinka-hikitsugi",
+      "slug": "job-level-profitability",
+      "url": "https://keieikanri.ciza.co.jp/blog/job-level-profitability",
       "status": 200,
       "checks": {
         "articleHttp200": true,
