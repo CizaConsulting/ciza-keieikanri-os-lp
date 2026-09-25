@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-09-15T21:38:52.133Z",
+  "verifiedAt": "2026-09-25T21:46:33.306Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "be379c9e72a32c18deb74795992505225a8ebff4",
+  "commit": "3a17ff616362e2aaca9f9b59c05ea0771b825283",
   "results": [
     {
-      "slug": "job-level-profitability",
-      "url": "https://keieikanri.ciza.co.jp/blog/job-level-profitability",
+      "slug": "order-pipeline-visibility",
+      "url": "https://keieikanri.ciza.co.jp/blog/order-pipeline-visibility",
       "status": 200,
       "checks": {
         "articleHttp200": true,
