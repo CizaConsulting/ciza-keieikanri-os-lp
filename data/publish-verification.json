@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-09-25T21:46:33.306Z",
+  "verifiedAt": "2026-09-29T21:47:07.072Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "3a17ff616362e2aaca9f9b59c05ea0771b825283",
+  "commit": "ca89800051e4c739f25d1c30a1f5ce1ebaae7d7e",
   "results": [
     {
-      "slug": "order-pipeline-visibility",
-      "url": "https://keieikanri.ciza.co.jp/blog/order-pipeline-visibility",
+      "slug": "budget-planning-forecast-management",
+      "url": "https://keieikanri.ciza.co.jp/blog/budget-planning-forecast-management",
       "status": 200,
       "checks": {
         "articleHttp200": true,
