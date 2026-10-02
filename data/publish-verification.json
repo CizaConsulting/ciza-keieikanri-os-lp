@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-09-29T21:47:07.072Z",
+  "verifiedAt": "2026-10-02T21:47:13.453Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "ca89800051e4c739f25d1c30a1f5ce1ebaae7d7e",
+  "commit": "6fc3847a11c77bc85bd6a99ba0e145b1ca3e878f",
   "results": [
     {
-      "slug": "budget-planning-forecast-management",
-      "url": "https://keieikanri.ciza.co.jp/blog/budget-planning-forecast-management",
+      "slug": "approval-authority-rules",
+      "url": "https://keieikanri.ciza.co.jp/blog/approval-authority-rules",
       "status": 200,
       "checks": {
         "articleHttp200": true,
