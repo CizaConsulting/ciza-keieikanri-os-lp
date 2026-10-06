@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-10-02T21:47:13.453Z",
+  "verifiedAt": "2026-10-06T21:46:35.508Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "6fc3847a11c77bc85bd6a99ba0e145b1ca3e878f",
+  "commit": "b4ff821c432afc04db7ddb2d25ceb6bbb691a9d3",
   "results": [
     {
-      "slug": "approval-authority-rules",
-      "url": "https://keieikanri.ciza.co.jp/blog/approval-authority-rules",
+      "slug": "promotion-cost-effectiveness",
+      "url": "https://keieikanri.ciza.co.jp/blog/promotion-cost-effectiveness",
       "status": 200,
       "checks": {
         "articleHttp200": true,
