@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-10-06T21:46:35.508Z",
+  "verifiedAt": "2026-10-09T21:48:46.479Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "b4ff821c432afc04db7ddb2d25ceb6bbb691a9d3",
+  "commit": "fb17fc2071a1f33b0e5b9580295db90ae34d9971",
   "results": [
     {
-      "slug": "promotion-cost-effectiveness",
-      "url": "https://keieikanri.ciza.co.jp/blog/promotion-cost-effectiveness",
+      "slug": "business-system-adoption",
+      "url": "https://keieikanri.ciza.co.jp/blog/business-system-adoption",
       "status": 200,
       "checks": {
         "articleHttp200": true,
