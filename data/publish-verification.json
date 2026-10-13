@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-10-09T21:48:46.479Z",
+  "verifiedAt": "2026-10-13T21:48:18.362Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "fb17fc2071a1f33b0e5b9580295db90ae34d9971",
+  "commit": "b9f458f9b9012b06dd636b24dbe0fdcbaba2ff84",
   "results": [
     {
-      "slug": "business-system-adoption",
-      "url": "https://keieikanri.ciza.co.jp/blog/business-system-adoption",
+      "slug": "man-hour-productivity-kpi",
+      "url": "https://keieikanri.ciza.co.jp/blog/man-hour-productivity-kpi",
       "status": 200,
       "checks": {
         "articleHttp200": true,
