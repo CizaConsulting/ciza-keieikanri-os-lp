@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-10-13T21:48:18.362Z",
+  "verifiedAt": "2026-10-16T21:47:32.967Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "b9f458f9b9012b06dd636b24dbe0fdcbaba2ff84",
+  "commit": "b5c2b99087d565ae5454dd50041c3818549a96b6",
   "results": [
     {
-      "slug": "man-hour-productivity-kpi",
-      "url": "https://keieikanri.ciza.co.jp/blog/man-hour-productivity-kpi",
+      "slug": "job-description-role-gap",
+      "url": "https://keieikanri.ciza.co.jp/blog/job-description-role-gap",
       "status": 200,
       "checks": {
         "articleHttp200": true,
