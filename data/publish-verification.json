@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-10-16T21:47:32.967Z",
+  "verifiedAt": "2026-10-20T21:44:37.916Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "b5c2b99087d565ae5454dd50041c3818549a96b6",
+  "commit": "78f88630a5bfc0f3ba7d185f746ae9d9507c4e50",
   "results": [
     {
-      "slug": "job-description-role-gap",
-      "url": "https://keieikanri.ciza.co.jp/blog/job-description-role-gap",
+      "slug": "staff-shortage-handover",
+      "url": "https://keieikanri.ciza.co.jp/blog/staff-shortage-handover",
       "status": 200,
       "checks": {
         "articleHttp200": true,
