@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-10-20T21:44:37.916Z",
+  "verifiedAt": "2026-10-23T21:45:27.581Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "78f88630a5bfc0f3ba7d185f746ae9d9507c4e50",
+  "commit": "02d296c1f1f2ecb00b2017a5a537a4b2e0d38e94",
   "results": [
     {
-      "slug": "staff-shortage-handover",
-      "url": "https://keieikanri.ciza.co.jp/blog/staff-shortage-handover",
+      "slug": "equipment-investment-timing",
+      "url": "https://keieikanri.ciza.co.jp/blog/equipment-investment-timing",
       "status": 200,
       "checks": {
         "articleHttp200": true,
