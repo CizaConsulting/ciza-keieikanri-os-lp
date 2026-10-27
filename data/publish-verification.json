@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-10-23T21:45:27.581Z",
+  "verifiedAt": "2026-10-27T21:45:00.732Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "02d296c1f1f2ecb00b2017a5a537a4b2e0d38e94",
+  "commit": "39e80ac5331a69c4b89857d6693ceb77f7cf4eb7",
   "results": [
     {
-      "slug": "equipment-investment-timing",
-      "url": "https://keieikanri.ciza.co.jp/blog/equipment-investment-timing",
+      "slug": "standard-actual-cost-variance",
+      "url": "https://keieikanri.ciza.co.jp/blog/standard-actual-cost-variance",
       "status": 200,
       "checks": {
         "articleHttp200": true,
