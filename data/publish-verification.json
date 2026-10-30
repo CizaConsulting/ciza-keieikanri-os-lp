@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-10-27T21:45:00.732Z",
+  "verifiedAt": "2026-10-30T21:45:13.055Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "39e80ac5331a69c4b89857d6693ceb77f7cf4eb7",
+  "commit": "140ed755839dd5dad26689db31571eeb1fe04b53",
   "results": [
     {
-      "slug": "standard-actual-cost-variance",
-      "url": "https://keieikanri.ciza.co.jp/blog/standard-actual-cost-variance",
+      "slug": "labor-share-value-added",
+      "url": "https://keieikanri.ciza.co.jp/blog/labor-share-value-added",
       "status": 200,
       "checks": {
         "articleHttp200": true,
