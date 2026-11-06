@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-10-30T21:45:13.055Z",
+  "verifiedAt": "2026-11-06T21:43:59.990Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "140ed755839dd5dad26689db31571eeb1fe04b53",
+  "commit": "c5e86764ffaa29314fd4ad19cc5da9518a2018ee",
   "results": [
     {
-      "slug": "labor-share-value-added",
-      "url": "https://keieikanri.ciza.co.jp/blog/labor-share-value-added",
+      "slug": "accounts-receivable-management",
+      "url": "https://keieikanri.ciza.co.jp/blog/accounts-receivable-management",
       "status": 200,
       "checks": {
         "articleHttp200": true,
