@@ -27,7 +27,7 @@ const jsonLd = {
   "description": post.data.description,
   "image": `${SITE_URL}/ogp.png`,
   "datePublished": post.data.date.toISOString(),
-  "dateModified": post.data.date.toISOString(),
+  "dateModified": (post.data.updated ?? post.data.date).toISOString(),
   "author": { "@type": "Organization", "name": COMPANY_NAME, "url": CORP_URL },
   "publisher": {
     "@type": "Organization",
@@ -49,6 +49,8 @@ const jsonLd = {
     <a href="/blog" class="back-link">&larr; ブログ一覧に戻る</a>
     <div class="post-meta">{formatDate(post.data.date)}<span class="dot">&bull;</span>{post.data.author}</div>
     <div class="article-body">
+      {/* 記事タイトルは frontmatter の title から必ず H1 として出す。本文中の「# 見出し」は astro.config.mjs の remark プラグインで除去している */}
+      <h1>{post.data.title}</h1>
       <Content />
     </div>
 
