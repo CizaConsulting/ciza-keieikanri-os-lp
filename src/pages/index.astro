@@ -104,6 +104,7 @@ const FB_SHARE_URL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURICo
         { "@type": "Question", "name": "社内に詳しい人材がいなくても大丈夫ですか？", "acceptedAnswer": { "@type": "Answer", "text": "窓口担当を1名決めていただければ、設計・実装のPMはこちらが担います。" } },
         { "@type": "Question", "name": "AI導入が目的のサービスですか？", "acceptedAnswer": { "@type": "Answer", "text": "いいえ。先に意思決定と管理の設計を行い、その実現手段としてExcel・SaaS・AIなど適切なツールを使います。AIありきではなく、貴社にとって最適な手段を選びます。" } },
         { "@type": "Question", "name": "費用はどのくらいかかりますか？", "acceptedAnswer": { "@type": "Answer", "text": "財務顧問15万円〜、経営管理構築支援30万円〜です。" } },
+        { "@type": "Question", "name": "国の補助制度は使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。中小企業庁の「早期経営改善計画策定支援」を使うと、事業計画の策定と3年間の伴走支援の費用の3分の2を国が負担します。総額120万円（税込）のうち、ご負担は40万円です。中小企業活性化協議会の確認が必要なため、まずはご相談ください。" } },
         { "@type": "Question", "name": "どんな会社が向いていますか？", "acceptedAnswer": { "@type": "Answer", "text": "部門が複数あり、投資判断が発生し、幹部はいるが数字にはやや弱い、成長・改善を数字で進めたい中小・中堅企業に向いています。" } },
         { "@type": "Question", "name": "業界の成功事例は教えてもらえますか？", "acceptedAnswer": { "@type": "Answer", "text": "事例の紹介より、貴社に合わせた設計を重視します。先を走る会社ほど、借り物の事例より自社仕様の仕組みが必要です。" } }
       ]
@@ -358,6 +359,27 @@ a{color:inherit;text-decoration:none;}
   .check-band-cover{display:none;}
   .check-band .btn{width:100%;justify-content:center;}
 }
+/* 早期経営改善計画 */
+.ep-pain{margin-top:36px;display:flex;flex-direction:column;gap:10px;}
+.ep-row{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;}
+.ep-from{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;color:var(--muted);font-size:15px;}
+.ep-to{background:var(--accent-soft);border:1px solid var(--accent-light);border-radius:var(--radius);padding:14px 18px;font-weight:700;font-size:15px;}
+.ep-arrow{color:var(--accent);font-weight:900;font-size:20px;}
+.ep-items{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;}
+.ep-item{border-top:3px solid var(--accent);padding-top:14px;}
+.ep-item h3{font-size:16.5px;margin:6px 0 8px;}
+.ep-item p{font-size:14.5px;color:var(--muted);line-height:1.7;}
+.ep-no{font-size:13px;font-weight:800;color:var(--accent2);}
+.ep-fee{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:center;margin-top:40px;}
+.ep-fee-box{border:1.5px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;background:#fff;}
+.ep-fee-box span{display:block;font-size:14px;color:var(--muted);font-weight:700;}
+.ep-fee-box strong{font-size:40px;font-weight:900;line-height:1.2;}
+.ep-fee-box small{font-size:16px;margin-left:2px;}
+.ep-fee-box.pay{background:var(--accent2);border-color:var(--accent2);}
+.ep-fee-box.pay span,.ep-fee-box.pay strong{color:#fff;}
+.ep-op{font-size:28px;font-weight:900;color:var(--muted);}
+@media(max-width:900px){.ep-items{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.ep-row{grid-template-columns:1fr;gap:6px;}.ep-arrow{transform:rotate(90deg);justify-self:center;}.ep-items{grid-template-columns:1fr;}.ep-fee{grid-template-columns:1fr;}.ep-op{text-align:center;}}
 </style>
 </head>
 <body>
@@ -635,6 +657,37 @@ a{color:inherit;text-decoration:none;}
   </div>
 </div></section>
 
+<!-- ━━━ 国の補助制度（早期経営改善計画策定支援） ━━━ -->
+<section class="sec" id="early-plan"><div class="w">
+  <div class="sec-label rv">国の補助制度</div>
+  <h2 class="rv">事業計画づくりと銀行との関係づくりに、国の補助が使えます</h2>
+  <p class="lead rv">中小企業庁の「早期経営改善計画策定支援」を使うと、事業計画の策定と3年間の伴走支援にかかる費用の3分の2を国が負担します。資金繰りに困る前に計画をつくり、金融機関に数字で説明できる会社になるための制度です。</p>
+
+  <div class="ep-pain rv">
+    <div class="ep-row"><span class="ep-from">来月の資金が読めず、いつも不安</span><span class="ep-arrow" aria-hidden="true">&rarr;</span><span class="ep-to">数か月先まで見通せて、落ち着いて判断できる</span></div>
+    <div class="ep-row"><span class="ep-from">銀行との面談が、正直憂うつ</span><span class="ep-arrow" aria-hidden="true">&rarr;</span><span class="ep-to">自分の言葉で説明でき、相談できる関係に</span></div>
+    <div class="ep-row"><span class="ep-from">何から手を付けるか、決まらない</span><span class="ep-arrow" aria-hidden="true">&rarr;</span><span class="ep-to">やることと順番が決まり、集中できる</span></div>
+    <div class="ep-row"><span class="ep-from">会社の先行きを、一人で抱えている</span><span class="ep-arrow" aria-hidden="true">&rarr;</span><span class="ep-to">3年間、一緒に振り返る相手がいる</span></div>
+  </div>
+
+  <div class="ep-items">
+    <div class="ep-item rv"><span class="ep-no">01</span><h3>経営改善計画の策定</h3><p>納得感のある数値計画と、具体的で効果の高いアクションプランをつくります。</p></div>
+    <div class="ep-item rv"><span class="ep-no">02</span><h3>金融機関への提出・説明</h3><p>計画を金融機関と共有し、相談しやすい関係をつくります。</p></div>
+    <div class="ep-item rv"><span class="ep-no">03</span><h3>3年間の伴走支援</h3><p>中間決算と決算の年2回、計画と実績を確認し、次の打ち手を考えます。</p></div>
+    <div class="ep-item rv"><span class="ep-no">04</span><h3>補助金活用余地の検討</h3><p>計画の打ち手に使える補助金も、あわせて確認します。</p></div>
+  </div>
+
+  <div class="ep-fee rv">
+    <div class="ep-fee-box"><span>支援の総額</span><strong>120<small>万円</small></strong></div>
+    <div class="ep-op" aria-hidden="true">−</div>
+    <div class="ep-fee-box"><span>国の補助</span><strong>80<small>万円</small></strong></div>
+    <div class="ep-op" aria-hidden="true">＝</div>
+    <div class="ep-fee-box pay"><span>ご負担</span><strong>40<small>万円</small></strong></div>
+  </div>
+  <p class="price-note rv">金額は税込。内訳：計画策定 75万円（ご負担25万円）／3年間の伴走支援 45万円（ご負担15万円）。<br>追加のフォローアップや、計画を実行する実務支援もご依頼いただけます（別途お見積り）。<br>※ 中小企業活性化協議会の確認が必要なため、ご利用を保証するものではありません。</p>
+  <div style="text-align:center;margin-top:28px;" class="rv"><a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient">制度が使えるか相談する &rarr;</a></div>
+</div></section>
+
 <!-- ━━━ 選ばれる理由 ━━━ -->
 <section class="sec dark" id="why"><div class="w">
   <div class="sec-label rv">私たちについて</div>
@@ -675,6 +728,7 @@ a{color:inherit;text-decoration:none;}
     <details class="faq"><summary>社内に詳しい人材がいなくても大丈夫ですか？</summary><p>窓口担当を1名決めていただければ、設計・実装のPMはこちらが担います。</p></details>
     <details class="faq"><summary>AI導入が目的のサービスですか？</summary><p><strong>いいえ。</strong>先に意思決定と管理の設計を行い、その実現手段としてExcel・SaaS・AIなど適切なツールを使います。AIありきではなく、貴社にとって最適な手段を選びます。</p></details>
     <details class="faq"><summary>費用はどのくらいかかりますか？</summary><p>財務顧問<strong>15万円〜</strong>、経営管理構築支援<strong>30万円〜</strong>です。</p></details>
+    <details class="faq"><summary>国の補助制度は使えますか？</summary><p>はい。中小企業庁の「早期経営改善計画策定支援」を使うと、事業計画の策定と3年間の伴走支援の費用の<strong>3分の2</strong>を国が負担します。総額120万円（税込）のうち、ご負担は40万円です。中小企業活性化協議会の確認が必要なため、まずはご相談ください。</p></details>
     <details class="faq"><summary>どんな会社が向いていますか？</summary><p>部門が複数あり、投資判断が発生し、幹部はいるが数字にはやや弱い、成長・改善を数字で進めたい中小・中堅企業に向いています。</p></details>
     <details class="faq"><summary>業界の成功事例は教えてもらえますか？</summary><p>事例の紹介より、貴社に合わせた設計を重視します。先を走る会社ほど、借り物の事例より自社仕様の仕組みが必要です。</p></details>
   </div>
