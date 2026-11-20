@@ -67,6 +67,17 @@ const FB_SHARE_URL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURICo
       "name": COMPANY_NAME,
       "alternateName": COMPANY_NAME_EN,
       "url": `${CORP_URL}/`,
+      "foundingDate": "2012-10-17",
+      "description": "中小企業・中堅企業の経営管理の仕組みづくり、事業計画策定、財務顧問、補助金活用を支援するコンサルティング会社。経営革新等認定支援機関。",
+      "areaServed": { "@type": "Country", "name": "日本" },
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "name": "経営革新等認定支援機関",
+        "identifier": "104727001912",
+        "recognizedBy": { "@type": "GovernmentOrganization", "name": "中小企業庁" },
+        "url": "https://www.ciza.co.jp/business/business03.html"
+      },
+      "knowsAbout": ["経営管理", "管理会計", "予実管理", "KPI設計", "事業別採算", "経営会議", "事業計画策定", "早期経営改善計画策定支援", "財務", "資金調達", "補助金", "中堅企業"]
     },
     {
       "@type": "WebSite",
@@ -566,7 +577,7 @@ a{color:inherit;text-decoration:none;}
       <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="justify-content:center;">相談する &rarr;</a>
     </div>
   </div>
-  <p class="price-note rv">※ 料金の詳細は無料相談にてご案内します。</p>
+  <p class="price-note rv">※ 料金の詳細は無料相談にてご案内します。<br>事業部・拠点・グループ会社を持つ企業の方は、<a href="/mid-sized-companies" style="color:var(--accent2);font-weight:700;text-decoration:underline;">中堅企業の経営管理</a>もご覧ください。</p>
 </div></section>
 
 <!-- ━━━ 共通の敵 ━━━ -->
@@ -804,6 +815,7 @@ a{color:inherit;text-decoration:none;}
     <a href="#showcase">成果物</a>
     <a href="/check">セルフチェック</a>
     <a href="/blog">ブログ</a>
+    <a href="/mid-sized-companies">中堅企業の経営管理</a>
     <a href="#faq">FAQ</a>
     <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer">お問い合わせ</a>
     <a href="https://www.ciza.co.jp/company.html" target="_blank" rel="noopener noreferrer">会社概要</a>

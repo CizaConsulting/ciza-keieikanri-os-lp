@@ -1,0 +1,154 @@
+---
+import BlogLayout from '../layouts/BlogLayout.astro';
+import { SITE_URL, CORP_URL, COMPANY_NAME, CTA_FORM_URL } from '../lib/site';
+
+const canonicalUrl = `${SITE_URL}/mid-sized-companies`;
+const title = `中堅企業の経営管理｜事業別採算・予実管理・経営会議の仕組みづくり｜${COMPANY_NAME}`;
+const description = '事業部・拠点・グループ会社が増えた中堅企業の経営管理を、社長と経営陣の意思決定から逆算して設計。事業別・拠点別の採算、予実管理、経営会議、データ集計の仕組みを、運用が定着するまで伴走支援します。';
+
+const faqs = [
+  { q: '基幹システムやBIツールの入れ替えが必要ですか。', a: '必要とは限りません。経営判断に必要な数字から逆算して、何を・いつ・どの粒度で見るかを先に決めます。今のシステムやExcelで出せる数字は生かし、足りない部分だけを整えます。' },
+  { q: '経営企画部や経理部がある会社でも頼めますか。', a: 'はい。経営企画・経理・事業部門のご担当者と一緒に設計し、最終的には社内で回せる状態にします。外部が数字をつくり続ける形にはしません。' },
+  { q: 'グループ会社やM&Aで加わった会社を含めて管理できますか。', a: '対応します。会社ごとに数字の定義や締めの時期が違うことが多いため、グループ全体で何を同じ物差しで見るかを決めるところから始めます。' },
+  { q: '事業計画や中期経営計画の策定も頼めますか。', a: 'はい。数値計画とアクションプランをつくり、計画を月次の予実管理と経営会議につなげるところまでご支援します。' },
+  { q: '大型投資や補助金と合わせて相談できますか。', a: 'はい。工場や拠点の新設などの大型投資では、投資後の効果を月次で確かめる仕組みが欠かせません。補助金を使った投資の計画づくりも、補助金・支援制度ナビでご支援しています。' },
+  { q: '費用や期間はどのくらいですか。', a: '対象とする事業や会社の数、今のデータの状態によって変わります。無料相談で状況を伺い、優先順位を決めたうえで、段階的な進め方と費用をご提案します。' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      name: '中堅企業の経営管理構築支援',
+      serviceType: '経営管理体制構築コンサルティング',
+      provider: { '@type': 'Organization', name: COMPANY_NAME, url: CORP_URL },
+      areaServed: { '@type': 'Country', name: '日本' },
+      audience: { '@type': 'BusinessAudience', audienceType: '中堅企業（事業部・拠点・グループ会社を持つ企業）' },
+      description,
+      url: canonicalUrl,
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ],
+};
+---
+<BlogLayout title={title} description={description} canonicalUrl={canonicalUrl} jsonLd={jsonLd}>
+  <main class="mc"><div class="page-w">
+    <div class="sec-label">中堅企業の経営管理</div>
+    <h1>事業別の採算と予実を、経営陣が同じ数字で判断できる会社へ</h1>
+    <p class="lead">事業部や拠点、グループ会社が増えると、社長がすべての現場を見て判断することはできなくなります。社長と経営陣の意思決定から逆算して、事業別・拠点別の採算、予実管理、経営会議、データ集計の仕組みを設計し、運用が定着するまで伴走します。</p>
+
+    <div class="answer">
+      <p class="answer-label">要点</p>
+      <p>中堅企業の経営管理で大切なのは、帳票やツールを増やすことではなく、「どの判断に、どの数字を使うか」を経営陣で揃えることです。事業・拠点・会社ごとの採算を同じ物差しで見て、予算との差の理由を月次で確かめ、経営会議で打ち手を決める。この流れを、今のシステムやExcelを生かしながら段階的につくります。</p>
+    </div>
+
+    <section>
+      <h2>中堅企業で起きやすい経営管理の悩み</h2>
+      <div class="grid">
+        <div class="card"><h3>事業別・拠点別の採算が見えない</h3><p>共通費の配賦ルールが決まっておらず、どの事業・拠点が本当に稼いでいるのかを、経営陣が同じ数字で語れない。</p></div>
+        <div class="card"><h3>予算と実績の差の理由が分からない</h3><p>予算が年に一度の数字合わせになり、ずれた理由と次の打ち手が会議で出てこない。</p></div>
+        <div class="card"><h3>月次の数字が遅く、会議が報告会になる</h3><p>数字が出そろうのが翌月の中旬以降で、経営会議が過去の報告で終わってしまう。</p></div>
+        <div class="card"><h3>グループ会社ごとに管理がばらばら</h3><p>M&Aや分社で会社が増え、数字の定義や締めの時期が会社ごとに違う。</p></div>
+        <div class="card"><h3>集計が特定の担当者に依存している</h3><p>Excelの集計が属人化し、担当者が休むと数字が出ない。システムはあるのに使われていない。</p></div>
+        <div class="card"><h3>大型投資の効果を確かめられない</h3><p>工場や拠点への投資のあと、計画どおりに回収できているかを月次で追えていない。</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>一緒につくるもの</h2>
+      <ul class="check">
+        <li><strong>KPIの体系</strong>：経営陣が見る指標と、現場が日々追う指標をつなげる</li>
+        <li><strong>事業別・拠点別の損益（管理会計）</strong>：共通費の配賦ルールを含めて設計する</li>
+        <li><strong>予実管理と着地見込み</strong>：予算との差の理由と、次の打ち手を月次で確かめる</li>
+        <li><strong>経営会議の設計</strong>：議題、資料、決めることを整理し、判断の場にする</li>
+        <li><strong>データ集計の仕組み</strong>：属人的な集計を減らし、必要な数字が早く出るようにする</li>
+        <li><strong>事業計画・中期経営計画</strong>：数値計画とアクションプランを、月次の管理につなげる</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>進め方</h2>
+      <div class="steps">
+        <div class="step"><span>01</span><h3>判断の場面を整理する</h3><p>社長と経営陣が、いつ、何を判断しているのかを伺い、必要な数字と今の数字の出方を確認します。</p></div>
+        <div class="step"><span>02</span><h3>仕組みを設計する</h3><p>KPI、管理会計、レポート、会議体、データの流れを、優先順位をつけて設計します。最初から完璧を目指さず、効果の大きいところから着手します。</p></div>
+        <div class="step"><span>03</span><h3>運用を定着させる</h3><p>実際の経営会議で使いながら改善し、社内で回せる状態になるまで伴走します。</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>上場企業・中堅企業の支援経験</h2>
+      <ul class="check">
+        <li>代表はコンサルティングファームで、東証一部上場企業の経営管理改革・原価管理改革・収益管理改革を担当（流通業、飲食メーカー、組立系メーカーなど）</li>
+        <li>独立後も、上場企業・中堅企業の社内研修を担当</li>
+        <li>ベンチャー企業のCFO・経営企画室長を歴任</li>
+        <li>kintone AWARD 2015 グランプリ受賞プロジェクトに導入支援コンサルタントとして参画</li>
+        <li>経営革新等認定支援機関（平成29年認定）</li>
+      </ul>
+      <p class="note">代表の経歴は<a href="/about">代表プロフィール</a>をご覧ください。※ 企業の特定を避けるため、社名は伏せています。</p>
+    </section>
+
+    <section>
+      <h2>大型投資と補助金も合わせて</h2>
+      <p>工場や拠点の新設などの大型投資では、投資のあとに効果を月次で確かめる仕組みが欠かせません。中堅企業向けの大規模成長投資補助金などを使った投資の計画づくりは、<a class="inline" href="https://hojokin.ciza.co.jp/mid-sized-companies/" target="_blank" rel="noopener noreferrer">補助金・支援制度ナビ（中堅企業の補助金活用）</a>でご案内しています。</p>
+    </section>
+
+    <section>
+      <h2>よくある質問</h2>
+      <div class="faq">
+        {faqs.map((f, i) => (
+          <details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>
+        ))}
+      </div>
+    </section>
+
+    <div class="cta">
+      <h2>まずは今の経営管理の状況をお聞かせください</h2>
+      <p>何から手をつけるべきか決まっていなくても構いません。判断の場面と今の数字の出方を伺い、優先順位を一緒に整理します。</p>
+      <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gradient">無料相談を申し込む &rarr;</a>
+    </div>
+  </div></main>
+
+  <style>
+    .mc{padding:130px 0 96px;}
+    .page-w{max-width:880px;margin:0 auto;padding:0 24px;}
+    .sec-label{display:block;position:relative;padding-left:15px;font-size:15px;font-weight:800;letter-spacing:.04em;color:var(--accent);margin-bottom:20px;}
+    .sec-label::before{content:'';position:absolute;left:0;top:1px;bottom:1px;width:3px;border-radius:2px;background:var(--accent);}
+    h1{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;font-size:clamp(26px,4.2vw,38px);font-weight:900;line-height:1.45;letter-spacing:-.01em;}
+    .lead{font-size:16px;line-height:1.95;color:var(--ink2);margin-top:20px;}
+    .answer{margin:36px 0 56px;padding:24px 26px;background:var(--accent-soft);border:1px solid #d6e5c1;border-radius:var(--radius);}
+    .answer-label{font-size:13px;font-weight:800;color:var(--accent2);letter-spacing:.08em;margin-bottom:8px;}
+    .answer p{font-size:15.5px;line-height:1.9;color:var(--ink2);}
+    section{margin-bottom:60px;}
+    h2{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;font-size:24px;font-weight:900;margin-bottom:22px;letter-spacing:-.01em;line-height:1.5;}
+    section > p{font-size:15.5px;line-height:1.9;color:var(--ink2);}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+    .card{padding:22px;border:1px solid var(--border);border-radius:var(--radius);background:#fff;}
+    .card h3,.step h3{font-family:'Zen Kaku Gothic New','Noto Sans JP','Meiryo',sans-serif;font-size:17px;font-weight:900;margin-bottom:8px;line-height:1.5;}
+    .card p,.step p{font-size:14.5px;line-height:1.8;color:var(--muted);}
+    .check{list-style:none;display:flex;flex-direction:column;gap:12px;}
+    .check li{position:relative;padding-left:26px;font-size:15px;line-height:1.8;color:var(--ink2);}
+    .check li::before{content:'\2713';position:absolute;left:0;top:0;color:var(--accent);font-weight:800;}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    .step{padding:22px;border-radius:var(--radius);background:var(--bg2);}
+    .step span{display:block;font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.08em;margin-bottom:8px;}
+    .note{font-size:13.5px !important;color:var(--muted) !important;margin-top:16px;}
+    .note a,.inline{color:var(--accent2);font-weight:700;text-decoration:underline;text-underline-offset:2px;}
+    .faq{display:flex;flex-direction:column;gap:10px;}
+    .faq details{border:1px solid var(--border);border-radius:12px;padding:0 20px;background:#fff;}
+    .faq summary{cursor:pointer;font-weight:700;padding:16px 0;list-style:none;font-size:15.5px;}
+    .faq summary::-webkit-details-marker{display:none;}
+    .faq details p{padding:0 0 18px;font-size:14.5px;line-height:1.85;color:var(--muted);}
+    .cta{padding:36px 32px;border-radius:var(--radius-lg);background:var(--deep);color:#fff;text-align:center;}
+    .cta h2{color:#fff;margin-bottom:12px;}
+    .cta p{font-size:15px;line-height:1.85;color:rgba(255,255,255,.8);margin-bottom:22px;}
+    @media(max-width:760px){
+      .mc{padding:104px 0 60px;}
+      .grid,.steps{grid-template-columns:1fr;}
+      .cta{padding:28px 20px;}
+    }
+  </style>
+</BlogLayout>
