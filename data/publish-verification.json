@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-11-06T21:43:59.990Z",
+  "verifiedAt": "2026-11-20T23:38:43.557Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "c5e86764ffaa29314fd4ad19cc5da9518a2018ee",
+  "commit": "e9221f4c8212f68244be0541304989dbc0857e8e",
   "results": [
     {
-      "slug": "accounts-receivable-management",
-      "url": "https://keieikanri.ciza.co.jp/blog/accounts-receivable-management",
+      "slug": "monthly-management-metrics-exceptions",
+      "url": "https://keieikanri.ciza.co.jp/blog/monthly-management-metrics-exceptions",
       "status": 200,
       "checks": {
         "articleHttp200": true,
