@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-11-20T23:38:43.557Z",
+  "verifiedAt": "2026-11-24T23:44:59.644Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "e9221f4c8212f68244be0541304989dbc0857e8e",
+  "commit": "354974798550a27ba0124c1301d24fa3848698c2",
   "results": [
     {
-      "slug": "monthly-management-metrics-exceptions",
-      "url": "https://keieikanri.ciza.co.jp/blog/monthly-management-metrics-exceptions",
+      "slug": "customer-management-excel",
+      "url": "https://keieikanri.ciza.co.jp/blog/customer-management-excel",
       "status": 200,
       "checks": {
         "articleHttp200": true,
