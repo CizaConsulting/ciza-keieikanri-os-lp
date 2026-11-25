@@ -8,6 +8,8 @@ const blog = defineCollection({
     description: z.string(),
     keywords: z.array(z.string()).default([]),
     date: z.coerce.date(),
+    // タイトル・説明文などを改訂した日。JSON-LD の dateModified に使う
+    updated: z.coerce.date().optional(),
     author: z.string(),
   }),
 });
