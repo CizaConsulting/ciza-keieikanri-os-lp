@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "verifiedAt": "2026-11-24T23:44:59.644Z",
+  "verifiedAt": "2026-11-27T23:43:57.461Z",
   "siteBaseUrl": "https://keieikanri.ciza.co.jp",
-  "commit": "354974798550a27ba0124c1301d24fa3848698c2",
+  "commit": "7aa4411bc6fd46b853d7cb418513659a41368acd",
   "results": [
     {
-      "slug": "customer-management-excel",
-      "url": "https://keieikanri.ciza.co.jp/blog/customer-management-excel",
+      "slug": "cash-flow-forecast",
+      "url": "https://keieikanri.ciza.co.jp/blog/cash-flow-forecast",
       "status": 200,
       "checks": {
         "articleHttp200": true,
